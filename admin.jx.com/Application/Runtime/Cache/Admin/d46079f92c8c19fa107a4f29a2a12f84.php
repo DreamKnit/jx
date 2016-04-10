@@ -11,7 +11,7 @@
 <body>
 <h1>
     <span class="action-span"><a href="index.html">供货商管理</a></span>
-    <span class="action-span1"><a href="#">ECSHOP 管理中心</a></span>
+    <span class="action-span1"><a href="<?php echo U('index/index');?>">ECSHOP 管理中心</a></span>
     <span id="search_id" class="action-span1"> - 添加品牌 </span>
     <div style="clear:both"></div>
 </h1>

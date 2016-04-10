@@ -1,0 +1,44 @@
+.page {
+    margin: 10px 0;
+    *zoom: 1;
+}
+.page:before,
+.page:after {
+    display: table;
+    content: "";
+}
+.page:after {
+    clear:both;
+}
+.page a,
+.page span {
+    float: left;
+    margin-left: -1px;
+    padding: 0 14px;
+    height: 30px;
+    line-height: 30px;
+    color: silver;
+    border-top: 1px solid #CCC;
+    border-bottom: 1px solid #CCC;
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+    transition: .3s;
+}
+.page a:hover
+{
+    text-decoration: none;
+    background-color: powderblue;
+}
+.page .current {
+    border-top: 1px solid silver;
+}
+.page .next,
+.page .prev {
+    font-family: "宋体";
+    font-weight: bold;
+}
+.page .rows {
+    border-right: 1px solid #CCCCCC;
+}
+.page > div {
+}

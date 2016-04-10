@@ -6,50 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="http://admin.jx.com/Public/Css/general.css" rel="stylesheet" type="text/css" />
 <link href="http://admin.jx.com/Public/Css/main.css" rel="stylesheet" type="text/css" />
-<style>
-    .page {
-        margin: 10px 0;
-        *zoom: 1;
-    }
-    .page:before,
-    .page:after {
-        display: table;
-        content: "";
-    }
-    .page:after {
-        clear:both;
-    }
-    .page a,
-    .page span {
-        float: left;
-        margin-left: -1px;
-        padding: 0 14px;
-        height: 30px;
-        line-height: 30px;
-        color: #000;
-        border-top: 1px solid #CCCCCC;
-        border-bottom: 1px solid #CCCCCC;
-        /*background-color: #4bbd00;*/
-    }
-    .page a:hover
-    {
-        text-decoration: none;
-        background-color: orange;
-    }
-    .page .current {
-        border-top: 1px solid silver;
-    }
-    .page .next,
-    .page .prev {
-        font-family: "宋体";
-        font-weight: bold;
-    }
-    .page .rows {
-        border-right: 1px solid #CCCCCC;
-    }
-    .page > div {
-    }
-</style>
+<link rel="stylesheet" type="text/Css" href="http://admin.jx.com/Public/Css/showpage.css" />
 </head>
 <body>
 <h1>

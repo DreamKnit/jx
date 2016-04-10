@@ -10,7 +10,7 @@
 </head>
 <body>
 <h1>
-    <span class="action-span"><a href="{:U('add')}">添加供货商</a></span>
+    <span class="action-span"><a href="{:U('add')}">添加文章</a></span>
     <span class="action-span1"><a href="{:U('index/index')}">ECSHOP 管理中心</a></span>
     <span id="search_id" class="action-span1"> - {$meta_title} </span>
     <div style="clear:both"></div>
@@ -26,18 +26,22 @@
     <div class="list-div" id="listDiv">
         <table cellpadding="3" cellspacing="1">
             <tr>
-                <th>供货商名称</th>
-                <th>供货商描述</th>
+                <th>文章名称</th>
+                <th>文章分类</th>
+                <th>简介</th>
                 <th>排序</th>
-                <th>是否显示</th>
+                <th>状态</th>
+                <th>录入时间</th>
                 <th>操作</th>
             </tr>
             <foreach name='rows' item='row'>
                 <tr>
                     <td class="first-cell">{$row.name}</td>
+                    <td align="center">{$row.article_category_name}</td>
                     <td align="center">{$row.intro}</td>
                     <td align="center">{$row.sort}</td>
                     <td align="center"><img src="__IMG__{$row.status}.gif" /></td>
+                    <td align="center">{$row.inputtime}</td>
                     <td align="center">
                         <a href="{:U('edit',array('id'=>$row['id']))}" title="编辑">编辑</a> |
                         <a href="{:U('remove',array('id'=>$row['id']))}" title="编辑">移除</a>

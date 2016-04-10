@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>ECSHOP 管理中心 - 添加供货商 </title>
+<title>ECSHOP 管理中心 - {$meta_title} </title>
 <meta name="robots" content="noindex, nofollow">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="__CSS__general.css" rel="stylesheet" type="text/css" />
@@ -10,23 +10,34 @@
 </head>
 <body>
 <h1>
-    <span class="action-span"><a href="index.html">供货商管理</a></span>
+    <span class="action-span"><a href="index.html">品牌管理</a></span>
     <span class="action-span1"><a href="{:U('index/index')}">ECSHOP 管理中心</a></span>
-    <span id="search_id" class="action-span1"> - 添加品牌 </span>
+    <span id="search_id" class="action-span1"> - {$meta_title} </span>
     <div style="clear:both"></div>
 </h1>
 <div class="main-div">
     <form method="post" action="{:U()}"enctype="multipart/form-data" >
         <table cellspacing="1" cellpadding="3" width="100%">
             <tr>
-                <td class="label">供货商名称</td>
+                <td class="label">文章名称</td>
                 <td>
                     <input type="text" name="name" maxlength="60" value="{$row.name}" />
                     <span class="require-field">*</span>
                 </td>
             </tr>
+
             <tr>
-                <td class="label">供货商描述</td>
+                <td class="label">文章分类</td>
+                <td>
+                    <select  name="article_category_id" >
+                        <foreach name="cate_gorys" item="cate_gory">
+                            <option value="{$cate_gory.id}" <if condition="$cate_gory['selected']">selected</if>>{$cate_gory.name}</option>
+                        </foreach>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">简介</td>
                 <td>
                     <textarea  name="intro" cols="60" rows="4"  >{$row.intro}</textarea>
                 </td>
@@ -38,10 +49,17 @@
                 </td>
             </tr>
             <tr>
-                <td class="label">是否显示</td>
+                <td class="label">状态</td>
                 <td>
                     <input type="radio" name="status" <if condition="$row.status eq 1">checked</if> value="1"/> 是
                     <input type="radio" name="status" <if condition="$row.status eq 0">checked</if> value="0"  /> 否(当品牌下还没有商品的时候，首页及分类页的品牌区将不会显示该品牌。)
+                </td>
+            </tr>
+
+            <tr>
+                <td class="label">内容</td>
+                <td>
+                    <textarea  name="content" cols="60" rows="6"  >{$content.content}</textarea>
                 </td>
             </tr>
             <tr>

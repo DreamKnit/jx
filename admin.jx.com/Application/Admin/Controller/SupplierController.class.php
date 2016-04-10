@@ -9,7 +9,7 @@ class SupplierController extends Controller {
             'index'  => '供货商管理',
             'add'    => '添加供货商',
             'edit'   => '修改供货商',
-            'delete' => '删除供货商',
+            'remove' => '删除供货商',
         );
         $meta_title  = $meta_titles[ACTION_NAME];
         $this->assign('meta_title', $meta_title);
