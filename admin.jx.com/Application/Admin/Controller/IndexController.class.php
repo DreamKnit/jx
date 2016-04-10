@@ -14,5 +14,5 @@ class IndexController extends Controller {
     public function main(){
         $this->display();
     }
-    
+
 }
