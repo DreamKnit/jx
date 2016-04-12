@@ -34,11 +34,9 @@ class ArticleModel extends Model{
         $rows=$this->where($conditions)->page(I('get.p'),$page_size)->select();
         // 追加一个分类名的键值（分类名字是另一张表里面的）
         $cate_gory=M('article_category');
-        $i=0;
-        foreach($rows as $row){
+        foreach($rows as $key=>$row){
             $cate_gory_data=$cate_gory->getById($row['article_category_id']);
-            $rows[$i]['article_category_name']=$cate_gory_data['name'];
-            $i++;
+            $rows[$key]['article_category_name']=$cate_gory_data['name'];
         }
         return array(
             'show_page'=>$show_page,
@@ -86,15 +84,13 @@ class ArticleModel extends Model{
      * @return array 新的文章分类数据
      */
     public function cateGorySelected($cate_gorys,$row){
-        $i=0;
-        foreach($cate_gorys as $cate_gory){
+        foreach($cate_gorys as $key=>$cate_gory){
             // 找到对应的默认分类值
             if($cate_gory['id']==$row['article_category_id']){
-                $cate_gorys[$i]['selected']=true;
+                $cate_gorys[$key]['selected']=true;
             }else{
-                $cate_gorys[$i]['selected']=false;
+                $cate_gorys[$key]['selected']=false;
             }
-            $i++;
         }
         return $cate_gorys; //返回新拼装好的文章分类数据
     }

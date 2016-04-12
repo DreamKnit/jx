@@ -7,6 +7,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="__CSS__general.css" rel="stylesheet" type="text/css" />
 <link href="__CSS__main.css" rel="stylesheet" type="text/css" />
+<style>
+    #logo {
+        text-align:center;
+        position:relative;
+        cursor:pointer;
+        color:#fff;
+        background:#27ae60;
+    }
+</style>
+<script src="__EXT__jquery-1.11.3.js"></script>
+<script src="__EXT__uploadify/jquery.uploadify.min.js"></script>
+<script src="__EXT__layer/layer.js"></script>
 </head>
 <body>
 <h1>
@@ -23,6 +35,18 @@
                 <td>
                     <input type="text" name="name" maxlength="60" value="{$row.name}" />
                     <span class="require-field">*</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">品牌logo</td>
+                <td>
+                    <input type="file" name="file" id="logo" /><br />
+                    <img src="__UPLOADURL__{$row.logo}-thumb" id="logo_thumb" alt="">
+                    <!--如果logo字段存在则显示logo图-->
+                    <!--<notempty name="row.logo">-->
+
+                    <!--</notempty>-->
+                    <input type="hidden" value="{$row.logo}" name="logo">
                 </td>
             </tr>
             <tr>
@@ -58,5 +82,29 @@
 <div id="footer">
 共执行 1 个查询，用时 0.018952 秒，Gzip 已禁用，内存占用 2.197 MB<br />
 版权所有 &copy; 2005-2012 上海商派网络科技有限公司，并保留所有权利。</div>
+<script>
+    $(document).ready(function(){
+        $('#logo').uploadify({
+                'swf'     : '__EXT__uploadify/uploadify.swf',
+                // 设定了上传文件执行的控制器与操作将不执行表单的操作
+                'uploader' : '{:U("Upload/upload")}',
+                'buttonText':'选择图片',
+                // 上传成功时将会触发该事件
+                'onUploadSuccess':function(file,data){
+                    data= $.parseJSON(data);
+                    if(data.status){ // 取出后台传给的成功与否值判断
+                        // 给隐藏域添加logo的url地址以便提交表单录入数据
+                        $(':input[name=logo]').val(data.file_url);
+                        // 显示缩略图
+                        $('#logo_thumb').attr('src','__UPLOADURL__'+data.file_url+'-thumb');
+                        layer.msg('上传成功^_^',{icon:6});
+                    }else{
+                        layer.msg(data.msg,{icon:5});
+                    }
+                }
+            }
+        );
+    });
+</script>
 </body>
 </html>
