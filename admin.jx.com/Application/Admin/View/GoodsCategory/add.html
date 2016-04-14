@@ -23,7 +23,7 @@
 </head>
 <body>
 <h1>
-    <span class="action-span"><a href="{:U('index')}">供货商管理</a></span>
+    <span class="action-span"><a href="{:U('index')}">商品分类管理</a></span>
     <span class="action-span1"><a href="{:U('Index/main')}">ECSHOP 管理中心</a></span>
     <span id="search_id" class="action-span1"> - {$meta_title} </span>
 </h1>
@@ -93,16 +93,29 @@
             // 回调函数的onclick事件
             onClick:function(event,tree_id,tree_node){
                 $('#parent_name').val(tree_node.name); // 点击的数据名给名称框
-                $('#parent_id').val(tree_node.id); // 点击的数据id给id框
+                $('#parent_id').val(tree_node.id); // 点击的数据id给id框作为父亲id
             },
         },
     };
     var ztree_elem={$categories}; // 显示的json数据
     $(function () {
         $(':input[name=status]').val([{$row['status'] | default = 1}]);
-        // 第一个参数是显示ztree的容器，第二个参数是配置，第三个是数据
+        // 得到ztree对象---第一个参数是显示ztree的容器，第二个参数是配置，第三个是数据
         var ztree_obj = $.fn.zTree.init($("#treeDemo"), config, ztree_elem);
         ztree_obj.expandAll(true); // 开启展开所有节点
+
+
+        /*---编辑页面的层级回显---*/
+
+        // 选择树里面id等于编辑记录的父亲id的元素，为了添加页面默认是顶级(数组)
+        parent_nodes=ztree_obj.getNodesByParam('id',{$row.parent_id|default=0});
+
+        if(parent_nodes.length>0){
+            parent_node=parent_nodes[0]; // 得到父节点
+            ztree_obj.selectNode(parent_node); // 树里面点选中父节点
+            $('#parent_name').val(parent_node.name); // 点击的数据父亲节点名给名称框
+            $('#parent_id').val(parent_node.id); // 点击的数据父亲节点id给id框
+        }
     });
 </script>
 </body>

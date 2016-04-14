@@ -63,10 +63,35 @@ class GoodsCategoryController extends Controller{
      * @param $id
      */
     public function edit($id) {
-        $row = $this->_model->find($id); // 查找当前数据
-        $this->assign('row', $row); // 回显相关数据
-        $this->showTree(); // 调用树状
-        $this->display('add');
+        if(IS_POST){
+            if ($this->_model->create()) {
+                if($this->_model->updateCategory()===false){
+                    $this->error($this->_model->getError());
+                }else{
+                    $this->success('修改成功',U('index'));
+                }
+            }else{
+                $this->error($this->_model->getError());
+            }
+        }else{
+            $row = $this->_model->find($id); // 查找当前数据
+            $this->assign('row', $row); // 回显相关数据
+            $this->showTree(); // 调用树状
+            $this->display('add');
+        }
+    }
+
+    /**
+     * 逻辑删除分类的方法
+     */
+    public function remove(){
+        $id=I('get.id');
+        if($this->_model->removeCategory($id)){
+            $this->success('删除成功',U('index'));
+        }else{
+            $this->error($this->_model->getError());
+        }
+
     }
 
     /**
