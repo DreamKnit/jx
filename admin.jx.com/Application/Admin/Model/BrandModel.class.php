@@ -26,7 +26,7 @@ class BrandModel extends Model{
      */
     public function showPage(array $conditions=array()){
         $conditions+=array(
-            'status'=>array('gt',-1),
+            'status'=>1,
         );
         $page_size=C('PAGE_SIZE');
         $count=$this->where($conditions)->count();
