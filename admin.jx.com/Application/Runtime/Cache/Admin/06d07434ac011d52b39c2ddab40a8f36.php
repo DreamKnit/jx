@@ -158,6 +158,12 @@ body {
                 <ul>
                     <li class="menu-item"><a href="<?php echo U('Article/index');?>" target="main-frame">文章管理</a></li>
                 </ul>
+                <ul>
+                    <li class="menu-item"><a href="<?php echo U('Permission/index');?>" target="main-frame">权限管理</a></li>
+                </ul>
+                <ul>
+                    <li class="menu-item"><a href="<?php echo U('Role/index');?>" target="main-frame">角色管理</a></li>
+                </ul>
             </li>
         </ul>
     </div>
