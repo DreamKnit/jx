@@ -123,6 +123,18 @@ class GoodsController extends Controller{
     }
 
     /**
+     * 逻辑删除当前数据
+     */
+    public function remove(){
+        $id=I('get.id');
+        if($this->_model->removeGoods($id)){
+            $this->success('删除成功！',U('index'));
+        }else{
+            $this->error($this->_model->getError());
+        }
+    }
+
+    /**
      * 显示树状结构的方法
      */
     private function _showTree(){

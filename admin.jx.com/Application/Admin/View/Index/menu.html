@@ -131,7 +131,7 @@ body {
                     <li class="menu-item"><a href="{:U('GoodsCategory/index')}" target="main-frame">商品分类</a></li>
                     <li class="menu-item"><a href="{:U('Brand/index')}" target="main-frame">品牌管理</a></li>
                     <li class="menu-item"><a href="{:U('Supplier/index')}" target="main-frame">供货商管理</a></li>
-                    <li class="menu-item"><a href="goodsTrash.html" target="main-frame">商品回收站</a></li>
+                    <li class="menu-item"><a href="{:U('Recycle/index')}" target="main-frame">商品回收站</a></li>
                 </ul>
             </li>
 
@@ -158,11 +158,14 @@ body {
                 <ul>
                     <li class="menu-item"><a href="{:U('Article/index')}" target="main-frame">文章管理</a></li>
                 </ul>
+            </li>
+            <li class="explode" key="08_members" name="menu">
+                RBAC授权
                 <ul>
-                    <li class="menu-item"><a href="{:U('Permission/index')}" target="main-frame">权限管理</a></li>
-                </ul>
-                <ul>
+                    <li class="menu-item"><a href="{:U('Menu/index')}" target="main-frame">菜单管理</a></li>
+                    <li class="menu-item"><a href="{:U('Admin/index')}" target="main-frame">管理员管理</a></li>
                     <li class="menu-item"><a href="{:U('Role/index')}" target="main-frame">角色管理</a></li>
+                    <li class="menu-item"><a href="{:U('Permission/index')}" target="main-frame">权限管理</a></li>
                 </ul>
             </li>
         </ul>
@@ -172,9 +175,9 @@ body {
         <div id="help-content"></div>
     </div>
 </div>
-<script type="text/javascript" src="./Js/global.js"></script>
-<script type="text/javascript" src="./Js/utils.js"></script>
-<script type="text/javascript" src="./Js/transport.js"></script>
+<script type="text/javascript" src="__JS__global.js"></script>
+<script type="text/javascript" src="__JS__utils.js"></script>
+<script type="text/javascript" src="__JS__transport.js"></script>
 <script language="JavaScript">
     var collapse_all = "闭合";
     var expand_all = "展开";

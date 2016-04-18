@@ -216,4 +216,13 @@ class GoodsModel extends Model{
         }
         return true;
     }
+
+    /**
+     * 逻辑删除商品
+     * @param string $id 当前记录的id
+     * @return bool
+     */
+    public function removeGoods($id){
+        return $this->where(array('id'=>$id))->setField(array('status'=>0));
+    }
 }

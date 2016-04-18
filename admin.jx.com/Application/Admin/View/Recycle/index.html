@@ -7,13 +7,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="__CSS__general.css" rel="stylesheet" type="text/css" />
 <link href="__CSS__main.css" rel="stylesheet" type="text/css" />
+<css href="__CSS__showpage.css" />
 </head>
 <body>
 <h1>
     <span class="action-span">
-        <a href="__GROUP__/Goods/goodsList">商品列表</a>
+        <a href="{:U('Goods/index')}">商品列表</a>
     </span>
-    <span class="action-span1"><a href="__GROUP__">ECSHOP 管理中心</a></span>
+    <span class="action-span1"><a href="{:U('Index/main')}">ECSHOP 管理中心</a></span>
     <span id="search_id" class="action-span1"> - 商品回收站 </span>
     <div style="clear:both"></div>
 </h1>
@@ -38,32 +39,20 @@
                 <th>价格</th>
                 <th>操作</th>
             </tr>
-            <foreach name="list" item="val">
+            <foreach name="rows" item="row">
             <tr>
-                <td><input type="checkbox" name="checkboxes[]" value="18" /><{$val.goods_id}></td>
-                <td><{$val.goods_name}></td>
-                <td><{$val.goods_sn}></td>
-                <td align="right"><{$val.shop_price}></td>
-                <td align="center"><a href="">还原</a> | <a href="">删除</a></td>
+                <td align="center"><input type="checkbox" name="checkboxes[]" value="18" />{$row.id}</td>
+                <td align="center">{$row.name}</td>
+                <td align="center">{$row.sn}</td>
+                <td align="right">{$row.shop_price}</td>
+                <td align="center"><a href="{:U('restore',array('id'=>$row['id']))}">还原</a> | <a href="">删除</a></td>
             </tr>
             </foreach>
             <!-- 分页 -->
             <tr>
                 <td align="right" nowrap="true" colspan="6">
-                    <div id="turn-page">
-                        总计 <span id="totalRecords">11</span>
-                        个记录分为 <span id="totalPages">1</span>
-                        页当前第 <span id="pageCurrent">1</span>
-                        页，每页 <input type='text' size='3' id='pageSize' value="15" />
-                        <span id="page-link">
-                            <a href="#">第一页</a>
-                            <a href="#">上一页</a>
-                            <a href="#">下一页</a>
-                            <a href="#">最末页</a>
-                            <select id="gotoPage">
-                                <option value='1'>1</option>
-                            </select>
-                        </span>
+                    <div class="page">
+                        {$show_page}
                     </div>
                 </td>
             </tr>
