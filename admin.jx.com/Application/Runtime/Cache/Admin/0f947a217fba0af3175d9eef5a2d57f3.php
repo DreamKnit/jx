@@ -125,8 +125,8 @@
             <li style="border-right:none"><a href="#">刷新</a></li>
         </ul>
         <div id="send_info">
-            <a href="#" target="main-frame" class="fix-submenu">清除缓存</a>
-            <a href="#" target="_top" class="fix-submenu">退出</a>
+            <a href="javascript:void(0);" target="main-frame" class="fix-submenu"><?php echo session('USERINFO')['username'];?></a>
+            <a href="<?php echo U('Login/logout');?>" target="_top" class="fix-submenu">退出</a>
         </div>
     </div>
 </div>

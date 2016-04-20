@@ -41,4 +41,19 @@ return array(
             'timeout'    => 30, //超时时间
         ), // 上传驱动配置
     ),
+
+    // 验证码配置
+    'CAPTCHA'=>array(
+        'length'=>4,
+    ),
+
+    // 管理员权限的忽略路径
+    'IGNORE_PATHS'=>[
+        'Admin/Login/index',
+        'Admin/Login/captcha',
+        'Admin/Index/index',
+        'Admin/Index/top',
+        'Admin/Index/menu',
+        'Admin/Index/main',
+    ],
 );

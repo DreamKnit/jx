@@ -9,6 +9,10 @@ class IndexController extends Controller {
         $this->display();
     }
     public function menu(){
+        $menu=D('menu');
+        $menus=$menu->getMenuList();
+        //var_dump($menus);exit;
+        $this->assign('menus',$menus);
         $this->display();
     }
     public function main(){

@@ -135,24 +135,7 @@ body {
                 </ul>
             </li>
 
-            <li class="explode" key="04_order" name="menu">
-            订单管理
-                <ul>
-                    <li class="menu-item"><a href="orderList.html" target="main-frame">订单列表</a></li>
-                    <li class="menu-item"><a href="orderQuery.html" target="main-frame">订单查询</a></li>
-                    <li class="menu-item"><a href="orderAdd.html" target="main-frame">添加订单</a></li>
-                    <li class="menu-item"><a href="delivery_list.html" target="main-frame">发货单列表</a></li>
-                    <li class="menu-item"><a href="back_list.html" target="main-frame">退货单列表</a></li>
-                </ul>
-            </li>
-            <li class="explode" key="08_members" name="menu">
-            会员管理
-                <ul>
-                    <li class="menu-item"><a href="userList.html" target="main-frame">会员列表</a></li>
-                    <li class="menu-item"><a href="userAdd.html" target="main-frame">添加会员</a></li>
-                    <li class="menu-item"><a href="userMessage.html" target="main-frame">会员留言</a></li>
-                </ul>
-            </li>
+
             <li class="explode" key="08_members" name="menu">
                 其他管理
                 <ul>
@@ -175,6 +158,38 @@ body {
         <div id="help-content"></div>
     </div>
 </div>
+
+
+<!--<div id="main-div">-->
+    <!--<div id="menu-list">-->
+        <!--<ul id="menu-ul">-->
+            <!--<?php if(is_array($menus)): foreach($menus as $key=>$top_menu): ?>-->
+                <!--<?php if(($top_menu["level"]) == "1"): ?>-->
+                    <!--<li class="explode" key="02_cat_and_goods" name="menu">-->
+                        <!--<?php echo ($top_menu["name"]); ?>-->
+                        <!--<ul>-->
+                            <!--<?php if(is_array($menus)): foreach($menus as $key=>$second_menu): ?>-->
+                                <!--<?php if(($second_menu["parent_id"]) == $top_menu["id"]): ?>-->
+                                    <!--<li class="menu-item"><a href="<?php echo U($second_menu['path']);?>" target="main-frame"><?php echo ($second_menu["name"]); ?></a></li>-->
+                                <!--<?php endif; ?>-->
+                            <!--<?php endforeach; endif; ?>-->
+                        <!--</ul>-->
+                    <!--</li>-->
+                <!--<?php endif; ?>-->
+            <!--<?php endforeach; endif; ?>-->
+        <!--</ul>-->
+    <!--</div>-->
+    <!--<div id="help-div" style="display:none">-->
+        <!--<h1 id="help-title"></h1>-->
+        <!--<div id="help-content"></div>-->
+    <!--</div>-->
+<!--</div>-->
+
+
+
+
+
+
 <script type="text/javascript" src="http://admin.jx.com/Public/Js/global.js"></script>
 <script type="text/javascript" src="http://admin.jx.com/Public/Js/utils.js"></script>
 <script type="text/javascript" src="http://admin.jx.com/Public/Js/transport.js"></script>

@@ -7,7 +7,7 @@
 <link href="__CSS__main.css" rel="stylesheet" type="text/css" />
 </head>
 <body style="background: #278296;color:white">
-<form method="post" action=""onsubmit="return validate()">
+<form method="post" action="{:U('login')}" onsubmit="return validate()">
     <table cellspacing="0" cellpadding="0" style="margin-top:100px" align="center">
         <tr>
             <td>
@@ -16,13 +16,17 @@
             <td style="padding-left: 50px">
                 <table>
                     <tr>
-                        <td>管理员姓名：</td>
+                        <td>管理员：</td>
                         <td>
                             <input type="text" name="username" />
                         </td>
                     </tr>
                     <tr>
-                        <td>管理员密码：</td>
+                        <td>
+                            &nbsp;
+                            &nbsp;
+                            密码：
+                        </td>
                         <td>
                             <input type="password" name="password" />
                         </td>
@@ -35,7 +39,7 @@
                     </tr>
                     <tr>
                         <td colspan="2" align="right">
-                            <img src="" />
+                            <img src="{:U('captcha',['nocache'=>NOW_TIME])}" width="146px" id="captcha_img"/>
                         </td>
                     </tr>
                     <tr>
@@ -54,6 +58,12 @@
             </td>
         </tr>
     </table>
-  <input type="hidden" name="act" value="signin" />
 </form>
+<script>
+    captcha_elem=document.getElementById('captcha_img');
+    captcha_elem.onclick=function(){
+        captcha_elem.src="{:U('captcha')}" + '?nocache=' + new Date().getTime() ;
+    }
+</script>
 </body>
+</html>
