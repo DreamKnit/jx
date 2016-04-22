@@ -103,7 +103,7 @@ Released under the MIT License <http://www.opensource.org/licenses/mit-license.p
 					auto            : true,               // Automatically upload files when added to the queue
 					buttonClass     : '',                 // A class name to add to the browse button DOM object
 					buttonCursor    : 'hand',             // The cursor to use with the browse button
-					buttonImage     : null,               // (String or null) The path to an image to use for the Flash browse button if not using CSS to style the button
+					buttonImage     : null,               // (String or null) The path to an image to use for the Flash browse button if not using CSS to Css the button
 					buttonText      : 'SELECT FILES',     // The text to use for the browse button
 					checkExisting   : false,              // The path to a server-side script that checks for existing files on the server
 					debug           : false,              // Turn on swfUpload debugging mode

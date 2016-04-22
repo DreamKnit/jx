@@ -86,11 +86,11 @@ UE.I18N['en'] = {
     'elementPathTip':"Path",
     'wordCountTip':"Word Count",
     'wordCountMsg':'{#count} characters entered,{#leave} left. ',
-    'wordOverFlowMsg':'<span style="color:red;">The number of characters has exceeded allowable maximum values, the server may refuse to save!</span>',
+    'wordOverFlowMsg':'<span Css="color:red;">The number of characters has exceeded allowable maximum values, the server may refuse to save!</span>',
     'ok':"OK",
     'cancel':"Cancel",
     'closeDialog':"closeDialog",
-    'tableDrag':"You must import the file uiUtils.js before drag! ",
+    'tableDrag':"You must import the file uiUtils.Js before drag! ",
     'autofloatMsg':"The plugin AutoFloat depends on EditorUI!",
     'loadconfigError': 'Get server config error.',
     'loadconfigFormatError': 'Server config format error.',
@@ -428,7 +428,7 @@ UE.I18N['en'] = {
     },
     'webapp':{
         'tip1':"This function provided by Baidu APP,please apply for baidu APPKey webmaster first!",
-        'tip2':"And then open the file ueditor.config.js to set it! ",
+        'tip2':"And then open the file ueditor.config.Js to set it! ",
         'applyFor':"APPLY FOR",
         'anthorApi':"Baidu API"
     },
@@ -615,7 +615,7 @@ UE.I18N['en'] = {
     },
     'edittable':{
         'static':{
-            'lang_tableStyle':'Table style',
+            'lang_tableStyle':'Table Css',
             'lang_insertCaption':'Add table header row',
             'lang_insertTitle':'Add table title row',
             'lang_insertTitleCol':'Add table title col',

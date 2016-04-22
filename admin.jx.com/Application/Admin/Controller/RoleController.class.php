@@ -16,7 +16,7 @@ class RoleController extends Controller{
 
     protected function _initialize() {
         $meta_titles = array(
-            'index'  => '角色管理',
+            'Index'  => '角色管理',
             'add'    => '添加角色',
             'edit'   => '修改角色',
             'remove' => '删除角色',
@@ -43,7 +43,7 @@ class RoleController extends Controller{
                 if($this->_model->addRole()===false){
                     $this->error($this->_model->getError());
                 }else{
-                    $this->success($this->_model->_success,U('index'),3);
+                    $this->success($this->_model->_success,U('Index'),3);
                 }
             }else{
                 $this->error($this->_model->getError());
@@ -61,7 +61,7 @@ class RoleController extends Controller{
                 if($this->_model->updateRole()===false){
                     $this->error($this->_model->getError());
                 }else{
-                    $this->success($this->_model->_success,U('index'),3);
+                    $this->success($this->_model->_success,U('Index'),3);
                 }
             }else{
                 $this->error($this->_model->getError());
@@ -78,7 +78,7 @@ class RoleController extends Controller{
         if($this->_model->removeRole($id)===false){
             $this->error($this->_model->getError());
         }
-        $this->success('删除成功',U('index'));
+        $this->success('删除成功',U('Index'));
     }
 
     /**

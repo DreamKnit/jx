@@ -21,7 +21,7 @@ class ArticleController extends Controller{
      */
     public function _initialize(){
         $meta_titles=array(
-            'index'=>'文章管理',
+            'Index'=>'文章管理',
             'add'=>'添加文章',
             'edit'=>'修改文章',
             'remove'=>'删除文章',
@@ -58,7 +58,7 @@ class ArticleController extends Controller{
                     $id=$this->_model->order('id desc')->getField("id"); //得到刚才文章表插入ID
                     //另外添加相关数据到文章内容表
                     if(M('article_content')->add(array('article_id'=>$id,'content'=>$content))){
-                        $this->success('添加成功！',U('index'));
+                        $this->success('添加成功！',U('Index'));
                     }else{
                         $this->error(M('article_content')->getError());
                     }
@@ -87,7 +87,7 @@ class ArticleController extends Controller{
                 }else{
                     // 另外修改相关数据到文章内容表
                     if($this->_model->articleContentEdit($id,$content)){
-                        $this->success('数据内容修改成功！',U('index'),3);
+                        $this->success('数据内容修改成功！',U('Index'),3);
                     }
                 }
             }else{

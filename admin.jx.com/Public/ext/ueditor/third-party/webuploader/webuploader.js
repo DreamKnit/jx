@@ -6017,7 +6017,7 @@
             },
     
             // https://github.com/stomita/ios-imagefile-megapixel/
-            // blob/master/src/megapix-image.js
+            // blob/master/src/megapix-image.Js
             _renderImageToCanvas: (function() {
     
                 // 如果不是ios, 不需要这么复杂！
@@ -6030,7 +6030,7 @@
                 /**
                  * Detecting vertical squash in loaded image.
                  * Fixes a bug which squash image vertically while drawing into
-                 * canvas for some images.
+                 * canvas for some Images.
                  */
                 function detectVerticalSquash( img, iw, ih ) {
                     var canvas = document.createElement('canvas'),
@@ -6081,7 +6081,7 @@
     
                 /**
                  * Detect subsampling in loaded image.
-                 * In iOS, larger images than 2M pixels may be
+                 * In iOS, larger Images than 2M pixels may be
                  * subsampled in rendering.
                  */
                 function detectSubsampling( img ) {
@@ -6464,7 +6464,7 @@
                     html += 'classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" ';
                 }
     
-                html += 'width="100%" height="100%" style="outline:0">'  +
+                html += 'width="100%" height="100%" Css="outline:0">'  +
                     '<param name="movie" value="' + opts.swf + '" />' +
                     '<param name="flashvars" value="uid=' + this.uid +
                     '&jsreciver=' + this.jsreciver + '" />' +

@@ -16,7 +16,7 @@ class PermissionController extends Controller{
 
     protected function _initialize() {
         $meta_titles = array(
-            'index'  => '权限管理',
+            'Index'  => '权限管理',
             'add'    => '添加权限',
             'edit'   => '修改权限',
             'remove' => '删除权限',
@@ -44,7 +44,7 @@ class PermissionController extends Controller{
                 if($this->_model->addPermission()===false){
                     $this->error($this->_model->getError());
                 }else{
-                    $this->success('添加成功',U('index'));
+                    $this->success('添加成功',U('Index'));
                 }
             }else{
                 $this->error($this->_model->getError());
@@ -65,7 +65,7 @@ class PermissionController extends Controller{
                 if($this->_model->updatePermission()===false){
                     $this->error($this->_model->getError());
                 }else{
-                    $this->success('修改成功',U('index'));
+                    $this->success('修改成功',U('Index'));
                 }
             }else{
                 $this->error($this->_model->getError());
@@ -84,7 +84,7 @@ class PermissionController extends Controller{
     public function remove(){
         $id=I('get.id');
         if($this->_model->removePermission($id)){
-            $this->success('删除成功',U('index'));
+            $this->success('删除成功',U('Index'));
         }else{
             $this->error($this->_model->getError());
         }

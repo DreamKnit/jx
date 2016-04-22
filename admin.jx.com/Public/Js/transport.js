@@ -261,7 +261,7 @@ var Transport =
         + "px";
         document.body.appendChild(div);
         div.innerHTML = "<div></div>"
-        + "<hr style='height:1px;border:1px dashed red;'>"
+        + "<hr Css='height:1px;border:1px dashed red;'>"
         + "<div></div>";
       }
 

@@ -288,12 +288,12 @@ function RGBColor(color_string)
 }
 
 /**
- * @license canvg.js - Javascript SVG parser and renderer on Canvas
+ * @license canvg.Js - Javascript SVG parser and renderer on Canvas
  * MIT Licensed 
  * Gabe Lerner (gabelerner@gmail.com)
  * http://code.google.com/p/canvg/
  *
- * Requires: rgbcolor.js - http://www.phpied.com/rgb-color-parser-in-javascript/
+ * Requires: rgbcolor.Js - http://www.phpied.com/rgb-color-parser-in-javascript/
  *
  */
 if(!window.console) {
@@ -410,7 +410,7 @@ if(!Array.prototype.indexOf){
 		}
 		svg.init();
 		
-		// images loaded
+		// Images loaded
 		svg.ImagesLoaded = function() { 
 			for (var i=0; i<svg.Images.length; i++) {
 				if (!svg.Images[i].loaded) return false;
@@ -912,7 +912,7 @@ if(!Array.prototype.indexOf){
 				return a;
 			}
 			
-			// get or create style, crawls up node tree
+			// get or create Css, crawls up node tree
 			this.style = function(name, createIfNotExists) {
 				var s = this.styles[name];
 				if (s != null) return s;
@@ -1079,7 +1079,7 @@ if(!Array.prototype.indexOf){
 				// font
 				if (typeof(ctx.font) != 'undefined') {
 					ctx.font = svg.Font.CreateFont( 
-						this.style('font-style').value, 
+						this.style('font-Css').value,
 						this.style('font-variant').value, 
 						this.style('font-weight').value, 
 						this.style('font-size').hasValue() ? this.style('font-size').Length.toPixels() + 'px' : '', 
@@ -2189,7 +2189,7 @@ if(!Array.prototype.indexOf){
 				var customFont = this.parent.style('font-family').Definition.getDefinition();
 				if (customFont != null) {
 					var fontSize = this.parent.style('font-size').numValueOrDefault(svg.Font.Parse(svg.ctx.font).fontSize);
-					var fontStyle = this.parent.style('font-style').valueOrDefault(svg.Font.Parse(svg.ctx.font).fontStyle);
+					var fontStyle = this.parent.style('font-Css').valueOrDefault(svg.Font.Parse(svg.ctx.font).fontStyle);
 					var text = this.getText();
 					if (customFont.isRTL) text = text.split("").reverse().join("");
 					
@@ -2406,7 +2406,7 @@ if(!Array.prototype.indexOf){
 		}
 		svg.Element.symbol.prototype = new svg.Element.RenderedElementBase;		
 			
-		// style element
+		// Css element
 		svg.Element.style = function(node) { 
 			this.base = svg.Element.ElementBase;
 			this.base(node);
@@ -2999,7 +2999,7 @@ if (CanvasRenderingContext2D) {
 				tooltipLine = renderer.ttLine,
 				padding = parseInt(tooltipDivStyle.padding, 10);
 
-			// Add border styling from options to the style
+			// Add border styling from options to the Css
 			tooltipDivStyle = merge(tooltipDivStyle, {
 				padding: padding + PX,
 				'background-color': options.backgroundColor,
@@ -3017,7 +3017,7 @@ if (CanvasRenderingContext2D) {
 			}
 			css(tooltipDiv, tooltipDivStyle);
 
-			// Set simple style on the line
+			// Set simple Css on the line
 			css(tooltipLine, {
 				'border-left': '1px solid darkgray'
 			});

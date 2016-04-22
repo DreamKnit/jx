@@ -49,9 +49,9 @@ return array(
 
     // 管理员权限的忽略路径
     'IGNORE_PATHS'=>[
-        'Admin/Login/index',
+        'Admin/Login/Index',
         'Admin/Login/captcha',
-        'Admin/Index/index',
+        'Admin/Index/Index',
         'Admin/Index/top',
         'Admin/Index/menu',
         'Admin/Index/main',

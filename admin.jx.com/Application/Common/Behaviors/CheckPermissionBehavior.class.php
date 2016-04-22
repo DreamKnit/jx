@@ -43,7 +43,7 @@ class CheckPermissionBehavior extends Behavior{
         //}
         ////获取当前请求的路径
         //if (!in_array($url, $paths)) {
-        //    $url = U('Admin/Login/index');
+        //    $url = U('Admin/Login/Index');
         //    redirect($url);
         //}
     }

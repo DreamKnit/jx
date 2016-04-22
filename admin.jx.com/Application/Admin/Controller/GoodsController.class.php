@@ -19,7 +19,7 @@ class GoodsController extends Controller{
      */
     protected function _initialize() {
         $meta_titles  = array(
-            'index'  => '商品管理',
+            'Index'  => '商品管理',
             'add'    => '添加商品',
             'edit'   => '修改商品',
             'delete' => '删除商品',
@@ -71,7 +71,7 @@ class GoodsController extends Controller{
                 if($this->_model->addGoods()===false){
                     $this->error($this->_model->getError());
                 }else{
-                    $this->success('添加成功',U('index'));
+                    $this->success('添加成功',U('Index'));
                 }
             }else{
                 $this->error($this->_model->getError());
@@ -99,7 +99,7 @@ class GoodsController extends Controller{
                 if($this->_model->updateGoods()===false){
                     $this->error($this->_model->getError());
                 }else{
-                    $this->success('修改成功',U('index'));
+                    $this->success('修改成功',U('Index'));
                 }
             }else{
                 $this->error($this->_model->getError());
@@ -107,7 +107,7 @@ class GoodsController extends Controller{
         }else{
             // 传入id值查询相应的数据
             if(!$row = $this->_model->getGoodsInfo($id)){
-                $this->error('商品id不正确！',U('index'));
+                $this->error('商品id不正确！',U('Index'));
             }
             $brands=M('brand')->select(); //品牌数据
             $suppliers=M('supplier')->select(); //供货商数据
@@ -128,7 +128,7 @@ class GoodsController extends Controller{
     public function remove(){
         $id=I('get.id');
         if($this->_model->removeGoods($id)){
-            $this->success('删除成功！',U('index'));
+            $this->success('删除成功！',U('Index'));
         }else{
             $this->error($this->_model->getError());
         }

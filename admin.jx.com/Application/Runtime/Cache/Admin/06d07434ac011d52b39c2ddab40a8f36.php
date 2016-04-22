@@ -126,12 +126,12 @@ body {
             <li class="explode" key="02_cat_and_goods" name="menu">
             商品管理
                 <ul>
-                    <li class="menu-item"><a href="<?php echo U('Goods/index');?>" target="main-frame">商品列表</a></li>
+                    <li class="menu-item"><a href="<?php echo U('Goods/Index');?>" target="main-frame">商品列表</a></li>
                     <li class="menu-item"><a href="<?php echo U('Goods/add');?>" target="main-frame">添加新商品</a></li>
-                    <li class="menu-item"><a href="<?php echo U('GoodsCategory/index');?>" target="main-frame">商品分类</a></li>
-                    <li class="menu-item"><a href="<?php echo U('Brand/index');?>" target="main-frame">品牌管理</a></li>
-                    <li class="menu-item"><a href="<?php echo U('Supplier/index');?>" target="main-frame">供货商管理</a></li>
-                    <li class="menu-item"><a href="<?php echo U('Recycle/index');?>" target="main-frame">商品回收站</a></li>
+                    <li class="menu-item"><a href="<?php echo U('GoodsCategory/Index');?>" target="main-frame">商品分类</a></li>
+                    <li class="menu-item"><a href="<?php echo U('Brand/Index');?>" target="main-frame">品牌管理</a></li>
+                    <li class="menu-item"><a href="<?php echo U('Supplier/Index');?>" target="main-frame">供货商管理</a></li>
+                    <li class="menu-item"><a href="<?php echo U('Recycle/Index');?>" target="main-frame">商品回收站</a></li>
                 </ul>
             </li>
 
@@ -139,16 +139,16 @@ body {
             <li class="explode" key="08_members" name="menu">
                 其他管理
                 <ul>
-                    <li class="menu-item"><a href="<?php echo U('Article/index');?>" target="main-frame">文章管理</a></li>
+                    <li class="menu-item"><a href="<?php echo U('Article/Index');?>" target="main-frame">文章管理</a></li>
                 </ul>
             </li>
             <li class="explode" key="08_members" name="menu">
                 RBAC授权
                 <ul>
-                    <li class="menu-item"><a href="<?php echo U('Menu/index');?>" target="main-frame">菜单管理</a></li>
-                    <li class="menu-item"><a href="<?php echo U('Admin/index');?>" target="main-frame">管理员管理</a></li>
-                    <li class="menu-item"><a href="<?php echo U('Role/index');?>" target="main-frame">角色管理</a></li>
-                    <li class="menu-item"><a href="<?php echo U('Permission/index');?>" target="main-frame">权限管理</a></li>
+                    <li class="menu-item"><a href="<?php echo U('Menu/Index');?>" target="main-frame">菜单管理</a></li>
+                    <li class="menu-item"><a href="<?php echo U('Admin/Index');?>" target="main-frame">管理员管理</a></li>
+                    <li class="menu-item"><a href="<?php echo U('Role/Index');?>" target="main-frame">角色管理</a></li>
+                    <li class="menu-item"><a href="<?php echo U('Permission/Index');?>" target="main-frame">权限管理</a></li>
                 </ul>
             </li>
         </ul>

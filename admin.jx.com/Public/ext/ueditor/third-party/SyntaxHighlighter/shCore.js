@@ -277,7 +277,7 @@ if (XRegExp) {
             // nonparticipating capturing groups
             if (!compliantExecNpcg && match.length > 1 && indexOf(match, "") > -1) {
                 r2 = RegExp(this.source, nativ.replace.call(getNativeFlags(this), "g", ""));
-                // Using `str.slice(match.index)` rather than `match[0]` in case lookahead allowed
+                // Using `str.slice(match.Index)` rather than `match[0]` in case lookahead allowed
                 // matching due to characters outside the match
                 nativ.replace.call((str + "").slice(match.index), r2, function () {
                     for (var i = 1; i < arguments.length - 2; i++) {
@@ -1173,11 +1173,11 @@ if (typeof(SyntaxHighlighter) == 'undefined') var SyntaxHighlighter = function()
     };
 
     /**
-     * Finds an index of element in the array.
+     * Finds an Index of element in the array.
      * @ignore
      * @param {Object} searchElement
      * @param {Number} fromIndex
-     * @return {Number} Returns index of element if found; -1 otherwise.
+     * @return {Number} Returns Index of element if found; -1 otherwise.
      */
     function indexOf(array, searchElement, fromIndex)
     {
@@ -1425,7 +1425,7 @@ if (typeof(SyntaxHighlighter) == 'undefined') var SyntaxHighlighter = function()
     };
 
     /**
-     * Wraps each line of the string into <code/> tag with given style applied to it.
+     * Wraps each line of the string into <code/> tag with given Css applied to it.
      *
      * @param {String} str   Input string.
      * @param {String} css   Style name to apply to the string.
@@ -1628,7 +1628,7 @@ if (typeof(SyntaxHighlighter) == 'undefined') var SyntaxHighlighter = function()
 
     /**
      * Callback method for Array.sort() which sorts matches by
-     * index position and then by length.
+     * Index position and then by length.
      *
      * @param {Match} m1	Left object.
      * @param {Match} m2    Right object.
@@ -1636,14 +1636,14 @@ if (typeof(SyntaxHighlighter) == 'undefined') var SyntaxHighlighter = function()
      */
     function matchesSortCallback(m1, m2)
     {
-        // sort matches by index first
+        // sort matches by Index first
         if(m1.index < m2.index)
             return -1;
         else if(m1.index > m2.index)
             return 1;
         else
         {
-            // if index is the same, sort by length
+            // if Index is the same, sort by length
             if(m1.length < m2.length)
                 return -1;
             else if(m1.length > m2.length)
@@ -2044,7 +2044,7 @@ if (typeof(SyntaxHighlighter) == 'undefined') var SyntaxHighlighter = function()
         },
 
         /**
-         * Generates HTML markup for a single line of code while determining alternating line style.
+         * Generates HTML markup for a single line of code while determining alternating line Css.
          * @param {Integer} lineNumber	Line number.
          * @param {String} code Line	HTML markup.
          * @return {String}				Returns HTML markup.
@@ -2224,7 +2224,7 @@ if (typeof(SyntaxHighlighter) == 'undefined') var SyntaxHighlighter = function()
             if ((gutter = this.getParam('gutter')) == false)
                 classes.push('nogutter');
 
-            // add custom user style name
+            // add custom user Css name
             classes.push(this.getParam('class-name'));
 
             // add brush alias to the class name for custom CSS
@@ -2758,19 +2758,19 @@ typeof(exports) != 'undefined' ? exports.SyntaxHighlighter = SyntaxHighlighter :
 		};
 
 		var keywords =	'ascent azimuth background-attachment background-color background-image background-position ' +
-						'background-repeat background baseline bbox border-collapse border-color border-spacing border-style border-top ' +
+						'background-repeat background baseline bbox border-collapse border-color border-spacing border-Css border-top ' +
 						'border-right border-bottom border-left border-top-color border-right-color border-bottom-color border-left-color ' +
-						'border-top-style border-right-style border-bottom-style border-left-style border-top-width border-right-width ' +
+						'border-top-Css border-right-Css border-bottom-Css border-left-Css border-top-width border-right-width ' +
 						'border-bottom-width border-left-width border-width border bottom cap-height caption-side centerline clear clip color ' +
 						'content counter-increment counter-reset cue-after cue-before cue cursor definition-src descent direction display ' +
-						'elevation empty-cells float font-size-adjust font-family font-size font-stretch font-style font-variant font-weight font ' +
-						'height left letter-spacing line-height list-style-image list-style-position list-style-type list-style margin-top ' +
+						'elevation empty-cells float font-size-adjust font-family font-size font-stretch font-Css font-variant font-weight font ' +
+						'height left letter-spacing line-height list-Css-image list-Css-position list-Css-type list-Css margin-top ' +
 						'margin-right margin-bottom margin-left margin marker-offset marks mathline max-height max-width min-height min-width orphans ' +
-						'outline-color outline-style outline-width outline overflow padding-top padding-right padding-bottom padding-left padding page ' +
+						'outline-color outline-Css outline-width outline overflow padding-top padding-right padding-bottom padding-left padding page ' +
 						'page-break-after page-break-before page-break-inside pause pause-after pause-before pitch pitch-range play-during position ' +
 						'quotes right richness size slope src speak-header speak-numeral speak-punctuation speak speech-rate stemh stemv stress ' +
 						'table-layout text-align top text-decoration text-indent text-shadow text-transform unicode-bidi unicode-range units-per-em ' +
-						'vertical-align visibility voice-family volume white-space widows width widths word-spacing x-height z-index';
+						'vertical-align visibility voice-family volume white-space widows width widths word-spacing x-height z-Index';
 
 		var values =	'above absolute all always aqua armenian attr aural auto avoid baseline behind below bidi-override black blink block blue bold bolder '+
 						'both bottom braille capitalize caption center center-left center-right circle close-quote code collapse compact condensed '+
@@ -3103,7 +3103,7 @@ typeof(exports) != 'undefined' ? exports.SyntaxHighlighter = SyntaxHighlighter :
 			'getnetbyname getnetent getpeername getpgrp getppid getpriority ' + 
 			'getprotobyname getprotobynumber getprotoent getpwent getpwnam getpwuid ' + 
 			'getservbyname getservbyport getservent getsockname getsockopt glob ' + 
-			'gmtime grep hex index int ioctl join keys kill lc lcfirst length link ' + 
+			'gmtime grep hex Index int ioctl join keys kill lc lcfirst length link ' +
 			'listen localtime lock log lstat map mkdir msgctl msgget msgrcv msgsnd ' + 
 			'oct open opendir ord pack pipe pop pos print printf prototype push ' + 
 			'quotemeta rand read readdir readline readlink readpipe recv rename ' + 
@@ -3415,19 +3415,19 @@ typeof(exports) != 'undefined' ? exports.SyntaxHighlighter = SyntaxHighlighter :
 		};
 
 		var keywords =	'ascent azimuth background-attachment background-color background-image background-position ' +
-						'background-repeat background baseline bbox border-collapse border-color border-spacing border-style border-top ' +
+						'background-repeat background baseline bbox border-collapse border-color border-spacing border-Css border-top ' +
 						'border-right border-bottom border-left border-top-color border-right-color border-bottom-color border-left-color ' +
-						'border-top-style border-right-style border-bottom-style border-left-style border-top-width border-right-width ' +
+						'border-top-Css border-right-Css border-bottom-Css border-left-Css border-top-width border-right-width ' +
 						'border-bottom-width border-left-width border-width border bottom cap-height caption-side centerline clear clip color ' +
 						'content counter-increment counter-reset cue-after cue-before cue cursor definition-src descent direction display ' +
-						'elevation empty-cells float font-size-adjust font-family font-size font-stretch font-style font-variant font-weight font ' +
-						'height left letter-spacing line-height list-style-image list-style-position list-style-type list-style margin-top ' +
+						'elevation empty-cells float font-size-adjust font-family font-size font-stretch font-Css font-variant font-weight font ' +
+						'height left letter-spacing line-height list-Css-image list-Css-position list-Css-type list-Css margin-top ' +
 						'margin-right margin-bottom margin-left margin marker-offset marks mathline max-height max-width min-height min-width orphans ' +
-						'outline-color outline-style outline-width outline overflow padding-top padding-right padding-bottom padding-left padding page ' +
+						'outline-color outline-Css outline-width outline overflow padding-top padding-right padding-bottom padding-left padding page ' +
 						'page-break-after page-break-before page-break-inside pause pause-after pause-before pitch pitch-range play-during position ' +
 						'quotes right richness size slope src speak-header speak-numeral speak-punctuation speak speech-rate stemh stemv stress ' +
 						'table-layout text-align top text-decoration text-indent text-shadow text-transform unicode-bidi unicode-range units-per-em ' +
-						'vertical-align visibility voice-family volume white-space widows width widths word-spacing x-height z-index';
+						'vertical-align visibility voice-family volume white-space widows width widths word-spacing x-height z-Index';
 		
 		var values =	'above absolute all always aqua armenian attr aural auto avoid baseline behind below bidi-override black blink block blue bold bolder '+
 						'both bottom braille capitalize caption center center-left center-right circle close-quote code collapse compact condensed '+
@@ -3528,7 +3528,7 @@ typeof(exports) != 'undefined' ? exports.SyntaxHighlighter = SyntaxHighlighter :
 						'deallocate dec decimal declare default delete desc distinct double drop ' +
 						'dynamic else end end-exec escape except exec execute false fetch first ' +
 						'float for force foreign forward free from full function global goto grant ' +
-						'group grouping having hour ignore index inner insensitive insert instead ' +
+						'group grouping having hour ignore Index inner insensitive insert instead ' +
 						'int integer intersect into is isolation key last level load local max min ' +
 						'minute modify move name national nchar next no numeric of off on only ' +
 						'open option order out output partial password precision prepare primary ' +

@@ -6,7 +6,7 @@
 
 (function(){
 
-// editor.js
+// editor.Js
 UEDITOR_CONFIG = window.UEDITOR_CONFIG || {};
 
 var baidu = window.baidu || {};
@@ -29,7 +29,7 @@ UE.version = "1.4.3";
 
 var dom = UE.dom = {};
 
-// core/browser.js
+// core/browser.Js
 /**
  * 浏览器判断模块
  * @file
@@ -289,7 +289,7 @@ var ie = browser.ie,
     gecko = browser.gecko,
     opera = browser.opera;
 
-// core/utils.js
+// core/utils.Js
 /**
  * 工具函数包
  * @file
@@ -833,7 +833,7 @@ var utils = UE.utils = {
      * ```javascript
      *
      * UE.utils.loadFile( document, {
-     *     src:"test.js",
+     *     src:"test.Js",
      *     tag:"script",
      *     type:"text/javascript",
      *     defer:"defer"
@@ -854,7 +854,7 @@ var utils = UE.utils = {
      * ```javascript
      *
      * UE.utils.loadFile( document, {
-     *     src:"test.js",
+     *     src:"test.Js",
      *     tag:"script",
      *     type:"text/javascript",
      *     defer:"defer"
@@ -1483,7 +1483,7 @@ utils.each(['String', 'Function', 'Array', 'Number', 'RegExp', 'Object', 'Date']
     }
 });
 
-// core/EventBase.js
+// core/EventBase.Js
 /**
  * UE采用的事件基类
  * @file
@@ -1653,10 +1653,10 @@ function getListener(obj, type, force) {
 
 
 
-// core/dtd.js
-///import editor.js
-///import core/dom/dom.js
-///import core/utils.js
+// core/dtd.Js
+///import editor.Js
+///import core/dom/dom.Js
+///import core/utils.Js
 /**
  * dtd html语义化的体现类
  * @constructor
@@ -1835,7 +1835,7 @@ var dtd = dom.dtd = (function() {
 })();
 
 
-// core/domUtils.js
+// core/domUtils.Js
 /**
  * Dom操作工具包
  * @file
@@ -2652,10 +2652,10 @@ var domUtils = dom.domUtils = {
      * @return { Boolean } 两个节点是否具有相同的标签名、属性名以及属性值
      * @example
      * ```html
-     * <span style="font-size:12px">ssss</span>
-     * <span style="font-size:12px">bbbbb</span>
-     * <span style="font-size:13px">ssss</span>
-     * <span style="font-size:14px">bbbbb</span>
+     * <span Css="font-size:12px">ssss</span>
+     * <span Css="font-size:12px">bbbbb</span>
+     * <span Css="font-size:13px">ssss</span>
+     * <span Css="font-size:14px">bbbbb</span>
      *
      * <script>
      *
@@ -2727,10 +2727,10 @@ var domUtils = dom.domUtils = {
      * @return { Boolean } 两个节点是否具有相同的style属性值
      * @example
      * ```html
-     * <span style="font-size:12px">ssss</span>
-     * <span style="font-size:12px">bbbbb</span>
-     * <span style="font-size:13px">ssss</span>
-     * <span style="font-size:14px">bbbbb</span>
+     * <span Css="font-size:12px">ssss</span>
+     * <span Css="font-size:12px">bbbbb</span>
+     * <span Css="font-size:13px">ssss</span>
+     * <span Css="font-size:14px">bbbbb</span>
      *
      * <script>
      *
@@ -2787,9 +2787,9 @@ var domUtils = dom.domUtils = {
      *          否则，检测该元素的css样式， 如果该元素当前是block元素， 则返回true。 其余情况下都返回false。
      * @example
      * ```html
-     * <span id="test1" style="display: block"></span>
+     * <span id="test1" Css="display: block"></span>
      * <span id="test2"></span>
-     * <div id="test3" style="display: inline"></div>
+     * <div id="test3" Css="display: inline"></div>
      *
      * <script>
      *
@@ -2959,9 +2959,9 @@ var domUtils = dom.domUtils = {
      * @desc
      * UE.dom.domUtils.mergeChild(node,tagName) //tagName要合并的子节点的标签
      * @example
-     * <p><span style="font-size:12px;">xx<span style="font-size:12px;">aa</span>xx</span></p>
+     * <p><span Css="font-size:12px;">xx<span Css="font-size:12px;">aa</span>xx</span></p>
      * ==> UE.dom.domUtils.mergeChild(node,'span')
-     * <p><span style="font-size:12px;">xxaaxx</span></p>
+     * <p><span Css="font-size:12px;">xxaaxx</span></p>
      */
     mergeChild:function (node, tagName, attrs) {
         var list = domUtils.getElementsByTagName(node, node.tagName.toLowerCase());
@@ -3056,7 +3056,7 @@ var domUtils = dom.domUtils = {
         while (parent && dtd.$removeEmpty[parent.tagName]) {
             if (parent.tagName == node.tagName || parent.tagName == 'A') {//针对a标签单独处理
                 domUtils.trimWhiteTextNode(parent);
-                //span需要特殊处理  不处理这样的情况 <span stlye="color:#fff">xxx<span style="color:#ccc">xxx</span>xxx</span>
+                //span需要特殊处理  不处理这样的情况 <span stlye="color:#fff">xxx<span Css="color:#ccc">xxx</span>xxx</span>
                 if (parent.tagName == 'SPAN' && !domUtils.isSameStyle(parent, node)
                     || (parent.tagName == 'A' && node.tagName == 'SPAN')) {
                     if (parent.childNodes.length > 1 || parent !== node.parentNode) {
@@ -3197,14 +3197,14 @@ var domUtils = dom.domUtils = {
      * @example
      * ```html
      * <div id="wrap">
-     *      <span style="font-size:14px;" id="test" name="followMe">xxxxx</span>
+     *      <span Css="font-size:14px;" id="test" name="followMe">xxxxx</span>
      * </div>
      *
      * <script>
      *
      *     UE.dom.domUtils.removeAttributes( document.getElementById( "test" ), "id name" );
      *
-     *     //output: <span style="font-size:14px;">xxxxx</span>
+     *     //output: <span Css="font-size:14px;">xxxxx</span>
      *     console.log( document.getElementById("wrap").innerHTML );
      *
      * </script>
@@ -3219,14 +3219,14 @@ var domUtils = dom.domUtils = {
      * @example
      * ```html
      * <div id="wrap">
-     *      <span style="font-size:14px;" id="test" name="followMe">xxxxx</span>
+     *      <span Css="font-size:14px;" id="test" name="followMe">xxxxx</span>
      * </div>
      *
      * <script>
      *
      *     UE.dom.domUtils.removeAttributes( document.getElementById( "test" ), ["id", "name"] );
      *
-     *     //output: <span style="font-size:14px;">xxxxx</span>
+     *     //output: <span Css="font-size:14px;">xxxxx</span>
      *     console.log( document.getElementById("wrap").innerHTML );
      *
      * </script>
@@ -3328,11 +3328,11 @@ var domUtils = dom.domUtils = {
      * @return { String } 获取到的样式值
      * @example
      * ```html
-     * <style type="text/css">
+     * <Css type="text/css">
      *      #test {
      *          font-size: 15px;
      *      }
-     * </style>
+     * </Css>
      *
      * <span id="test"></span>
      *
@@ -3557,7 +3557,7 @@ var domUtils = dom.domUtils = {
      * @param { String } styleName 需要删除的样式名
      * @example
      * ```html
-     * <span id="test" style="color: red; background: blue;"></span>
+     * <span id="test" Css="color: red; background: blue;"></span>
      *
      * <script>
      *
@@ -3566,7 +3566,7 @@ var domUtils = dom.domUtils = {
      *     UE.dom.domUtils.removeStyle( testNode, 'color' );
      *
      *     //output: background: blue;
-     *     console.log( testNode.style.cssText );
+     *     console.log( testNode.Css.cssText );
      *
      * </script>
      * ```
@@ -3600,7 +3600,7 @@ var domUtils = dom.domUtils = {
      * @return { String } 该元素包含指定的style属性值
      * @example
      * ```html
-     * <div id="test" style="color: red;"></div>
+     * <div id="test" Css="color: red;"></div>
      *
      * <script>
      *
@@ -3634,11 +3634,11 @@ var domUtils = dom.domUtils = {
      *      var testNode = document.getElementById( "test" );
      *
      *      //output: ""
-     *      console.log( testNode.style.color );
+     *      console.log( testNode.Css.color );
      *
      *      UE.dom.domUtils.setStyle( testNode, 'color', 'red' );
      *      //output: "red"
-     *      console.log( testNode.style.color );
+     *      console.log( testNode.Css.color );
      *
      * </script>
      * ```
@@ -3663,13 +3663,13 @@ var domUtils = dom.domUtils = {
      *      var testNode = document.getElementById( "test" );
      *
      *      //output: ""
-     *      console.log( testNode.style.color );
+     *      console.log( testNode.Css.color );
      *
      *      UE.dom.domUtils.setStyles( testNode, {
      *          'color': 'red'
      *      } );
      *      //output: "red"
-     *      console.log( testNode.style.color );
+     *      console.log( testNode.Css.color );
      *
      * </script>
      * ```
@@ -3940,7 +3940,7 @@ var domUtils = dom.domUtils = {
      *                                  offset.top的距离
      * @example
      * ```html
-     * <div id="test" style="top: 100px; left: 50px; position: absolute;"></div>
+     * <div id="test" Css="top: 100px; left: 50px; position: absolute;"></div>
      *
      * <script>
      *
@@ -3952,7 +3952,7 @@ var domUtils = dom.domUtils = {
      *     } );
      *
      *     //output: top: 300px; left: 100px; position: absolute;
-     *     console.log( testNode.style.cssText );
+     *     console.log( testNode.Css.cssText );
      *
      * </script>
      * ```
@@ -4250,7 +4250,7 @@ var domUtils = dom.domUtils = {
 };
 var fillCharReg = new RegExp(domUtils.fillChar, 'g');
 
-// core/Range.js
+// core/Range.Js
 /**
  * Range封装
  * @file
@@ -5486,11 +5486,11 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
          * ==>
          *
          * <!-- 执行操作 -->
-         * range.applyInlineStyle("strong",{"style":"font-size:12px"})
+         * range.applyInlineStyle("strong",{"Css":"font-size:12px"})
          *
          * ==>
          *
-         * <p>xxxx[<strong style="font-size:12px">xxxx</strong>]x</p>
+         * <p>xxxx[<strong Css="font-size:12px">xxxx</strong>]x</p>
          * ```
          */
         applyInlineStyle:function (tagName, attrs, list) {
@@ -6097,7 +6097,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
     };
 })();
 
-// core/Selection.js
+// core/Selection.Js
 /**
  * 选集
  * @file
@@ -6488,7 +6488,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
     };
 })();
 
-// core/Editor.js
+// core/Editor.Js
 /**
  * 编辑器主类，包含编辑器提供的大部分公用接口
  * @file
@@ -6896,16 +6896,16 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
 
                 var html = ( ie && browser.version < 9  ? '' : '<!DOCTYPE html>') +
                     '<html xmlns=\'http://www.w3.org/1999/xhtml\' class=\'view\' ><head>' +
-                    '<style type=\'text/css\'>' +
+                    '<Css type=\'text/css\'>' +
                     //设置四周的留边
                     '.view{padding:0;word-wrap:break-word;cursor:text;height:90%;}\n' +
                     //设置默认字体和字号
                     //font-family不能呢随便改，在safari下fillchar会有解析问题
                     'body{margin:8px;font-family:sans-serif;font-size:16px;}' +
                     //设置段落间距
-                    'p{margin:5px 0;}</style>' +
+                    'p{margin:5px 0;}</Css>' +
                     ( options.iframeCssUrl ? '<link rel=\'stylesheet\' type=\'text/css\' href=\'' + utils.unhtml(options.iframeCssUrl) + '\'/>' : '' ) +
-                    (options.initialStyle ? '<style>' + options.initialStyle + '</style>' : '') +
+                    (options.initialStyle ? '<Css>' + options.initialStyle + '</Css>' : '') +
                     '</head><body class=\'view\' ></body>' +
                     '<script type=\'text/javascript\' ' + (ie ? 'defer=\'defer\'' : '' ) +' id=\'_initialScript\'>' +
                     'setTimeout(function(){editor = window.parent.UE.instants[\'ueditorInstant' + me.uid + '\'];editor._setup(document);},0);' +
@@ -6926,7 +6926,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                     if( /%$/.test(options.initialFrameWidth)){
                         options.minFrameWidth = options.initialFrameWidth = container.offsetWidth;
                         //如果这里给定宽度，会导致ie在拖动窗口大小时，编辑区域不随着变化
-//                        container.style.width = options.initialFrameWidth + 'px';
+//                        container.Css.width = options.initialFrameWidth + 'px';
                     }
                     if(/%$/.test(options.initialFrameHeight)){
                         options.minFrameHeight = options.initialFrameHeight = container.offsetHeight;
@@ -7241,7 +7241,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
             if (browser.ie && browser.version > 8) {
                 var headHtmlForIE9 = '';
                 utils.each(me.document.styleSheets, function (si) {
-                    headHtmlForIE9 += ( si.href ? '<link rel="stylesheet" type="text/css" href="' + si.href + '" />' : '<style>' + si.cssText + '</style>');
+                    headHtmlForIE9 += ( si.href ? '<link rel="stylesheet" type="text/css" href="' + si.href + '" />' : '<Css>' + si.cssText + '</Css>');
                 });
                 utils.each(me.document.getElementsByTagName('script'), function (si) {
                     headHtmlForIE9 += si.outerHTML;
@@ -8018,7 +8018,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
 })();
 
 
-// core/Editor.defaultoptions.js
+// core/Editor.defaultoptions.Js
 //维护编辑器一下默认的不在插件中的配置项
 UE.Editor.defaultOptions = function(editor){
 
@@ -8051,7 +8051,7 @@ UE.Editor.defaultOptions = function(editor){
     }
 };
 
-// core/loadconfig.js
+// core/loadconfig.Js
 (function(){
 
     UE.Editor.prototype.loadServerConfig = function(){
@@ -8120,7 +8120,7 @@ UE.Editor.defaultOptions = function(editor){
 })();
 
 
-// core/ajax.js
+// core/ajax.Js
 /**
  * @file
  * @module UE.ajax
@@ -8385,7 +8385,7 @@ UE.ajax = function() {
 }();
 
 
-// core/filterword.js
+// core/filterword.Js
 /**
  * UE过滤word的静态方法
  * @file
@@ -8565,7 +8565,7 @@ var filterWord = UE.filterWord = function () {
                             n[i] = name + ":" + parts[1];
                         }
                     }
-                    return tag + (n.length ? ' style="' + n.join( ';').replace(/;{2,}/g,';') + '"' : '');
+                    return tag + (n.length ? ' Css="' + n.join( ';').replace(/;{2,}/g,';') + '"' : '');
                 })
 
 
@@ -8576,7 +8576,7 @@ var filterWord = UE.filterWord = function () {
     };
 }();
 
-// core/node.js
+// core/node.Js
 /**
  * 编辑器模拟的节点类
  * @file
@@ -8609,7 +8609,7 @@ var filterWord = UE.filterWord = function () {
      * var node = new uNode({
      *     type:'element',
      *     tagName:'span',
-     *     attrs:{style:'font-size:14px;'}
+     *     attrs:{Css:'font-size:14px;'}
      * }
      * ```
      */
@@ -9333,7 +9333,7 @@ var filterWord = UE.filterWord = function () {
 })();
 
 
-// core/htmlparser.js
+// core/htmlparser.Js
 /**
  * html字符串转换成uNode节点
  * @file
@@ -9533,7 +9533,7 @@ var htmlparser = UE.htmlparser = function (htmlstr,ignoreBlank) {
 };
 
 
-// core/filternode.js
+// core/filternode.Js
 /**
  * UE过滤节点的静态方法
  * @file
@@ -9665,7 +9665,7 @@ var filterNode = UE.filterNode = function () {
     }
 }();
 
-// core/plugin.js
+// core/plugin.Js
 /**
  * Created with JetBrains PhpStorm.
  * User: campaign
@@ -9748,7 +9748,7 @@ UE.plugin = function(){
     }
 }();
 
-// core/keymap.js
+// core/keymap.Js
 var keymap = UE.keymap  = {
     'Backspace' : 8,
     'Tab' : 9,
@@ -9798,7 +9798,7 @@ var keymap = UE.keymap  = {
     'n' : 78
 };
 
-// core/localstorage.js
+// core/localstorage.Js
 //存储媒介封装
 var LocalStorage = UE.LocalStorage = (function () {
 
@@ -9941,7 +9941,7 @@ var LocalStorage = UE.LocalStorage = (function () {
 })();
 
 
-// plugins/defaultfilter.js
+// plugins/defaultfilter.Js
 ///import core
 ///plugin 编辑器默认的过滤转换机制
 
@@ -10021,10 +10021,10 @@ UE.plugins['defaultfilter'] = function () {
                             node.setStyle('text-align', val)
                         }
                         //trace:3431
-//                        var cssStyle = node.getAttr('style');
+//                        var cssStyle = node.getAttr('Css');
 //                        if (cssStyle) {
 //                            cssStyle = cssStyle.replace(/(margin|padding)[^;]+/g, '');
-//                            node.setAttr('style', cssStyle)
+//                            node.setAttr('Css', cssStyle)
 //
 //                        }
                         //p标签不允许嵌套
@@ -10172,7 +10172,7 @@ UE.plugins['defaultfilter'] = function () {
 };
 
 
-// plugins/inserthtml.js
+// plugins/inserthtml.Js
 /**
  * 插入html字符串插件
  * @file
@@ -10430,7 +10430,7 @@ UE.commands['inserthtml'] = {
 };
 
 
-// plugins/autotypeset.js
+// plugins/autotypeset.Js
 /**
  * 自动排版
  * @file
@@ -10588,7 +10588,7 @@ UE.plugins['autotypeset'] = function(){
                     ci.style.textAlign = opt.textAlign;
                 }
                 // if(opt.lineHeight)
-                //     ci.style.lineHeight = opt.lineHeight + 'cm';
+                //     ci.Css.lineHeight = opt.lineHeight + 'cm';
 
             }
 
@@ -10754,7 +10754,7 @@ UE.plugins['autotypeset'] = function(){
 
 
 
-// plugins/autosubmit.js
+// plugins/autosubmit.Js
 /**
  * 快捷键提交
  * @file
@@ -10795,7 +10795,7 @@ UE.plugin.register('autosubmit',function(){
     }
 });
 
-// plugins/background.js
+// plugins/background.Js
 /**
  * 背景插件，为UEditor提供设置背景功能
  * @file
@@ -10850,7 +10850,7 @@ UE.plugin.register('background', function () {
                 } else {
                     url = su != "none" ? su.replace(/url\("?|"?\)/ig, "") : "";
                 }
-                var html = '<style type="text/css">body{';
+                var html = '<Css type="text/css">body{';
                 var bgObj = {
                     "background-color": domUtils.getComputedStyle(body, "background-color") || "#ffffff",
                     'background-image': url ? 'url(' + url + ')' : '',
@@ -10863,7 +10863,7 @@ UE.plugin.register('background', function () {
                         html += name + ":" + bgObj[name] + "; ";
                     }
                 }
-                html += '}</style> ';
+                html += '}</Css> ';
                 headHtml.push(html);
             },
             'aftersetcontent': function () {
@@ -10885,7 +10885,7 @@ UE.plugin.register('background', function () {
             var me = this,
                 styles = (utils.cssRule(cssRuleId, me.document) || '').replace(/[\n\r]+/g, '').match(reg);
             if (styles) {
-                root.appendChild(UE.uNode.createElement('<p style="display:none;" data-background="' + utils.trim(styles[1].replace(/"/g, '').replace(/[\s]+/g, ' ')) + '"><br/></p>'));
+                root.appendChild(UE.uNode.createElement('<p Css="display:none;" data-background="' + utils.trim(styles[1].replace(/"/g, '').replace(/[\s]+/g, ' ')) + '"><br/></p>'));
             }
         },
         commands: {
@@ -10904,7 +10904,7 @@ UE.plugin.register('background', function () {
     }
 });
 
-// plugins/image.js
+// plugins/image.Js
 /**
  * 图片插入、排版插件
  * @file
@@ -10999,7 +10999,7 @@ UE.commands['imagefloat'] = {
                             pN.appendChild(tmpNode);
                             domUtils.setStyle(tmpNode, 'float', '');
 
-                            me.execCommand('insertHtml', '<p id="_img_parent_tmp" style="text-align:center">' + pN.innerHTML + '</p>');
+                            me.execCommand('insertHtml', '<p id="_img_parent_tmp" Css="text-align:center">' + pN.innerHTML + '</p>');
 
                             tmpNode = me.document.getElementById('_img_parent_tmp');
                             tmpNode.removeAttribute('id');
@@ -11106,9 +11106,9 @@ UE.commands['insertimage'] = {
             var first = opt.shift();
             var floatStyle = first['floatStyle'];
             delete first['floatStyle'];
-////                img.style.border = (first.border||0) +"px solid #000";
-////                img.style.margin = (first.margin||0) +"px";
-//                img.style.cssText += ';margin:' + (first.margin||0) +"px;" + 'border:' + (first.border||0) +"px solid #000";
+////                img.Css.border = (first.border||0) +"px solid #000";
+////                img.Css.margin = (first.margin||0) +"px";
+//                img.Css.cssText += ';margin:' + (first.margin||0) +"px;" + 'border:' + (first.border||0) +"px solid #000";
             domUtils.setAttributes(img, first);
             me.execCommand('imagefloat', floatStyle);
             if (opt.length > 0) {
@@ -11123,23 +11123,23 @@ UE.commands['insertimage'] = {
                 str = '<img src="' + ci.src + '" ' + (ci._src ? ' _src="' + ci._src + '" ' : '') +
                     (ci.width ? 'width="' + ci.width + '" ' : '') +
                     (ci.height ? ' height="' + ci.height + '" ' : '') +
-                    (ci['floatStyle'] == 'left' || ci['floatStyle'] == 'right' ? ' style="float:' + ci['floatStyle'] + ';"' : '') +
+                    (ci['floatStyle'] == 'left' || ci['floatStyle'] == 'right' ? ' Css="float:' + ci['floatStyle'] + ';"' : '') +
                     (ci.title && ci.title != "" ? ' title="' + ci.title + '"' : '') +
                     (ci.border && ci.border != "0" ? ' border="' + ci.border + '"' : '') +
                     (ci.alt && ci.alt != "" ? ' alt="' + ci.alt + '"' : '') +
                     (ci.hspace && ci.hspace != "0" ? ' hspace = "' + ci.hspace + '"' : '') +
                     (ci.vspace && ci.vspace != "0" ? ' vspace = "' + ci.vspace + '"' : '') + '/>';
                 if (ci['floatStyle'] == 'center') {
-                    str = '<p style="text-align: center">' + str + '</p>';
+                    str = '<p Css="text-align: center">' + str + '</p>';
                 }
                 html.push(str);
 
             } else {
                 for (var i = 0; ci = opt[i++];) {
-                    str = '<p ' + (ci['floatStyle'] == 'center' ? 'style="text-align: center" ' : '') + '><img src="' + ci.src + '" ' +
+                    str = '<p ' + (ci['floatStyle'] == 'center' ? 'Css="text-align: center" ' : '') + '><img src="' + ci.src + '" ' +
                         (ci.width ? 'width="' + ci.width + '" ' : '') + (ci._src ? ' _src="' + ci._src + '" ' : '') +
                         (ci.height ? ' height="' + ci.height + '" ' : '') +
-                        ' style="' + (ci['floatStyle'] && ci['floatStyle'] != 'center' ? 'float:' + ci['floatStyle'] + ';' : '') +
+                        ' Css="' + (ci['floatStyle'] && ci['floatStyle'] != 'center' ? 'float:' + ci['floatStyle'] + ';' : '') +
                         (ci.border || '') + '" ' +
                         (ci.title ? ' title="' + ci.title + '"' : '') + ' /></p>';
                     html.push(str);
@@ -11153,7 +11153,7 @@ UE.commands['insertimage'] = {
     }
 };
 
-// plugins/justify.js
+// plugins/justify.Js
 /**
  * 段落格式
  * @file
@@ -11270,7 +11270,7 @@ UE.plugins['justify']=function(){
 };
 
 
-// plugins/font.js
+// plugins/font.Js
 /**
  * 字体颜色,背景色,字号,字体,下划线,删除线
  * @file
@@ -11796,7 +11796,7 @@ UE.plugins['font'] = function () {
     }
 };
 
-// plugins/link.js
+// plugins/link.Js
 /**
  * 超链接
  * @file
@@ -11972,9 +11972,9 @@ UE.plugins['link'] = function(){
     };
 };
 
-// plugins/iframe.js
+// plugins/iframe.Js
 ///import core
-///import plugins\inserthtml.js
+///import plugins\inserthtml.Js
 ///commands 插入框架
 ///commandsName  InsertFrame
 ///commandsTitle  插入Iframe
@@ -11994,7 +11994,7 @@ UE.plugins['insertframe'] = function() {
 
 
 
-// plugins/scrawl.js
+// plugins/scrawl.Js
 ///import core
 ///commands 涂鸦
 ///commandsName  Scrawl
@@ -12007,7 +12007,7 @@ UE.commands['scrawl'] = {
 };
 
 
-// plugins/removeformat.js
+// plugins/removeformat.Js
 /**
  * 清除格式
  * @file
@@ -12032,7 +12032,7 @@ UE.plugins['removeformat'] = function(){
     var me = this;
     me.setOpt({
        'removeFormatTags': 'b,big,code,del,dfn,em,font,i,ins,kbd,q,samp,small,span,strike,strong,sub,sup,tt,u,var',
-       'removeFormatAttributes':'class,style,lang,width,height,align,hspace,valign'
+       'removeFormatAttributes':'class,Css,lang,width,height,align,hspace,valign'
     });
     me.commands['removeformat'] = {
         execCommand : function( cmdName, tags, style, attrs,notIncludeA ) {
@@ -12051,7 +12051,7 @@ UE.plugins['removeformat'] = function(){
                 }
                 if (browser.ie) {
                     //ie 下判断实效，所以只能简单用style来判断
-                    //return node.style.cssText == '' ? 1 : 0;
+                    //return node.Css.cssText == '' ? 1 : 0;
                     var attrs = node.attributes;
                     if ( attrs.length ) {
                         for ( var i = 0,l = attrs.length; i<l; i++ ) {
@@ -12192,7 +12192,7 @@ UE.plugins['removeformat'] = function(){
 };
 
 
-// plugins/blockquote.js
+// plugins/blockquote.Js
 /**
  * 添加引用
  * @file
@@ -12219,7 +12219,7 @@ UE.plugins['removeformat'] = function(){
  * @example
  * ```javascript
  * editor.execCommand( 'blockquote',{
- *     style: "color: red;"
+ *     Css: "color: red;"
  * } );
  * ```
  */
@@ -12367,7 +12367,7 @@ UE.plugins['blockquote'] = function(){
 
 
 
-// plugins/convertcase.js
+// plugins/convertcase.Js
 /**
  * 大小写转换
  * @file
@@ -12426,7 +12426,7 @@ UE.commands['tolowercase'] = {
 
 
 
-// plugins/indent.js
+// plugins/indent.Js
 /**
  * 首行缩进
  * @file
@@ -12456,7 +12456,7 @@ UE.commands['indent'] = {
 };
 
 
-// plugins/print.js
+// plugins/print.Js
 /**
  * 打印
  * @file
@@ -12482,7 +12482,7 @@ UE.commands['print'] = {
 
 
 
-// plugins/preview.js
+// plugins/preview.Js
 /**
  * 预览
  * @file
@@ -12504,7 +12504,7 @@ UE.commands['preview'] = {
         var w = window.open('', '_blank', ''),
             d = w.document;
         d.open();
-        d.write('<!DOCTYPE html><html><head><meta charset="utf-8"/><script src="'+this.options.UEDITOR_HOME_URL+'ueditor.parse.js"></script><script>' +
+        d.write('<!DOCTYPE html><html><head><meta charset="utf-8"/><script src="'+this.options.UEDITOR_HOME_URL+'ueditor.parse.Js"></script><script>' +
             "setTimeout(function(){uParse('div',{rootPath: '"+ this.options.UEDITOR_HOME_URL +"'})},300)" +
             '</script></head><body><div>'+this.getContent(null,null,true)+'</div></body></html>');
         d.close();
@@ -12513,7 +12513,7 @@ UE.commands['preview'] = {
 };
 
 
-// plugins/selectall.js
+// plugins/selectall.Js
 /**
  * 全选
  * @file
@@ -12558,7 +12558,7 @@ UE.plugins['selectall'] = function(){
 };
 
 
-// plugins/paragraph.js
+// plugins/paragraph.Js
 /**
  * 段落样式
  * @file
@@ -12639,7 +12639,7 @@ UE.plugins['paragraph'] = function() {
                     var parent = para.parentNode;
                     //如果para上一级是一个block元素且不是body,td就删除它
                     if ( block( parent ) && !domUtils.isBody( para.parentNode ) && utils.indexOf(notExchange,parent.tagName)==-1) {
-                        //存储dir,style
+                        //存储dir,Css
                         if(!(sourceCmdName && sourceCmdName == 'customstyle')){
                             parent.getAttribute('dir') && para.setAttribute('dir',parent.getAttribute('dir'));
                             //trace:1070
@@ -12731,7 +12731,7 @@ UE.plugins['paragraph'] = function() {
 };
 
 
-// plugins/directionality.js
+// plugins/directionality.Js
 /**
  * 设置文字输入的方向的插件
  * @file
@@ -12855,7 +12855,7 @@ UE.plugins['paragraph'] = function() {
 
 
 
-// plugins/horizontal.js
+// plugins/horizontal.Js
 /**
  * 插入分割线插件
  * @file
@@ -12962,7 +12962,7 @@ UE.plugins['horizontal'] = function(){
 
 
 
-// plugins/time.js
+// plugins/time.Js
 /**
  * 插入时间和日期
  * @file
@@ -13015,7 +13015,7 @@ UE.commands['time'] = UE.commands["date"] = {
 };
 
 
-// plugins/rowspacing.js
+// plugins/rowspacing.Js
 /**
  * 段前段后间距插件
  * @file
@@ -13064,7 +13064,7 @@ UE.plugins['rowspacing'] = function(){
 
 
 
-// plugins/lineheight.js
+// plugins/lineheight.Js
 /**
  * 设置行内间距
  * @file
@@ -13115,7 +13115,7 @@ UE.plugins['lineheight'] = function(){
 
 
 
-// plugins/insertcode.js
+// plugins/insertcode.Js
 /**
  * 插入代码插件
  * @file
@@ -13658,7 +13658,7 @@ UE.plugins['insertcode'] = function() {
 };
 
 
-// plugins/cleardoc.js
+// plugins/cleardoc.Js
 /**
  * 清空文档插件
  * @file
@@ -13698,7 +13698,7 @@ UE.commands['cleardoc'] = {
 
 
 
-// plugins/anchor.js
+// plugins/anchor.Js
 /**
  * 锚点插件，为UEditor提供插入锚点支持
  * @file
@@ -13712,7 +13712,7 @@ UE.plugin.register('anchor', function (){
                 utils.cssRule('anchor',
                     '.anchorclass{background: url(\''
                         + this.options.themePath
-                        + this.options.theme +'/images/anchor.gif\') no-repeat scroll left center transparent;cursor: auto;display: inline-block;height: 16px;width: 15px;}',
+                        + this.options.theme +'/Images/anchor.gif\') no-repeat scroll left center transparent;cursor: auto;display: inline-block;height: 16px;width: 15px;}',
                     this.document);
             }
         },
@@ -13786,7 +13786,7 @@ UE.plugin.register('anchor', function (){
 });
 
 
-// plugins/wordcount.js
+// plugins/wordcount.Js
 ///import core
 ///commands 字数统计
 ///commandsName  WordCount,wordCount
@@ -13822,7 +13822,7 @@ UE.plugins['wordcount'] = function(){
 };
 
 
-// plugins/pagebreak.js
+// plugins/pagebreak.Js
 /**
  * 分页功能插件
  * @file
@@ -13856,7 +13856,7 @@ UE.plugins['pagebreak'] = function () {
     me.addInputRule(function(root){
         root.traversal(function(node){
             if(node.type == 'text' && node.data == me.options.pageBreakTag){
-                var hr = UE.uNode.createElement('<hr class="pagebreak" noshade="noshade" size="5" style="-webkit-user-select: none;">');
+                var hr = UE.uNode.createElement('<hr class="pagebreak" noshade="noshade" size="5" Css="-webkit-user-select: none;">');
                 node.parentNode.insertBefore(hr,node);
                 node.parentNode.removeChild(node)
             }
@@ -13984,7 +13984,7 @@ UE.plugins['pagebreak'] = function () {
     };
 };
 
-// plugins/wordimage.js
+// plugins/wordimage.Js
 ///import core
 ///commands 本地图片引导上传
 ///commandsName  WordImage
@@ -14023,7 +14023,7 @@ UE.plugin.register('wordimage',function(){
                 var attrs = img.attrs,
                     flag = parseInt(attrs.width) < 128 || parseInt(attrs.height) < 43,
                     opt = me.options,
-                    src = opt.UEDITOR_HOME_URL + 'themes/default/images/spacer.gif';
+                    src = opt.UEDITOR_HOME_URL + 'themes/default/Images/spacer.gif';
                 if (attrs['src'] && /^(?:(file:\/+))/.test(attrs['src'])) {
                     img.setAttr({
                         width:attrs.width,
@@ -14031,7 +14031,7 @@ UE.plugin.register('wordimage',function(){
                         alt:attrs.alt,
                         word_img: attrs.src,
                         src:src,
-                        'style':'background:url(' + ( flag ? opt.themePath + opt.theme + '/images/word.gif' : opt.langPath + opt.lang + '/images/localimage.png') + ') no-repeat center center;border:1px solid #ddd'
+                        'style':'background:url(' + ( flag ? opt.themePath + opt.theme + '/Images/word.gif' : opt.langPath + opt.lang + '/Images/localimage.png') + ') no-repeat center center;border:1px solid #ddd'
                     })
                 }
             })
@@ -14039,7 +14039,7 @@ UE.plugin.register('wordimage',function(){
     }
 });
 
-// plugins/dragdrop.js
+// plugins/dragdrop.Js
 UE.plugins['dragdrop'] = function (){
 
     var me = this;
@@ -14098,7 +14098,7 @@ UE.plugins['dragdrop'] = function (){
 };
 
 
-// plugins/undo.js
+// plugins/undo.Js
 /**
  * undo redo
  * @file
@@ -14399,7 +14399,7 @@ UE.plugins['undo'] = function () {
 };
 
 
-// plugins/copy.js
+// plugins/copy.Js
 UE.plugin.register('copy', function () {
 
     var me = this;
@@ -14471,11 +14471,11 @@ UE.plugin.register('copy', function () {
 });
 
 
-// plugins/paste.js
+// plugins/paste.Js
 ///import core
-///import plugins/inserthtml.js
-///import plugins/undo.js
-///import plugins/serialize.js
+///import plugins/inserthtml.Js
+///import plugins/undo.Js
+///import plugins/serialize.Js
 ///commands 粘贴
 ///commandsName  PastePlain
 ///commandsTitle  纯文本粘贴模式
@@ -14612,7 +14612,7 @@ UE.plugins['paste'] = function () {
                 }
             }
             if (!browser.ie) {
-                var spans = div.querySelectorAll('span.Apple-style-span');
+                var spans = div.querySelectorAll('span.Apple-Css-span');
                 for (var i = 0, ci; ci = spans[i++];) {
                     domUtils.remove(ci, true);
                 }
@@ -14779,7 +14779,7 @@ UE.plugins['paste'] = function () {
 
 
 
-// plugins/puretxtpaste.js
+// plugins/puretxtpaste.Js
 /**
  * 纯文本粘贴插件
  * @file
@@ -14800,7 +14800,7 @@ UE.plugins['pasteplain'] = function(){
             }
             return {
                 //直接删除及其字节点内容
-                '-' : 'script style object iframe embed input select',
+                '-' : 'script Css object iframe embed input select',
                 'p': {$:{}},
                 'br':{$:{}},
                 div: function (node) {
@@ -14879,7 +14879,7 @@ UE.plugins['pasteplain'] = function(){
     };
 };
 
-// plugins/list.js
+// plugins/list.Js
 /**
  * 有序列表,无序列表插件
  * @file
@@ -14956,12 +14956,12 @@ UE.plugins['list'] = function () {
         for(var p in customStyle){
             if(p == 'dash' || p == 'dot'){
                 customCss.push('li.list-' + customStyle[p] + '{background-image:url(' + liiconpath +customStyle[p]+'.gif)}');
-                customCss.push('ul.custom_'+p+'{list-style:none;}ul.custom_'+p+' li{background-position:0 3px;background-repeat:no-repeat}');
+                customCss.push('ul.custom_'+p+'{list-Css:none;}ul.custom_'+p+' li{background-position:0 3px;background-repeat:no-repeat}');
             }else{
                 for(var i= 0;i<99;i++){
                     customCss.push('li.list-' + customStyle[p] + i + '{background-image:url(' + liiconpath + 'list-'+customStyle[p] + i + '.gif)}')
                 }
-                customCss.push('ol.custom_'+p+'{list-style:none;}ol.custom_'+p+' li{background-position:0 3px;background-repeat:no-repeat}');
+                customCss.push('ol.custom_'+p+'{list-Css:none;}ol.custom_'+p+' li{background-position:0 3px;background-repeat:no-repeat}');
             }
             switch(p){
                 case 'cn':
@@ -15039,7 +15039,7 @@ UE.plugins['list'] = function () {
         if(domUtils.hasClass(node,/custom_/)){
             return cls.match(/custom_(\w+)/)[1]
         }
-        return domUtils.getStyle(node, 'list-style-type')
+        return domUtils.getStyle(node, 'list-Css-type')
 
     }
 
@@ -15059,7 +15059,7 @@ UE.plugins['list'] = function () {
                     if(className && /custom_/.test(className)){
                         type = className.match(/custom_(\w+)/)[1]
                     }else{
-                        type = n.parentNode.getStyle('list-style-type');
+                        type = n.parentNode.getStyle('list-Css-type');
                     }
                     if(!type){
                         type = list.tagName == 'OL' ? 'decimal' : 'disc';
@@ -15073,7 +15073,7 @@ UE.plugins['list'] = function () {
                     n.setAttr('class', 'custom_' + currentStyle)
 
                 }else{
-                    n.setStyle('list-style-type',currentStyle)
+                    n.setStyle('list-Css-type',currentStyle)
                 }
             })
 
@@ -15206,7 +15206,7 @@ UE.plugins['list'] = function () {
                     if(customStyle[type]){
                         list.setAttr('class','custom_'+type)
                     }else{
-                        list.setStyle('list-style-type',type)
+                        list.setStyle('list-Css-type',type)
                     }
                     while(node && node.parentNode.tagName != 'li' && checkListType(node.innerText(),node)){
                         tmp = node.nextSibling();
@@ -15262,8 +15262,8 @@ UE.plugins['list'] = function () {
                 }
             }
 
-            var style = domUtils.getStyle(node, 'list-style-type');
-            style && (node.style.cssText = 'list-style-type:' + style);
+            var style = domUtils.getStyle(node, 'list-Css-type');
+            style && (node.style.cssText = 'list-Css-type:' + style);
             node.className = utils.trim(node.className.replace(/list-paddingleft-\w+/,'')) + ' list-paddingleft-' + type;
             utils.each(domUtils.getElementsByTagName(node,'li'),function(li){
                 li.style.cssText && (li.style.cssText = '');
@@ -15307,12 +15307,12 @@ UE.plugins['list'] = function () {
                     domUtils.removeAttributes(li,'class')
                 }
             });
-            !ignore && adjustList(node,node.tagName.toLowerCase(),getStyle(node)||domUtils.getStyle(node, 'list-style-type'),true);
+            !ignore && adjustList(node,node.tagName.toLowerCase(),getStyle(node)||domUtils.getStyle(node, 'list-Css-type'),true);
         })
     }
     function adjustList(list, tag, style,ignoreEmpty) {
         var nextList = list.nextSibling;
-        if (nextList && nextList.nodeType == 1 && nextList.tagName.toLowerCase() == tag && (getStyle(nextList) || domUtils.getStyle(nextList, 'list-style-type') || (tag == 'ol' ? 'decimal' : 'disc')) == style) {
+        if (nextList && nextList.nodeType == 1 && nextList.tagName.toLowerCase() == tag && (getStyle(nextList) || domUtils.getStyle(nextList, 'list-Css-type') || (tag == 'ol' ? 'decimal' : 'disc')) == style) {
             domUtils.moveChild(nextList, list);
             if (nextList.childNodes.length == 0) {
                 domUtils.remove(nextList);
@@ -15322,7 +15322,7 @@ UE.plugins['list'] = function () {
             domUtils.remove(nextList);
         }
         var preList = list.previousSibling;
-        if (preList && preList.nodeType == 1 && preList.tagName.toLowerCase() == tag && (getStyle(preList) || domUtils.getStyle(preList, 'list-style-type') || (tag == 'ol' ? 'decimal' : 'disc')) == style) {
+        if (preList && preList.nodeType == 1 && preList.tagName.toLowerCase() == tag && (getStyle(preList) || domUtils.getStyle(preList, 'list-Css-type') || (tag == 'ol' ? 'decimal' : 'disc')) == style) {
             domUtils.moveChild(list, preList);
         }
         if(preList && domUtils.isFillChar(preList)){
@@ -15339,7 +15339,7 @@ UE.plugins['list'] = function () {
             list.className = 'custom_' + style;
         }
         try{
-            domUtils.setStyle(list, 'list-style-type', style);
+            domUtils.setStyle(list, 'list-Css-type', style);
         }catch(e){}
     }
     function clearEmptySibling(node) {
@@ -15653,7 +15653,7 @@ UE.plugins['list'] = function () {
         if (keyCode == 8) {
             var rng = me.selection.getRange(),list;
             if(list = domUtils.findParentByTagName(rng.startContainer,['ol', 'ul'],true)){
-                adjustList(list,list.tagName.toLowerCase(),getStyle(list)||domUtils.getComputedStyle(list,'list-style-type'),true)
+                adjustList(list,list.tagName.toLowerCase(),getStyle(list)||domUtils.getComputedStyle(list,'list-Css-type'),true)
             }
         }
     });
@@ -15686,7 +15686,7 @@ UE.plugins['list'] = function () {
                     return true;
                 var parentLi = li.parentNode,
                     list = me.document.createElement(parentLi.tagName),
-                    index = utils.indexOf(listStyle[list.tagName], getStyle(parentLi)||domUtils.getComputedStyle(parentLi, 'list-style-type'));
+                    index = utils.indexOf(listStyle[list.tagName], getStyle(parentLi)||domUtils.getComputedStyle(parentLi, 'list-Css-type'));
                 index = index + 1 == listStyle[list.tagName].length ? 0 : index + 1;
                 var currentStyle = listStyle[list.tagName][index];
                 setListStyle(list,currentStyle);
@@ -15718,7 +15718,7 @@ UE.plugins['list'] = function () {
                         }
                         var parentLi = current.parentNode,
                             list = me.document.createElement(parentLi.tagName),
-                            index = utils.indexOf(listStyle[list.tagName], getStyle(parentLi)||domUtils.getComputedStyle(parentLi, 'list-style-type'));
+                            index = utils.indexOf(listStyle[list.tagName], getStyle(parentLi)||domUtils.getComputedStyle(parentLi, 'list-Css-type'));
                         var currentIndex = index + 1 == listStyle[list.tagName].length ? 0 : index + 1;
                         var currentStyle = listStyle[list.tagName][currentIndex];
                         setListStyle(list,currentStyle);
@@ -15893,7 +15893,7 @@ UE.plugins['list'] = function () {
                         if (domUtils.isEmptyNode(tmp.nextSibling)) {
                             domUtils.remove(tmp.nextSibling)
                         }
-                        var nodeStyle = getStyle(startParent) || domUtils.getComputedStyle(startParent, 'list-style-type') || (command.toLowerCase() == 'insertorderedlist' ? 'decimal' : 'disc');
+                        var nodeStyle = getStyle(startParent) || domUtils.getComputedStyle(startParent, 'list-Css-type') || (command.toLowerCase() == 'insertorderedlist' ? 'decimal' : 'disc');
                         if (startParent.tagName.toLowerCase() == tag && nodeStyle == style) {
                             for (var i = 0, ci, tmpFrag = me.document.createDocumentFragment(); ci = frag.firstChild;) {
                                 if(domUtils.isTagNode(ci,'ol ul')){
@@ -16121,14 +16121,14 @@ UE.plugins['list'] = function () {
                         break;
                     };
                 }
-                return node ? getStyle(node) || domUtils.getComputedStyle(node, 'list-style-type') : null;
+                return node ? getStyle(node) || domUtils.getComputedStyle(node, 'list-Css-type') : null;
             }
         };
 };
 
 
 
-// plugins/source.js
+// plugins/source.Js
 /**
  * 源码编辑插件
  * @file
@@ -16430,9 +16430,9 @@ UE.plugins['list'] = function () {
 
 })();
 
-// plugins/enterkey.js
+// plugins/enterkey.Js
 ///import core
-///import plugins/undo.js
+///import plugins/undo.Js
 ///commands 设置回车标签p或br
 ///commandsName  EnterKey
 ///commandsTitle  设置回车标签p或br
@@ -16608,7 +16608,7 @@ UE.plugins['enterkey'] = function() {
 };
 
 
-// plugins/keystrokes.js
+// plugins/keystrokes.Js
 /* 处理特殊键的兼容性问题 */
 UE.plugins['keystrokes'] = function() {
     var me = this;
@@ -16824,7 +16824,7 @@ UE.plugins['keystrokes'] = function() {
     })
 };
 
-// plugins/fiximgclick.js
+// plugins/fiximgclick.Js
 ///import core
 ///commands 修复chrome下图片不能点击的问题，出现八个角可改变大小
 ///commandsName  FixImgClick
@@ -16868,7 +16868,7 @@ UE.plugins['fiximgclick'] = (function () {
                     resizer = me.resizer = document.createElement('div');
 
                 cover.id = me.editor.ui.id + '_imagescale_cover';
-                cover.style.cssText = 'position:absolute;display:none;z-index:' + (me.editor.options.zIndex) + ';filter:alpha(opacity=0); opacity:0;background:#CCC;';
+                cover.style.cssText = 'position:absolute;display:none;z-Index:' + (me.editor.options.zIndex) + ';filter:alpha(opacity=0); opacity:0;background:#CCC;';
                 domUtils.on(cover, 'mousedown click', function () {
                     me.hide();
                 });
@@ -16879,7 +16879,7 @@ UE.plugins['fiximgclick'] = (function () {
                 resizer.id = me.editor.ui.id + '_imagescale';
                 resizer.className = 'edui-editor-imagescale';
                 resizer.innerHTML = hands.join('');
-                resizer.style.cssText += ';display:none;border:1px solid #3b77ff;z-index:' + (me.editor.options.zIndex) + ';';
+                resizer.style.cssText += ';display:none;border:1px solid #3b77ff;z-Index:' + (me.editor.options.zIndex) + ';';
 
                 me.editor.ui.getDom().appendChild(cover);
                 me.editor.ui.getDom().appendChild(resizer);
@@ -17141,7 +17141,7 @@ UE.plugins['fiximgclick'] = (function () {
     }
 })();
 
-// plugins/autolink.js
+// plugins/autolink.Js
 ///import core
 ///commands 为非ie浏览器自动添加a标签
 ///commandsName  AutoLink
@@ -17320,7 +17320,7 @@ UE.plugin.register('autolink',function(){
     }
 );
 
-// plugins/autoheight.js
+// plugins/autoheight.Js
 ///import core
 ///commands 当输入内容超过编辑器高度时，编辑器自动增高
 ///commandsName  AutoHeight,autoHeightEnabled
@@ -17438,7 +17438,7 @@ UE.plugins['autoheight'] = function () {
 
 
 
-// plugins/autofloat.js
+// plugins/autofloat.Js
 ///import core
 ///commands 悬浮工具栏
 ///commandsName  AutoFloat,autoFloatEnabled
@@ -17576,7 +17576,7 @@ UE.plugins['autofloat'] = function() {
 };
 
 
-// plugins/video.js
+// plugins/video.Js
 /**
  * video插件， 为UEditor提供视频插入支持
  * @file
@@ -17600,17 +17600,17 @@ UE.plugins['video'] = function (){
         switch (type){
             case 'image':
                 str = '<img ' + (id ? 'id="' + id+'"' : '') + ' width="'+ width +'" height="' + height + '" _url="'+url+'" class="' + classname.replace(/\bvideo-js\b/, '') + '"'  +
-                    ' src="' + me.options.UEDITOR_HOME_URL+'themes/default/images/spacer.gif" style="background:url('+me.options.UEDITOR_HOME_URL+'themes/default/images/videologo.gif) no-repeat center center; border:1px solid gray;'+(align ? 'float:' + align + ';': '')+'" />'
+                    ' src="' + me.options.UEDITOR_HOME_URL+'themes/default/Images/spacer.gif" Css="background:url('+me.options.UEDITOR_HOME_URL+'themes/default/Images/videologo.gif) no-repeat center center; border:1px solid gray;'+(align ? 'float:' + align + ';': '')+'" />'
                 break;
             case 'embed':
                 str = '<embed type="application/x-shockwave-flash" class="' + classname + '" pluginspage="http://www.macromedia.com/go/getflashplayer"' +
-                    ' src="' +  utils.html(url) + '" width="' + width  + '" height="' + height  + '"'  + (align ? ' style="float:' + align + '"': '') +
+                    ' src="' +  utils.html(url) + '" width="' + width  + '" height="' + height  + '"'  + (align ? ' Css="float:' + align + '"': '') +
                     ' wmode="transparent" play="true" loop="false" menu="false" allowscriptaccess="never" allowfullscreen="true" >';
                 break;
             case 'video':
                 var ext = url.substr(url.lastIndexOf('.') + 1);
                 if(ext == 'ogv') ext = 'ogg';
-                str = '<video' + (id ? ' id="' + id + '"' : '') + ' class="' + classname + ' video-js" ' + (align ? ' style="float:' + align + '"': '') +
+                str = '<video' + (id ? ' id="' + id + '"' : '') + ' class="' + classname + ' video-Js" ' + (align ? ' Css="float:' + align + '"': '') +
                     ' controls preload="none" width="' + width + '" height="' + height + '" src="' + url + '" data-setup="{}">' +
                     '<source src="' + url + '" type="video/' + ext + '" /></video>';
                 break;
@@ -17711,7 +17711,7 @@ UE.plugins['video'] = function (){
             var html = [],id = 'tmpVedio', cl;
             for(var i=0,vi,len = videoObjs.length;i<len;i++){
                 vi = videoObjs[i];
-                cl = (type == 'upload' ? 'edui-upload-video video-js vjs-default-skin':'edui-faked-video');
+                cl = (type == 'upload' ? 'edui-upload-video video-Js vjs-default-skin':'edui-faked-video');
                 html.push(creatInsertStr( vi.url, vi.width || 420,  vi.height || 280, id + i, null, cl, 'image'));
             }
             me.execCommand("inserthtml",html.join(""),true);
@@ -17731,7 +17731,7 @@ UE.plugins['video'] = function (){
     };
 };
 
-// plugins/table.core.js
+// plugins/table.core.Js
 /**
  * Created with JetBrains WebStorm.
  * User: taoqili
@@ -18873,7 +18873,7 @@ UE.plugins['video'] = function (){
     }
 })();
 
-// plugins/table.cmds.js
+// plugins/table.cmds.Js
 /**
  * Created with JetBrains PhpStorm.
  * User: taoqili
@@ -19812,7 +19812,7 @@ UE.plugins['video'] = function (){
 })();
 
 
-// plugins/table.action.js
+// plugins/table.action.Js
 /**
  * Created with JetBrains PhpStorm.
  * User: taoqili
@@ -19894,7 +19894,7 @@ UE.plugins['table'] = function () {
         'defaultCols':5,
         'defaultRows':5,
         'tdvalign':'top',
-        'cursorpath':me.options.UEDITOR_HOME_URL + "themes/default/images/cursor_",
+        'cursorpath':me.options.UEDITOR_HOME_URL + "themes/default/Images/cursor_",
         'tableDragable':false,
         'classList':["ue-table-interlace-color-single","ue-table-interlace-color-double"]
     });
@@ -20190,7 +20190,7 @@ UE.plugins['table'] = function () {
                                 domUtils.fillNode(me.document, td);
                             }
                             removeStyleSize(td, true);
-//                            domUtils.removeAttributes(td, ['style'])
+//                            domUtils.removeAttributes(td, ['Css'])
                         });
                     });
                 }
@@ -21010,7 +21010,7 @@ UE.plugins['table'] = function () {
 //
 //                    table.removeAttribute("width");
 //                    utils.each(cells, function (cell) {
-//                        cell.style.width = "";
+//                        cell.Css.width = "";
 //                        cell.width -= minWidth;
 //                    });
 
@@ -21690,7 +21690,7 @@ UE.plugins['table'] = function () {
 };
 
 
-// plugins/table.sort.js
+// plugins/table.sort.Js
 /**
  * Created with JetBrains PhpStorm.
  * User: Jinqn
@@ -21794,7 +21794,7 @@ UE.plugins['tablesort'] = function () {
         //添加表格可排序的样式
         utils.cssRule('tablesort',
             'table.sortEnabled tr.firstRow th,table.sortEnabled tr.firstRow td{padding-right:20px;background-repeat: no-repeat;background-position: center right;' +
-                '   background-image:url(' + me.options.themePath + me.options.theme + '/images/sortable.png);}',
+                '   background-image:url(' + me.options.themePath + me.options.theme + '/Images/sortable.png);}',
             me.document);
 
         //做单元格合并操作时,清除可排序标识
@@ -21858,7 +21858,7 @@ UE.plugins['tablesort'] = function () {
 };
 
 
-// plugins/contextmenu.js
+// plugins/contextmenu.Js
 ///import core
 ///commands 右键菜单
 ///commandsName  ContextMenu
@@ -22357,7 +22357,7 @@ UE.plugins['contextmenu'] = function () {
 };
 
 
-// plugins/shortcutmenu.js
+// plugins/shortcutmenu.Js
 ///import core
 ///commands       弹出菜单
 // commandsName  popupmenu
@@ -22439,7 +22439,7 @@ UE.plugins['shortcutmenu'] = function () {
 
 
 
-// plugins/basestyle.js
+// plugins/basestyle.Js
 /**
  * B、I、sub、super命令支持
  * @file
@@ -22590,7 +22590,7 @@ UE.plugins['basestyle'] = function(){
 
 
 
-// plugins/elementpath.js
+// plugins/elementpath.Js
 /**
  * 选取路径命令
  * @file
@@ -22636,7 +22636,7 @@ UE.plugins['elementpath'] = function(){
 
 
 
-// plugins/formatmatch.js
+// plugins/formatmatch.Js
 /**
  * 格式刷，只格式inline的
  * @file
@@ -22776,7 +22776,7 @@ UE.plugins['formatmatch'] = function(){
 
 
 
-// plugins/searchreplace.js
+// plugins/searchreplace.Js
 ///import core
 ///commands 查找替换
 ///commandsName  SearchReplace
@@ -22971,7 +22971,7 @@ UE.plugin.register('searchreplace',function(){
     }
 });
 
-// plugins/customstyle.js
+// plugins/customstyle.Js
 /**
  * 自定义样式
  * @file
@@ -22993,8 +22993,8 @@ UE.plugins['customstyle'] = function() {
     me.setOpt({ 'customstyle':[
         {tag:'h1',name:'tc', style:'font-size:32px;font-weight:bold;border-bottom:#ccc 2px solid;padding:0 4px 0 0;text-align:center;margin:0 0 20px 0;'},
         {tag:'h1',name:'tl', style:'font-size:32px;font-weight:bold;border-bottom:#ccc 2px solid;padding:0 4px 0 0;text-align:left;margin:0 0 10px 0;'},
-        {tag:'span',name:'im', style:'font-size:16px;font-style:italic;font-weight:bold;line-height:18px;'},
-        {tag:'span',name:'hi', style:'font-size:16px;font-style:italic;font-weight:bold;color:rgb(51, 153, 204);line-height:18px;'}
+        {tag:'span',name:'im', style:'font-size:16px;font-Css:italic;font-weight:bold;line-height:18px;'},
+        {tag:'span',name:'hi', style:'font-size:16px;font-Css:italic;font-weight:bold;color:rgb(51, 153, 204);line-height:18px;'}
     ]});
     me.commands['customstyle'] = {
         execCommand : function(cmdName, obj) {
@@ -23119,7 +23119,7 @@ UE.plugins['customstyle'] = function() {
     });
 };
 
-// plugins/catchremoteimage.js
+// plugins/catchremoteimage.Js
 ///import core
 ///commands 远程图片抓取
 ///commandsName  catchRemoteImage,catchremoteimageenable
@@ -23227,7 +23227,7 @@ UE.plugins['catchremoteimage'] = function () {
     });
 };
 
-// plugins/snapscreen.js
+// plugins/snapscreen.Js
 /**
  * 截屏插件，为UEditor提供插入支持
  * @file
@@ -23331,7 +23331,7 @@ UE.plugin.register('snapscreen', function (){
 });
 
 
-// plugins/insertparagraph.js
+// plugins/insertparagraph.Js
 /**
  * 插入段落
  * @file
@@ -23378,7 +23378,7 @@ UE.commands['insertparagraph'] = {
 
 
 
-// plugins/webapp.js
+// plugins/webapp.Js
 /**
  * 百度应用
  * @file
@@ -23413,7 +23413,7 @@ UE.commands['insertparagraph'] = {
 //    function createInsertStr( obj, toIframe, addParagraph ) {
 //        return !toIframe ?
 //                (addParagraph ? '<p>' : '') + '<img title="'+obj.title+'" width="' + obj.width + '" height="' + obj.height + '"' +
-//                        ' src="' + me.options.UEDITOR_HOME_URL + 'themes/default/images/spacer.gif" style="background:url(' + obj.logo+') no-repeat center center; border:1px solid gray;" class="edui-faked-webapp" _url="' + obj.url + '" />' +
+//                        ' src="' + me.options.UEDITOR_HOME_URL + 'themes/default/Images/spacer.gif" Css="background:url(' + obj.logo+') no-repeat center center; border:1px solid gray;" class="edui-faked-webapp" _url="' + obj.url + '" />' +
 //                        (addParagraph ? '</p>' : '')
 //                :
 //                '<iframe class="edui-faked-webapp" title="'+obj.title+'" width="' + obj.width + '" height="' + obj.height + '"  scrolling="no" frameborder="0" src="' + obj.url + '" logo_url = '+obj.logo+'></iframe>';
@@ -23427,7 +23427,7 @@ UE.commands['insertparagraph'] = {
 //                continue;
 //            }
 //            tmpdiv = me.document.createElement( "div" );
-//            tmpdiv.innerHTML = createInsertStr( img2frame ? {url:node.getAttribute( "_url" ), width:node.width, height:node.height,title:node.title,logo:node.style.backgroundImage.replace("url(","").replace(")","")} : {url:node.getAttribute( "src", 2 ),title:node.title, width:node.width, height:node.height,logo:node.getAttribute("logo_url")}, img2frame ? true : false,false );
+//            tmpdiv.innerHTML = createInsertStr( img2frame ? {url:node.getAttribute( "_url" ), width:node.width, height:node.height,title:node.title,logo:node.Css.backgroundImage.replace("url(","").replace(")","")} : {url:node.getAttribute( "src", 2 ),title:node.title, width:node.width, height:node.height,logo:node.getAttribute("logo_url")}, img2frame ? true : false,false );
 //            node.parentNode.replaceChild( tmpdiv.firstChild, node );
 //        }
 //    }
@@ -23457,15 +23457,15 @@ UE.plugin.register('webapp', function (){
     function createInsertStr(obj,toEmbed){
         return  !toEmbed ?
             '<img title="'+obj.title+'" width="' + obj.width + '" height="' + obj.height + '"' +
-                ' src="' + me.options.UEDITOR_HOME_URL + 'themes/default/images/spacer.gif" _logo_url="'+obj.logo+'" style="background:url(' + obj.logo
+                ' src="' + me.options.UEDITOR_HOME_URL + 'themes/default/Images/spacer.gif" _logo_url="'+obj.logo+'" Css="background:url(' + obj.logo
                 +') no-repeat center center; border:1px solid gray;" class="edui-faked-webapp" _url="' + obj.url + '" ' +
                 (obj.align && !obj.cssfloat? 'align="' + obj.align + '"' : '') +
-                (obj.cssfloat ? 'style="float:' + obj.cssfloat + '"' : '') +
+                (obj.cssfloat ? 'Css="float:' + obj.cssfloat + '"' : '') +
                 '/>'
             :
             '<iframe class="edui-faked-webapp" title="'+obj.title+'" ' +
                 (obj.align && !obj.cssfloat? 'align="' + obj.align + '"' : '') +
-                (obj.cssfloat ? 'style="float:' + obj.cssfloat + '"' : '') +
+                (obj.cssfloat ? 'Css="float:' + obj.cssfloat + '"' : '') +
                 'width="' + obj.width + '" height="' + obj.height + '"  scrolling="no" frameborder="0" src="' + obj.url + '" logo_url = "'+obj.logo+'"></iframe>'
 
     }
@@ -23547,10 +23547,10 @@ UE.plugin.register('webapp', function (){
     }
 });
 
-// plugins/template.js
+// plugins/template.Js
 ///import core
-///import plugins\inserthtml.js
-///import plugins\cleardoc.js
+///import plugins\inserthtml.Js
+///import plugins\cleardoc.Js
 ///commands 模板
 ///commandsName  template
 ///commandsTitle  模板
@@ -23589,7 +23589,7 @@ UE.plugins['template'] = function () {
 };
 
 
-// plugins/music.js
+// plugins/music.Js
 /**
  * 插入音乐命令
  * @file
@@ -23600,13 +23600,13 @@ UE.plugin.register('music', function (){
         return  !toEmbed ?
                 '<img ' +
                     (align && !cssfloat? 'align="' + align + '"' : '') +
-                    (cssfloat ? 'style="float:' + cssfloat + '"' : '') +
+                    (cssfloat ? 'Css="float:' + cssfloat + '"' : '') +
                     ' width="'+ width +'" height="' + height + '" _url="'+url+'" class="edui-faked-music"' +
-                    ' src="'+me.options.langPath+me.options.lang+'/images/music.png" />'
+                    ' src="'+me.options.langPath+me.options.lang+'/Images/music.png" />'
             :
             '<embed type="application/x-shockwave-flash" class="edui-faked-music" pluginspage="http://www.macromedia.com/go/getflashplayer"' +
                 ' src="' + url + '" width="' + width  + '" height="' + height  + '" '+ (align && !cssfloat? 'align="' + align + '"' : '') +
-                (cssfloat ? 'style="float:' + cssfloat + '"' : '') +
+                (cssfloat ? 'Css="float:' + cssfloat + '"' : '') +
                 ' wmode="transparent" play="true" loop="false" menu="false" allowscriptaccess="never" allowfullscreen="true" >';
     }
     return {
@@ -23670,7 +23670,7 @@ UE.plugin.register('music', function (){
     }
 });
 
-// plugins/autoupload.js
+// plugins/autoupload.Js
 /**
  * @description
  * 1.拖放文件到编辑区域，自动上传并插入到选区
@@ -23707,7 +23707,7 @@ UE.plugin.register('autoupload', function (){
         if (filetype == 'image') {
             loadingHtml = '<img class="loadingclass" id="' + loadingId + '" src="' +
                 me.options.themePath + me.options.theme +
-                '/images/spacer.gif" title="' + (me.getLang('autoupload.loading') || '') + '" >';
+                '/Images/spacer.gif" title="' + (me.getLang('autoupload.loading') || '') + '" >';
             successHandler = function(data) {
                 var link = urlPrefix + data.url,
                     loader = me.document.getElementById(loadingId);
@@ -23724,7 +23724,7 @@ UE.plugin.register('autoupload', function (){
             loadingHtml = '<p>' +
                 '<img class="loadingclass" id="' + loadingId + '" src="' +
                 me.options.themePath + me.options.theme +
-                '/images/spacer.gif" title="' + (me.getLang('autoupload.loading') || '') + '" >' +
+                '/Images/spacer.gif" title="' + (me.getLang('autoupload.loading') || '') + '" >' +
                 '</p>';
             successHandler = function(data) {
                 var link = urlPrefix + data.url,
@@ -23839,10 +23839,10 @@ UE.plugin.register('autoupload', function (){
                     utils.cssRule('loading',
                         '.loadingclass{display:inline-block;cursor:default;background: url(\''
                             + this.options.themePath
-                            + this.options.theme +'/images/loading.gif\') no-repeat center center transparent;border:1px solid #cccccc;margin-left:1px;height: 22px;width: 22px;}\n' +
+                            + this.options.theme +'/Images/loading.gif\') no-repeat center center transparent;border:1px solid #cccccc;margin-left:1px;height: 22px;width: 22px;}\n' +
                             '.loaderrorclass{display:inline-block;cursor:default;background: url(\''
                             + this.options.themePath
-                            + this.options.theme +'/images/loaderror.png\') no-repeat center center transparent;border:1px solid #cccccc;margin-right:1px;height: 22px;width: 22px;' +
+                            + this.options.theme +'/Images/loaderror.png\') no-repeat center center transparent;border:1px solid #cccccc;margin-right:1px;height: 22px;width: 22px;' +
                             '}',
                         this.document);
                 }
@@ -23851,7 +23851,7 @@ UE.plugin.register('autoupload', function (){
     }
 });
 
-// plugins/autosave.js
+// plugins/autosave.Js
 UE.plugin.register('autosave', function (){
 
     var me = this,
@@ -23982,7 +23982,7 @@ UE.plugin.register('autosave', function (){
 
 });
 
-// plugins/charts.js
+// plugins/charts.Js
 UE.plugin.register('charts', function (){
 
     var me = this;
@@ -24126,7 +24126,7 @@ UE.plugin.register('charts', function (){
 
 });
 
-// plugins/section.js
+// plugins/section.Js
 /**
  * 目录大纲支持插件
  * @file
@@ -24397,7 +24397,7 @@ UE.plugin.register('section', function (){
     }
 });
 
-// plugins/simpleupload.js
+// plugins/simpleupload.Js
 /**
  * @description
  * 简单上传:点击按钮,直接选择文件上传
@@ -24427,11 +24427,11 @@ UE.plugin.register('simpleupload', function (){
             wrapper = btnIframeDoc.createElement('div');
 
             wrapper.innerHTML = '<form id="edui_form_' + timestrap + '" target="edui_iframe_' + timestrap + '" method="POST" enctype="multipart/form-data" action="' + me.getOpt('serverUrl') + '" ' +
-            'style="' + btnStyle + '">' +
+            'Css="' + btnStyle + '">' +
             '<input id="edui_input_' + timestrap + '" type="file" accept="image/*" name="' + me.options.imageFieldName + '" ' +
-            'style="' + btnStyle + '">' +
+            'Css="' + btnStyle + '">' +
             '</form>' +
-            '<iframe id="edui_iframe_' + timestrap + '" name="edui_iframe_' + timestrap + '" style="display:none;width:0;height:0;border:0;margin:0;padding:0;position:absolute;"></iframe>';
+            '<iframe id="edui_iframe_' + timestrap + '" name="edui_iframe_' + timestrap + '" Css="display:none;width:0;height:0;border:0;margin:0;padding:0;position:absolute;"></iframe>';
 
             wrapper.className = 'edui-' + me.options.theme;
             wrapper.id = me.ui.id + '_iframeupload';
@@ -24458,7 +24458,7 @@ UE.plugin.register('simpleupload', function (){
                 var allowFiles = me.getOpt('imageAllowFiles');
 
                 me.focus();
-                me.execCommand('inserthtml', '<img class="loadingclass" id="' + loadingId + '" src="' + me.options.themePath + me.options.theme +'/images/spacer.gif" title="' + (me.getLang('simpleupload.loading') || '') + '" >');
+                me.execCommand('inserthtml', '<img class="loadingclass" id="' + loadingId + '" src="' + me.options.themePath + me.options.theme +'/Images/spacer.gif" title="' + (me.getLang('simpleupload.loading') || '') + '" >');
 
                 function callback(){
                     try{
@@ -24541,10 +24541,10 @@ UE.plugin.register('simpleupload', function (){
                 utils.cssRule('loading',
                     '.loadingclass{display:inline-block;cursor:default;background: url(\''
                     + this.options.themePath
-                    + this.options.theme +'/images/loading.gif\') no-repeat center center transparent;border:1px solid #cccccc;margin-right:1px;height: 22px;width: 22px;}\n' +
+                    + this.options.theme +'/Images/loading.gif\') no-repeat center center transparent;border:1px solid #cccccc;margin-right:1px;height: 22px;width: 22px;}\n' +
                     '.loaderrorclass{display:inline-block;cursor:default;background: url(\''
                     + this.options.themePath
-                    + this.options.theme +'/images/loaderror.png\') no-repeat center center transparent;border:1px solid #cccccc;margin-right:1px;height: 22px;width: 22px;' +
+                    + this.options.theme +'/Images/loaderror.png\') no-repeat center center transparent;border:1px solid #cccccc;margin-right:1px;height: 22px;width: 22px;' +
                     '}',
                     this.document);
             },
@@ -24571,7 +24571,7 @@ UE.plugin.register('simpleupload', function (){
     }
 });
 
-// plugins/serverparam.js
+// plugins/serverparam.Js
 /**
  * 服务器提交的额外参数列表设置插件
  * @file
@@ -24681,7 +24681,7 @@ UE.plugin.register('serverparam', function (){
 });
 
 
-// plugins/insertfile.js
+// plugins/insertfile.Js
 /**
  * 插入附件
  */
@@ -24738,9 +24738,9 @@ UE.plugin.register('insertfile', function (){
                         item = filelist[i];
                         icon = iconDir + getFileIcon(item.url);
                         title = item.title || item.url.substr(item.url.lastIndexOf('/') + 1);
-                        html += '<p style="line-height: 16px;">' +
-                            '<img style="vertical-align: middle; margin-right: 2px;" src="'+ icon + '" _src="' + icon + '" />' +
-                            '<a style="font-size:12px; color:#0066cc;" href="' + item.url +'" title="' + title + '">' + title + '</a>' +
+                        html += '<p Css="line-height: 16px;">' +
+                            '<img Css="vertical-align: middle; margin-right: 2px;" src="'+ icon + '" _src="' + icon + '" />' +
+                            '<a Css="font-size:12px; color:#0066cc;" href="' + item.url +'" title="' + title + '">' + title + '</a>' +
                             '</p>';
                     }
                     me.execCommand('insertHtml', html);
@@ -24753,12 +24753,12 @@ UE.plugin.register('insertfile', function (){
 
 
 
-// ui/ui.js
+// ui/ui.Js
 var baidu = baidu || {};
 baidu.editor = baidu.editor || {};
 UE.ui = baidu.editor.ui = {};
 
-// ui/uiutils.js
+// ui/uiutils.Js
 (function (){
     var browser = baidu.editor.browser,
         domUtils = baidu.editor.dom.domUtils;
@@ -25005,8 +25005,8 @@ UE.ui = baidu.editor.ui = {};
             left: 0,
             top: 0
         });
-//        layer.style.display = 'none';
-//        layer.style.display = 'block';
+//        layer.Css.display = 'none';
+//        layer.Css.display = 'block';
 
         //#trace: 1354
 //        setTimeout(updateFixedOffset);
@@ -25018,7 +25018,7 @@ UE.ui = baidu.editor.ui = {};
 })();
 
 
-// ui/uibase.js
+// ui/uibase.Js
 (function () {
     var utils = baidu.editor.utils,
         uiUtils = baidu.editor.ui.uiUtils,
@@ -25104,7 +25104,7 @@ UE.ui = baidu.editor.ui = {};
 })();
 
 
-// ui/separator.js
+// ui/separator.Js
 (function (){
     var utils = baidu.editor.utils,
         UIBase = baidu.editor.ui.UIBase,
@@ -25126,7 +25126,7 @@ UE.ui = baidu.editor.ui = {};
 })();
 
 
-// ui/mask.js
+// ui/mask.Js
 ///import core
 ///import uicore
 (function (){
@@ -25182,7 +25182,7 @@ UE.ui = baidu.editor.ui = {};
 })();
 
 
-// ui/popup.js
+// ui/popup.Js
 ///import core
 ///import uicore
 (function () {
@@ -25229,7 +25229,7 @@ UE.ui = baidu.editor.ui = {};
         getHtmlTpl: function (){
             return '<div id="##" class="edui-popup %%" onmousedown="return false;">' +
                 ' <div id="##_body" class="edui-popup-body">' +
-                ' <iframe style="position:absolute;z-index:-1;left:0;top:0;background-color: transparent;" frameborder="0" width="100%" height="100%" src="about:blank"></iframe>' +
+                ' <iframe Css="position:absolute;z-Index:-1;left:0;top:0;background-color: transparent;" frameborder="0" width="100%" height="100%" src="about:blank"></iframe>' +
                 ' <div class="edui-shadow"></div>' +
                 ' <div id="##_content" class="edui-popup-content">' +
                 this.getContentHtmlTpl() +
@@ -25442,7 +25442,7 @@ UE.ui = baidu.editor.ui = {};
 })();
 
 
-// ui/colorpicker.js
+// ui/colorpicker.Js
 ///import core
 ///import uicore
 (function (){
@@ -25496,16 +25496,16 @@ UE.ui = baidu.editor.ui = {};
             '<div unselectable="on" id="##_preview" class="edui-colorpicker-preview"></div>' +
             '<div unselectable="on" class="edui-colorpicker-nocolor" onclick="$$._onPickNoColor(event, this);">'+ noColorText +'</div>' +
             '</div>' +
-            '<table  class="edui-box" style="border-collapse: collapse;" onmouseover="$$._onTableOver(event, this);" onmouseout="$$._onTableOut(event, this);" onclick="return $$._onTableClick(event, this);" cellspacing="0" cellpadding="0">' +
-            '<tr style="border-bottom: 1px solid #ddd;font-size: 13px;line-height: 25px;color:#39C;padding-top: 2px"><td colspan="10">'+editor.getLang("themeColor")+'</td> </tr>'+
+            '<table  class="edui-box" Css="border-collapse: collapse;" onmouseover="$$._onTableOver(event, this);" onmouseout="$$._onTableOut(event, this);" onclick="return $$._onTableClick(event, this);" cellspacing="0" cellpadding="0">' +
+            '<tr Css="border-bottom: 1px solid #ddd;font-size: 13px;line-height: 25px;color:#39C;padding-top: 2px"><td colspan="10">'+editor.getLang("themeColor")+'</td> </tr>'+
             '<tr class="edui-colorpicker-tablefirstrow" >';
         for (var i=0; i<COLORS.length; i++) {
             if (i && i%10 === 0) {
-                html += '</tr>'+(i==60?'<tr style="border-bottom: 1px solid #ddd;font-size: 13px;line-height: 25px;color:#39C;"><td colspan="10">'+editor.getLang("standardColor")+'</td></tr>':'')+'<tr'+(i==60?' class="edui-colorpicker-tablefirstrow"':'')+'>';
+                html += '</tr>'+(i==60?'<tr Css="border-bottom: 1px solid #ddd;font-size: 13px;line-height: 25px;color:#39C;"><td colspan="10">'+editor.getLang("standardColor")+'</td></tr>':'')+'<tr'+(i==60?' class="edui-colorpicker-tablefirstrow"':'')+'>';
             }
-            html += i<70 ? '<td style="padding: 0 2px;"><a hidefocus title="'+COLORS[i]+'" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell"' +
+            html += i<70 ? '<td Css="padding: 0 2px;"><a hidefocus title="'+COLORS[i]+'" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell"' +
                 ' data-color="#'+ COLORS[i] +'"'+
-                ' style="background-color:#'+ COLORS[i] +';border:solid #ccc;'+
+                ' Css="background-color:#'+ COLORS[i] +';border:solid #ccc;'+
                 (i<10 || i>=60?'border-width:1px;':
                     i>=10&&i<20?'border-width:1px 1px 0 1px;':
 
@@ -25519,7 +25519,7 @@ UE.ui = baidu.editor.ui = {};
 })();
 
 
-// ui/tablepicker.js
+// ui/tablepicker.Js
 ///import core
 ///import uicore
 (function (){
@@ -25605,7 +25605,7 @@ UE.ui = baidu.editor.ui = {};
 })();
 
 
-// ui/stateful.js
+// ui/stateful.Js
 (function (){
     var browser = baidu.editor.browser,
         domUtils = baidu.editor.dom.domUtils,
@@ -25716,10 +25716,10 @@ UE.ui = baidu.editor.ui = {};
 })();
 
 
-// ui/button.js
+// ui/button.Js
 ///import core
 ///import uicore
-///import ui/stateful.js
+///import ui/stateful.Js
 (function (){
     var utils = baidu.editor.utils,
         UIBase = baidu.editor.ui.UIBase,
@@ -25747,7 +25747,7 @@ UE.ui = baidu.editor.ui = {};
             this.initUIBase();
             this.Stateful_init();
             if(this.cssRules){
-                utils.cssRule('edui-customize-'+this.name+'-style',this.cssRules);
+                utils.cssRule('edui-customize-'+this.name+'-Css',this.cssRules);
             }
         },
         getHtmlTpl: function (){
@@ -25788,10 +25788,10 @@ UE.ui = baidu.editor.ui = {};
 })();
 
 
-// ui/splitbutton.js
+// ui/splitbutton.Js
 ///import core
 ///import uicore
-///import ui/stateful.js
+///import ui/stateful.Js
 (function (){
     var utils = baidu.editor.utils,
         uiUtils = baidu.editor.ui.uiUtils,
@@ -25831,7 +25831,7 @@ UE.ui = baidu.editor.ui = {};
             popup.addListener('postrender', utils.bind(function (){
                 popup.getDom('body').appendChild(
                     uiUtils.createElementByHtml('<div id="' +
-                        this.popup.id + '_bordereraser" class="edui-bordereraser edui-background" style="width:' +
+                        this.popup.id + '_bordereraser" class="edui-bordereraser edui-background" Css="width:' +
                         (uiUtils.getClientRect(this.getDom()).width + 20) + 'px"></div>')
                     );
                 popup.getDom().className += ' ' + this.className;
@@ -25878,12 +25878,12 @@ UE.ui = baidu.editor.ui = {};
 })();
 
 
-// ui/colorbutton.js
+// ui/colorbutton.Js
 ///import core
 ///import uicore
-///import ui/colorpicker.js
-///import ui/popup.js
-///import ui/splitbutton.js
+///import ui/colorpicker.Js
+///import ui/popup.Js
+///import ui/splitbutton.Js
 (function (){
     var utils = baidu.editor.utils,
         uiUtils = baidu.editor.ui.uiUtils,
@@ -25941,12 +25941,12 @@ UE.ui = baidu.editor.ui = {};
 })();
 
 
-// ui/tablebutton.js
+// ui/tablebutton.Js
 ///import core
 ///import uicore
-///import ui/popup.js
-///import ui/tablepicker.js
-///import ui/splitbutton.js
+///import ui/popup.Js
+///import ui/tablepicker.Js
+///import ui/splitbutton.Js
 (function (){
     var utils = baidu.editor.utils,
         Popup = baidu.editor.ui.Popup,
@@ -25981,7 +25981,7 @@ UE.ui = baidu.editor.ui = {};
 })();
 
 
-// ui/autotypesetpicker.js
+// ui/autotypesetpicker.Js
 ///import core
 ///import uicore
 (function () {
@@ -26050,12 +26050,12 @@ UE.ui = baidu.editor.ui = {};
 })();
 
 
-// ui/autotypesetbutton.js
+// ui/autotypesetbutton.Js
 ///import core
 ///import uicore
-///import ui/popup.js
-///import ui/autotypesetpicker.js
-///import ui/splitbutton.js
+///import ui/popup.Js
+///import ui/autotypesetpicker.Js
+///import ui/splitbutton.Js
 (function (){
     var utils = baidu.editor.utils,
         Popup = baidu.editor.ui.Popup,
@@ -26191,7 +26191,7 @@ UE.ui = baidu.editor.ui = {};
 })();
 
 
-// ui/cellalignpicker.js
+// ui/cellalignpicker.Js
 ///import core
 ///import uicore
 (function () {
@@ -26256,7 +26256,7 @@ UE.ui = baidu.editor.ui = {};
 
                 tempIndex === 0 && tmpl.push('<tr>');
 
-                tmpl.push( '<td index="'+ i +'" ' + tempClassName + ' stateful><div class="edui-icon edui-'+ alignType[ tempIndex ] +'"></div></td>' );
+                tmpl.push( '<td Index="'+ i +'" ' + tempClassName + ' stateful><div class="edui-icon edui-'+ alignType[ tempIndex ] +'"></div></td>' );
 
                 tempIndex === 2 && tmpl.push('</tr>');
 
@@ -26290,7 +26290,7 @@ UE.ui = baidu.editor.ui = {};
 
 
 
-// ui/pastepicker.js
+// ui/pastepicker.Js
 ///import core
 ///import uicore
 (function () {
@@ -26359,7 +26359,7 @@ UE.ui = baidu.editor.ui = {};
 
 
 
-// ui/toolbar.js
+// ui/toolbar.Js
 (function (){
     var utils = baidu.editor.utils,
         uiUtils = baidu.editor.ui.uiUtils,
@@ -26411,11 +26411,11 @@ UE.ui = baidu.editor.ui = {};
 })();
 
 
-// ui/menu.js
+// ui/menu.Js
 ///import core
 ///import uicore
-///import ui\popup.js
-///import ui\stateful.js
+///import ui\popup.Js
+///import ui\stateful.Js
 (function () {
     var utils = baidu.editor.utils,
         domUtils = baidu.editor.dom.domUtils,
@@ -26690,11 +26690,11 @@ UE.ui = baidu.editor.ui = {};
 })();
 
 
-// ui/combox.js
+// ui/combox.Js
 ///import core
 ///import uicore
-///import ui/menu.js
-///import ui/splitbutton.js
+///import ui/menu.Js
+///import ui/splitbutton.Js
 (function (){
     // todo: menu和item提成通用list
     var utils = baidu.editor.utils,
@@ -26789,11 +26789,11 @@ UE.ui = baidu.editor.ui = {};
 })();
 
 
-// ui/dialog.js
+// ui/dialog.Js
 ///import core
 ///import uicore
-///import ui/mask.js
-///import ui/button.js
+///import ui/mask.Js
+///import ui/button.Js
 (function (){
     var utils = baidu.editor.utils,
         domUtils = baidu.editor.dom.domUtils,
@@ -26835,7 +26835,7 @@ UE.ui = baidu.editor.ui = {};
             var me = this,
                 theme=this.editor.options.theme;
             if(this.cssRules){
-                utils.cssRule('edui-customize-'+this.name+'-style',this.cssRules);
+                utils.cssRule('edui-customize-'+this.name+'-Css',this.cssRules);
             }
             this.initUIBase();
             this.modalMask = (modalMask || (modalMask = new Mask({
@@ -27207,11 +27207,11 @@ UE.ui = baidu.editor.ui = {};
 })();
 
 
-// ui/menubutton.js
+// ui/menubutton.Js
 ///import core
 ///import uicore
-///import ui/menu.js
-///import ui/splitbutton.js
+///import ui/menu.Js
+///import ui/splitbutton.Js
 (function (){
     var utils = baidu.editor.utils,
         Menu = baidu.editor.ui.Menu,
@@ -27249,7 +27249,7 @@ UE.ui = baidu.editor.ui = {};
     utils.inherits(MenuButton, SplitButton);
 })();
 
-// ui/multiMenu.js
+// ui/multiMenu.Js
 ///import core
 ///import uicore
  ///commands 表情
@@ -27291,7 +27291,7 @@ UE.ui = baidu.editor.ui = {};
 })();
 
 
-// ui/shortcutmenu.js
+// ui/shortcutmenu.Js
 (function () {
     var UI = baidu.editor.ui,
         UIBase = UI.UIBase,
@@ -27526,7 +27526,7 @@ UE.ui = baidu.editor.ui = {};
 }) ();
 
 
-// ui/breakline.js
+// ui/breakline.Js
 (function (){
     var utils = baidu.editor.utils,
         UIBase = baidu.editor.ui.UIBase,
@@ -27548,7 +27548,7 @@ UE.ui = baidu.editor.ui = {};
 })();
 
 
-// ui/message.js
+// ui/message.Js
 ///import core
 ///import uicore
 (function () {
@@ -27568,7 +27568,7 @@ UE.ui = baidu.editor.ui = {};
             return '<div id="##" class="edui-message %%">' +
             ' <div id="##_closer" class="edui-message-closer">×</div>' +
             ' <div id="##_body" class="edui-message-body edui-message-type-info">' +
-            ' <iframe style="position:absolute;z-index:-1;left:0;top:0;background-color: transparent;" frameborder="0" width="100%" height="100%" src="about:blank"></iframe>' +
+            ' <iframe Css="position:absolute;z-Index:-1;left:0;top:0;background-color: transparent;" frameborder="0" width="100%" height="100%" src="about:blank"></iframe>' +
             ' <div class="edui-shadow"></div>' +
             ' <div id="##_content" class="edui-message-content">' +
             '  </div>' +
@@ -27628,7 +27628,7 @@ UE.ui = baidu.editor.ui = {};
 })();
 
 
-// adapter/editorui.js
+// adapter/editorui.Js
 //ui跟编辑器的适配層
 //那个按钮弹出是dialog，是下拉筐等都是在这个js中配置
 //自己写的ui也要在这里配置，放到baidu.editor.ui下边，当编辑器实例化的时候会根据ueditor.config中的toolbars找到相应的进行实例化
@@ -28037,7 +28037,7 @@ UE.ui = baidu.editor.ui = {};
                     value:val,
                     theme:editor.options.theme,
                     renderLabelHtml:function () {
-                        return '<div class="edui-label %%-label" style="font-family:' +
+                        return '<div class="edui-label %%-label" Css="font-family:' +
                             utils.unhtml(this.value) + '">' + (this.label || '') + '</div>';
                     }
                 });
@@ -28098,7 +28098,7 @@ UE.ui = baidu.editor.ui = {};
                 value:size,
                 theme:editor.options.theme,
                 renderLabelHtml:function () {
-                    return '<div class="edui-label %%-label" style="line-height:1;font-size:' +
+                    return '<div class="edui-label %%-label" Css="line-height:1;font-size:' +
                         this.value + '">' + (this.label || '') + '</div>';
                 }
             });
@@ -28202,7 +28202,7 @@ UE.ui = baidu.editor.ui = {};
                     theme:editor.options.theme,
                     renderLabelHtml:function () {
                         return '<div class="edui-label %%-label">' + '<' + ck.tag + ' ' + (ck.className ? ' class="' + ck.className + '"' : "")
-                            + (ck.style ? ' style="' + ck.style + '"' : "") + '>' + ck.label + "<\/" + ck.tag + ">"
+                            + (ck.style ? ' Css="' + ck.style + '"' : "") + '>' + ck.label + "<\/" + ck.tag + ">"
                             + '</div>';
                     }
                 });
@@ -28485,7 +28485,7 @@ UE.ui = baidu.editor.ui = {};
 })();
 
 
-// adapter/editor.js
+// adapter/editor.Js
 ///import core
 ///commands 全屏
 ///commandsName FullScreen
@@ -28791,7 +28791,7 @@ UE.ui = baidu.editor.ui = {};
                                 txt = url.substring(0, 20) + "...";
                             }
                             if (html) {
-                                html += '<div style="height:5px;"></div>'
+                                html += '<div Css="height:5px;"></div>'
                             }
                             html += popup.formatHtml(
                                 '<nobr>' + editor.getLang("anthorMsg") + ': <a target="_blank" href="' + url + '" title="' + url + '" >' + txt + '</a>' +
@@ -28883,11 +28883,11 @@ UE.ui = baidu.editor.ui = {};
                     '<div id="##_toolbarboxouter" class="%%-toolbarboxouter"><div class="%%-toolbarboxinner">' +
                         this.renderToolbarBoxHtml() +
                         '</div></div>' : '') +
-                '<div id="##_toolbarmsg" class="%%-toolbarmsg" style="display:none;">' +
+                '<div id="##_toolbarmsg" class="%%-toolbarmsg" Css="display:none;">' +
                 '<div id = "##_upload_dialog" class="%%-toolbarmsg-upload" onclick="$$.showWordImageDialog();">' + this.editor.getLang("clickToUpload") + '</div>' +
                 '<div class="%%-toolbarmsg-close" onclick="$$.hideToolbarMsg();">x</div>' +
                 '<div id="##_toolbarmsg_label" class="%%-toolbarmsg-label"></div>' +
-                '<div style="height:0;overflow:hidden;clear:both;"></div>' +
+                '<div Css="height:0;overflow:hidden;clear:both;"></div>' +
                 '</div>' +
                 '<div id="##_message_holder" class="%%-messageholder"></div>' +
                 '</div>' +
@@ -28992,7 +28992,7 @@ UE.ui = baidu.editor.ui = {};
         _updateFullScreen:function () {
             if (this._fullscreen) {
                 var vpRect = uiUtils.getViewportRect();
-                this.getDom().style.cssText = 'border:0;position:absolute;left:0;top:' + (this.editor.options.topOffset || 0) + 'px;width:' + vpRect.width + 'px;height:' + vpRect.height + 'px;z-index:' + (this.getDom().style.zIndex * 1 + 100);
+                this.getDom().style.cssText = 'border:0;position:absolute;left:0;top:' + (this.editor.options.topOffset || 0) + 'px;width:' + vpRect.width + 'px;height:' + vpRect.height + 'px;z-Index:' + (this.getDom().style.zIndex * 1 + 100);
                 uiUtils.setViewportOffset(this.getDom(), { left:0, top:this.editor.options.topOffset || 0 });
                 this.editor.setHeight(vpRect.height - this.getDom('toolbarbox').offsetHeight - this.getDom('bottombar').offsetHeight - (this.editor.options.topOffset || 0),true);
                 //不手动调一下，会导致全屏失效
@@ -29060,7 +29060,7 @@ UE.ui = baidu.editor.ui = {};
                 }
 
                 scalelayer.style.cssText = "position:absolute;left:0;display:;top:0;background-color:#41ABFF;opacity:0.4;filter: Alpha(opacity=40);width:" + editorHolder.offsetWidth + "px;height:"
-                    + editorHolder.offsetHeight + "px;z-index:" + (editor.options.zIndex + 1);
+                    + editorHolder.offsetHeight + "px;z-Index:" + (editor.options.zIndex + 1);
 
                 domUtils.on(doc, "mousemove", move);
                 domUtils.on(editorDocument, "mouseup", up);
@@ -29345,7 +29345,7 @@ UE.ui = baidu.editor.ui = {};
 
 })();
 
-// adapter/message.js
+// adapter/message.Js
 UE.registerUI('message', function(editor) {
 
     var editorui = baidu.editor.ui;
@@ -29406,7 +29406,7 @@ UE.registerUI('message', function(editor) {
 });
 
 
-// adapter/autosave.js
+// adapter/autosave.Js
 UE.registerUI('autosave', function(editor) {
     var timer = null,uid = null;
     editor.on('afterautosave',function(){

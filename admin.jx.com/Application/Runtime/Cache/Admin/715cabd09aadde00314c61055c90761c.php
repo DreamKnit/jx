@@ -11,7 +11,7 @@
 <body>
 <h1>
     <span class="action-span"><a href="<?php echo U('add');?>">添加供货商</a></span>
-    <span class="action-span1"><a href="<?php echo U('index/index');?>">ECSHOP 管理中心</a></span>
+    <span class="action-span1"><a href="<?php echo U('Index/Index');?>">ECSHOP 管理中心</a></span>
     <span id="search_id" class="action-span1"> - <?php echo ($meta_title); ?> </span>
     <div style="clear:both"></div>
 </h1>

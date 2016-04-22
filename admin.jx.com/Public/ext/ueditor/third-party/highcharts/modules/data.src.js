@@ -546,7 +546,7 @@
 	}
 	});
 	
-	// Register the Data prototype and data function on Highcharts
+	// Member the Data prototype and data function on Highcharts
 	Highcharts.Data = Data;
 	Highcharts.data = function (options, chartOptions) {
 		return new Data(options, chartOptions);

@@ -380,7 +380,7 @@ class BCS_RequestCore {
 	}
 
 	/**
-	 * Register a callback function to execute whenever a data stream is read from using
+	 * Member a callback function to execute whenever a data stream is read from using
 	 * <CFRequest::streaming_read_callback()>.
 	 *
 	 * The user-defined callback function should accept three arguments:
@@ -403,7 +403,7 @@ class BCS_RequestCore {
 	}
 
 	/**
-	 * Register a callback function to execute whenever a data stream is written to using
+	 * Member a callback function to execute whenever a data stream is written to using
 	 * <CFRequest::streaming_write_callback()>.
 	 *
 	 * The user-defined callback function should accept two arguments:
@@ -683,7 +683,7 @@ class BCS_RequestCore {
 	 *
 	 * @param array $handles (Required) An indexed array of cURL handles to process simultaneously.
 	 * @param array $opt (Optional) An associative array of parameters that can have the following keys: <ul>
-	 * <li><code>callback</code> - <code>string|array</code> - Optional - The string name of a function to pass the response data to. If this is a method, pass an array where the <code>[0]</code> index is the class and the <code>[1]</code> index is the method name.</li>
+	 * <li><code>callback</code> - <code>string|array</code> - Optional - The string name of a function to pass the response data to. If this is a method, pass an array where the <code>[0]</code> Index is the class and the <code>[1]</code> Index is the method name.</li>
 	 * <li><code>limit</code> - <code>integer</code> - Optional - The number of simultaneous requests to make. This can be useful for scaling around slow server responses. Defaults to trusting cURLs judgement as to how many to use.</li></ul>
 	 * @return array Post-processed cURL responses.
 	 */

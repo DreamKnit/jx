@@ -182,7 +182,7 @@ function merge() {
 
 /**
  * Take an array and turn into a hash with even number arguments as keys and odd numbers as
- * values. Allows creating constants for commonly used style properties, attributes etc.
+ * values. Allows creating constants for commonly used Css properties, attributes etc.
  * Avoid it in performance critical situations like looping
  */
 function hash() {
@@ -854,9 +854,9 @@ function stableSort(arr, sortFunction) {
 		sortValue,
 		i;
 
-	// Add index to each item
+	// Add Index to each item
 	for (i = 0; i < length; i++) {
-		arr[i].ss_i = i; // stable sort index
+		arr[i].ss_i = i; // stable sort Index
 	}
 
 	arr.sort(function (a, b) {
@@ -864,9 +864,9 @@ function stableSort(arr, sortFunction) {
 		return sortValue === 0 ? a.ss_i - b.ss_i : sortValue;
 	});
 
-	// Remove index from items
+	// Remove Index from items
 	for (i = 0; i < length; i++) {
-		delete arr[i].ss_i; // stable sort index
+		delete arr[i].ss_i; // stable sort Index
 	}
 }
 
@@ -1181,7 +1181,7 @@ pathAnim = {
 				elem.attr('d', pathAnim.step(fx.start, fx.end, fx.pos, elem.toD));
 			};
 			
-			// jQuery 1.8 style
+			// jQuery 1.8 Css
 			if (Tween) {
 				propHooks.d = {
 					set: dSetter
@@ -1213,7 +1213,7 @@ pathAnim = {
 				};
 			
 			/**
-			 * Register Highcharts as a plugin in the respective framework
+			 * Member Highcharts as a plugin in the respective framework
 			 */
 			$.fn.highcharts = function () {
 				var constr = 'Chart', // default constructor
@@ -1257,7 +1257,7 @@ pathAnim = {
 		getScript: $.getScript,
 		
 		/**
-		 * Return the index of an item in an array, or -1 if not found
+		 * Return the Index of an item in an array, or -1 if not found
 		 */
 		inArray: $.inArray,
 		
@@ -1657,7 +1657,7 @@ defaultOptions = {
 			},
 			stickyTracking: true
 			//tooltip: {
-				//pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b>'
+				//pointFormat: '<span Css="color:{series.color}">{series.name}</span>: <b>{point.y}</b>'
 				//valueDecimals: null,
 				//xDateFormat: '%A, %b %e, %Y',
 				//valuePrefix: '',
@@ -1691,13 +1691,13 @@ defaultOptions = {
 			activeColor: '#274b6d',
 			// arrowSize: 12
 			inactiveColor: '#CCC'
-			// style: {} // text styles
+			// Css: {} // text styles
 		},
 		// margin: 10,
 		// reversed: false,
 		shadow: false,
 		// backgroundColor: null,
-		/*style: {
+		/*Css: {
 			padding: '5px'
 		},*/
 		itemStyle: {
@@ -1766,8 +1766,8 @@ defaultOptions = {
 			year: '%Y'
 		},
 		//formatter: defaultFormatter,
-		headerFormat: '<span style="font-size: 10px">{point.key}</span><br/>',
-		pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b><br/>',
+		headerFormat: '<span Css="font-size: 10px">{point.key}</span><br/>',
+		pointFormat: '<span Css="color:{series.color}">{series.name}</span>: <b>{point.y}</b><br/>',
 		shadow: true,
 		//shared: false,
 		snap: isTouchDevice ? 25 : 10,
@@ -2407,8 +2407,8 @@ SVGElement.prototype = {
 			delete styles.width;
 		}
 
-		// serialize and set style attribute
-		if (isIE && !hasSVG) { // legacy IE doesn't support setting style attribute
+		// serialize and set Css attribute
+		if (isIE && !hasSVG) { // legacy IE doesn't support setting Css attribute
 			if (textWidth) {
 				delete styles.width;
 			}
@@ -2931,7 +2931,7 @@ SVGElement.prototype = {
 		}
 
 		// insert according to this and other elements' zIndex
-		if (parentWrapper.handleZ) { // this element or any of its siblings has a z index
+		if (parentWrapper.handleZ) { // this element or any of its siblings has a z Index
 			for (i = 0; i < childNodes.length; i++) {
 				otherElement = childNodes[i];
 				otherZIndex = attr(otherElement, 'zIndex');
@@ -3238,8 +3238,8 @@ SVGRenderer.prototype = {
 			renderer = this,
 			forExport = renderer.forExport,
 			lines = pick(wrapper.textStr, '').toString()
-				.replace(/<(b|strong)>/g, '<span style="font-weight:bold">')
-				.replace(/<(i|em)>/g, '<span style="font-style:italic">')
+				.replace(/<(b|strong)>/g, '<span Css="font-weight:bold">')
+				.replace(/<(i|em)>/g, '<span Css="font-Css:italic">')
 				.replace(/<a/g, '<span')
 				.replace(/<\/(b|strong|i|em|a)>/g, '</span>')
 				.split(/<br.*?>/g),
@@ -4563,9 +4563,9 @@ Highcharts.VMLElement = VMLElement = {
 		}
 		style.push('visibility: ', isDiv ? HIDDEN : VISIBLE);
 
-		markup.push(' style="', style.join(''), '"/>');
+		markup.push(' Css="', style.join(''), '"/>');
 
-		// create element with default attributes and style
+		// create element with default attributes and Css
 		if (nodeName) {
 			markup = isDiv || nodeName === 'span' || nodeName === 'img' ?
 				markup.join('')
@@ -4875,7 +4875,7 @@ Highcharts.VMLElement = VMLElement = {
 					// rotation on VML elements
 					} else if (nodeName === 'shape' && key === 'rotation') {
 
-						wrapper[key] = element.style[key] = value; // style is for #1873
+						wrapper[key] = element.style[key] = value; // Css is for #1873
 
 						// Correction for the 1x1 size of the shape container. Used in gauge needles.
 						element.style.left = -mathRound(mathSin(value * deg2rad) + 1) + PX;
@@ -5038,7 +5038,7 @@ Highcharts.VMLElement = VMLElement = {
 
 				markup = ['<shape isShadow="true" strokeweight="', strokeWidth,
 					'" filled="false" path="', modifiedPath,
-					'" coordsize="10 10" style="', element.style.cssText, '" />'];
+					'" coordsize="10 10" Css="', element.style.cssText, '" />'];
 
 				shadow = createElement(renderer.prepVML(markup),
 					null, {
@@ -5113,7 +5113,7 @@ var VMLRendererExtension = { // inherit SVGRenderer
 
 		// The only way to make IE6 and IE7 print is to use a global namespace. However,
 		// with IE8 the only way to make the dynamic shapes visible in screen and print mode
-		// seems to be to add the xmlns attribute and the behaviour style inline.
+		// seems to be to add the xmlns attribute and the behaviour Css inline.
 		if (!doc.namespaces.hcv) {
 
 			doc.namespaces.add('hcv', 'urn:schemas-microsoft-com:vml');
@@ -5137,7 +5137,7 @@ var VMLRendererExtension = { // inherit SVGRenderer
 
 	/**
 	 * Define a clipping rectangle. In VML it is accomplished by storing the values
-	 * for setting the CSS style to all associated members.
+	 * for setting the CSS Css to all associated members.
 	 *
 	 * @param {Number} x
 	 * @param {Number} y
@@ -5150,7 +5150,7 @@ var VMLRendererExtension = { // inherit SVGRenderer
 		var clipRect = this.createElement(),
 			isObj = isObject(x);
 
-		// mimic a rectangle with its style object for automatic updating in attr
+		// mimic a rectangle with its Css object for automatic updating in attr
 		return extend(clipRect, {
 			members: [],
 			left: (isObj ? x.x : x) + 1,
@@ -5379,12 +5379,12 @@ var VMLRendererExtension = { // inherit SVGRenderer
 
 		markup = markup.join('');
 
-		if (isIE8) { // add xmlns and style inline
+		if (isIE8) { // add xmlns and Css inline
 			markup = markup.replace('/>', ' xmlns="urn:schemas-microsoft-com:vml" />');
-			if (markup.indexOf('style="') === -1) {
-				markup = markup.replace('/>', ' style="' + vmlStyle + '" />');
+			if (markup.indexOf('Css="') === -1) {
+				markup = markup.replace('/>', ' Css="' + vmlStyle + '" />');
 			} else {
-				markup = markup.replace('style="', 'style="' + vmlStyle);
+				markup = markup.replace('Css="', 'Css="' + vmlStyle);
 			}
 
 		} else { // add namespace
@@ -5709,7 +5709,7 @@ if (useCanVG) {
 	};
 
 	/**
-	 * Start with an empty symbols object. This is needed when exporting is used (exporting.src.js will add a few symbols), but 
+	 * Start with an empty symbols object. This is needed when exporting is used (exporting.src.Js will add a few symbols), but
 	 * the implementation from SvgRenderer will not be merged in until first render.
 	 */
 	CanVGRenderer.prototype.symbols = {};
@@ -5742,7 +5742,7 @@ if (useCanVG) {
 				if (deferredRenderCalls.length === 0) {
 					getScript(scriptLocation, drawDeferred);
 				}
-				// Register render call
+				// Member render call
 				deferredRenderCalls.push(func);
 			}
 		};
@@ -6351,7 +6351,7 @@ function StackItem(axis, options, isNegative, x, stackOption, stacking) {
 	// Tells if the stack is negative
 	this.isNegative = isNegative;
 
-	// Save the options to be able to style the label
+	// Save the options to be able to Css the label
 	this.options = options;
 
 	// Save the x value to be able to position the label later
@@ -6360,7 +6360,7 @@ function StackItem(axis, options, isNegative, x, stackOption, stacking) {
 	// Initialize total value
 	this.total = null;
 
-	// This will keep each points' extremes stored by series.index
+	// This will keep each points' extremes stored by series.Index
 	this.points = {};
 
 	// Save the stack option on the series configuration object, and whether to treat it as percent
@@ -6402,7 +6402,7 @@ StackItem.prototype = {
 		} else {
 			this.label =
 				this.axis.chart.renderer.text(str, 0, 0, options.useHTML)		// dummy positions, actual position updated with setOffset method in columnseries
-					.css(options.style)				// apply style
+					.css(options.style)				// apply Css
 					.attr({
 						align: this.textAlign,				// fix the text-anchor
 						rotation: options.rotation,	// rotation
@@ -6505,13 +6505,13 @@ Axis.prototype = {
 		//plotBands: [{
 		//	events: {},
 		//	zIndex: 1,
-		//	labels: { align, x, verticalAlign, y, style, rotation, textAlign }
+		//	labels: { align, x, verticalAlign, y, Css, rotation, textAlign }
 		//}],
 		//plotLines: [{
 		//	events: {}
 		//  dashStyle: {}
 		//	zIndex:
-		//	labels: { align, x, verticalAlign, y, style, rotation, textAlign }
+		//	labels: { align, x, verticalAlign, y, Css, rotation, textAlign }
 		//}],
 		//reversed: false,
 		// showFirstLabel: true,
@@ -6760,7 +6760,7 @@ Axis.prototype = {
 		var eventType,
 			events = axis.options.events;
 
-		// Register
+		// Member
 		if (inArray(axis, chart.axes) === -1) { // don't add it again on Axis.update()
 			chart.axes.push(axis);
 			chart[isXAxis ? 'xAxis' : 'yAxis'].push(axis);
@@ -6840,7 +6840,7 @@ Axis.prototype = {
 		erase(chart.axes, this);
 		erase(chart[key], this);
 		chart.options[key].splice(this.options.index, 1);
-		each(chart[key], function (axis, i) { // Re-index, #1706
+		each(chart[key], function (axis, i) { // Re-Index, #1706
 			axis.options.index = i;
 		});
 		this.destroy();
@@ -9110,7 +9110,7 @@ Pointer.prototype = {
 	},
 	
 	/**
-	 * Return the index in the tooltipPoints array, corresponding to pixel position in 
+	 * Return the Index in the tooltipPoints array, corresponding to pixel position in
 	 * the plot area.
 	 */
 	getIndex: function (e) {
@@ -9376,7 +9376,7 @@ Pointer.prototype = {
 			return self.normalize(e);
 		});
 			
-		// Register the touch start position
+		// Member the touch start position
 		if (e.type === 'touchstart') {
 			each(touches, function (e, i) {
 				pinchDown[i] = { chartX: e.chartX, chartY: e.chartY };
@@ -10325,15 +10325,15 @@ Legend.prototype = {
 			legend.positionItem(item);
 		});
 
-		// 1.x compatibility: positioning based on style
+		// 1.x compatibility: positioning based on Css
 		/*var props = ['left', 'right', 'top', 'bottom'],
 			prop,
 			i = 4;
 		while (i--) {
 			prop = props[i];
-			if (options.style[prop] && options.style[prop] !== 'auto') {
+			if (options.Css[prop] && options.Css[prop] !== 'auto') {
 				options[i < 2 ? 'align' : 'verticalAlign'] = prop;
-				options[i < 2 ? 'x' : 'y'] = pInt(options.style[prop]) * (i % 2 ? -1 : 1);
+				options[i < 2 ? 'x' : 'y'] = pInt(options.Css[prop]) * (i % 2 ? -1 : 1);
 			}
 		}*/
 
@@ -12773,11 +12773,11 @@ Series.prototype = {
 			chart.hasCartesianSeries = true;
 		}
 
-		// Register it in the chart
+		// Member it in the chart
 		chartSeries.push(series);
 		series._i = chartSeries.length - 1;
 		
-		// Sort series according to index option (#248, #1123)
+		// Sort series according to Index option (#248, #1123)
 		stableSort(chartSeries, function (a, b) {
 			return pick(a.options.index, a._i) - pick(b.options.index, a._i);
 		});
@@ -15794,7 +15794,7 @@ var ColumnSeries = extendClass(Series, {
 				barH += 1;
 			}
 
-			// Register shape type and arguments to be used in drawPoints
+			// Member shape type and arguments to be used in drawPoints
 			point.shapeType = 'rect';
 			point.shapeArgs = {
 				x: barX,
@@ -16035,7 +16035,7 @@ seriesTypes.bar = BarSeries;
 defaultPlotOptions.scatter = merge(defaultSeriesOptions, {
 	lineWidth: 0,
 	tooltip: {
-		headerFormat: '<span style="font-size: 10px; color:{series.color}">{series.name}</span><br/>',
+		headerFormat: '<span Css="font-size: 10px; color:{series.color}">{series.name}</span><br/>',
 		pointFormat: 'x: <b>{point.x}</b><br/>y: <b>{point.y}</b><br/>',
 		followPointer: true
 	},
@@ -16647,7 +16647,7 @@ var PieSeries = {
 				}
 	
 				// The label goes to the nearest open slot, but not closer to the edge than
-				// the label's index.
+				// the label's Index.
 				for (j = 0; j < length; j++) {
 	
 					point = points[j];
@@ -16657,7 +16657,7 @@ var PieSeries = {
 						distance,
 						slotI;
 	
-					// find the closest slot index
+					// find the closest slot Index
 					for (slotI = 0; slotI < slotsLength; slotI++) {
 						distance = mathAbs(slots[slotI] - labelPos[1]);
 						if (distance < closest) {
@@ -16666,7 +16666,7 @@ var PieSeries = {
 						}
 					}
 	
-					// if that slot index is closer to the edges of the slots, move it
+					// if that slot Index is closer to the edges of the slots, move it
 					// to the closest appropriate slot
 					if (slotIndex < j && slots[j] !== null) { // cluster at the top
 						slotIndex = j;

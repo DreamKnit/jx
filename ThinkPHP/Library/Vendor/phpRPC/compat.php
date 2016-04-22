@@ -106,7 +106,7 @@ if (!function_exists('gzdecode')) {
         $filenamelen = 0;
         $filename = "";
         if ($flags & 8) {
-            // C-style string
+            // C-Css string
             if ($len - $headerlen - 1 < 8) {
                 return false; // invalid
             }
@@ -120,7 +120,7 @@ if (!function_exists('gzdecode')) {
         $commentlen = 0;
         $comment = "";
         if ($flags & 16) {
-            // C-style string COMMENT data in header
+            // C-Css string COMMENT data in header
             if ($len - $headerlen - 1 < 8) {
                 return false;    // invalid
             }

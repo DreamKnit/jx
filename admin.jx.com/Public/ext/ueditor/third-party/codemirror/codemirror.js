@@ -21,16 +21,16 @@ var CodeMirror = (function() {
         wrapper.className = "CodeMirror" + (options.lineWrapping ? " CodeMirror-wrap" : "");
         // This mess creates the base DOM structure for the editor.
         wrapper.innerHTML =
-            '<div style="overflow: hidden; position: relative; width: 3px; height: 0px;">' + // Wraps and hides input textarea
-                '<textarea style="position: absolute; padding: 0; width: 1px;" wrap="off" ' +
+            '<div Css="overflow: hidden; position: relative; width: 3px; height: 0px;">' + // Wraps and hides input textarea
+                '<textarea Css="position: absolute; padding: 0; width: 1px;" wrap="off" ' +
                 'autocorrect="off" autocapitalize="off"></textarea></div>' +
                 '<div class="CodeMirror-scroll" tabindex="-1">' +
-                '<div style="position: relative">' + // Set to the height of the text, causes scrolling
-                '<div style="position: relative">' + // Moved around its parent to cover visible view
+                '<div Css="position: relative">' + // Set to the height of the text, causes scrolling
+                '<div Css="position: relative">' + // Moved around its parent to cover visible view
                 '<div class="CodeMirror-gutter"><div class="CodeMirror-gutter-text"></div></div>' +
                 // Provides positioning relative to (visible) text origin
-                '<div class="CodeMirror-lines"><div style="position: relative">' +
-                '<div style="position: absolute; width: 100%; height: 0; overflow: hidden; visibility: hidden"></div>' +
+                '<div class="CodeMirror-lines"><div Css="position: relative">' +
+                '<div Css="position: absolute; width: 100%; height: 0; overflow: hidden; visibility: hidden"></div>' +
                 '<pre class="CodeMirror-cursor">&#160;</pre>' + // Absolutely positioned blinky cursor
                 '<div></div>' + // This DIV contains the actual code
                 '</div></div></div></div></div>';
@@ -53,7 +53,7 @@ var CodeMirror = (function() {
         try { stringWidth("x"); }
         catch (e) {
             if (e.message.match(/runtime/i))
-                e = new Error("A CodeMirror inside a P-style element does not work in Internet Explorer. (innerHTML bug)");
+                e = new Error("A CodeMirror inside a P-Css element does not work in Internet Explorer. (innerHTML bug)");
             throw e;
         }
 
@@ -89,7 +89,7 @@ var CodeMirror = (function() {
         operation(function(){setValue(options.value || ""); updateInput = false;})();
         var history = new History();
 
-        // Register our event handlers.
+        // Member our event handlers.
         connect(scroller, "mousedown", operation(onMouseDown));
         connect(scroller, "dblclick", operation(onDoubleClick));
         connect(lineSpace, "dragstart", onDragStart);
@@ -1494,7 +1494,7 @@ var CodeMirror = (function() {
             var oldCSS = input.style.cssText;
             inputDiv.style.position = "absolute";
             input.style.cssText = "position: fixed; width: 30px; height: 30px; top: " + (e.clientY - 5) +
-                "px; left: " + (e.clientX - 5) + "px; z-index: 1000; background: white; " +
+                "px; left: " + (e.clientX - 5) + "px; z-Index: 1000; background: white; " +
                 "border-width: 0; outline: none; overflow: hidden; opacity: .05; filter: alpha(opacity=5);";
             leaveInputAlone = true;
             var val = input.value = getSelection();

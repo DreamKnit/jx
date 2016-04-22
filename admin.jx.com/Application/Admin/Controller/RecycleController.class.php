@@ -19,7 +19,7 @@ class RecycleController extends Controller{
      */
     protected function _initialize() {
         $meta_titles  = array(
-            'index'  => '商品回收站管理',
+            'Index'  => '商品回收站管理',
         );
         $meta_title   = $meta_titles[ACTION_NAME];
         $this->assign('meta_title', $meta_title);

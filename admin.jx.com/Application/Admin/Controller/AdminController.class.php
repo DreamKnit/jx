@@ -19,7 +19,7 @@ class AdminController extends Controller{
      */
     protected function _initialize() {
         $meta_titles  = array(
-            'index'  => '管理员管理',
+            'Index'  => '管理员管理',
             'add'    => '添加管理员',
             'edit'   => '管理员编辑',
             'remove' => '管理员删除',
@@ -40,7 +40,7 @@ class AdminController extends Controller{
                 if($this->_model->addAdmin()===false){
                     $this->error($this->_model->getError());
                 }else{
-                    $this->success($this->_model->_success,U('index'),3);
+                    $this->success($this->_model->_success,U('Index'),3);
                 }
             }else{
                 $this->error($this->_model->getError());
@@ -58,7 +58,7 @@ class AdminController extends Controller{
                 if($this->_model->updateAdmin()===false){
                     $this->error($this->_model->getError());
                 }else{
-                    $this->success($this->_model->_success,U('index'),3);
+                    $this->success($this->_model->_success,U('Index'),3);
                 }
             }else{
                 $this->error($this->_model->getError());
@@ -75,7 +75,7 @@ class AdminController extends Controller{
         if($this->_model->removeAdmin($id)===false){
             $this->error($this->_model->getError());
         }
-        $this->success('删除成功',U('index'));
+        $this->success('删除成功',U('Index'));
     }
 
     /**

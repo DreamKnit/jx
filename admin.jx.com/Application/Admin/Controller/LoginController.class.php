@@ -30,7 +30,7 @@ class LoginController extends Controller{
     public function login(){
         if($this->_model->create('','login')){
             if($this->_model->login()){
-                $this->success('登录成功！',U('Index/index'));
+                $this->success('登录成功！',U('Index/Index'));
             }else{
                 $this->error($this->_model->getError());
             }
@@ -42,6 +42,6 @@ class LoginController extends Controller{
     public function logout(){
         session(null);
         cookie(null);
-        $this->success('正在退出...',U('index'));
+        $this->success('正在退出...',U('Index'));
     }
 }

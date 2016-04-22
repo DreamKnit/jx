@@ -120,7 +120,7 @@
         //    }
         //    return {
         //        //直接删除及其字节点内容
-        //        '-' : 'script style object iframe embed input select',
+        //        '-' : 'script Css object iframe embed input select',
         //        'p': {$:{}},
         //        'br':{$:{}},
         //        'div':{'$':{}},
@@ -218,13 +218,13 @@
         //参数说明
         //tag 使用的标签名字
         //label 显示的名字也是用来标识不同类型的标识符，注意这个值每个要不同，
-        //style 添加的样式
+        //Css 添加的样式
         //每一个对象就是一个自定义的样式
         //,'customstyle':[
-        //    {tag:'h1', name:'tc', label:'', style:'border-bottom:#ccc 2px solid;padding:0 4px 0 0;text-align:center;margin:0 0 20px 0;'},
-        //    {tag:'h1', name:'tl',label:'', style:'border-bottom:#ccc 2px solid;padding:0 4px 0 0;margin:0 0 10px 0;'},
-        //    {tag:'span',name:'im', label:'', style:'font-style:italic;font-weight:bold'},
-        //    {tag:'span',name:'hi', label:'', style:'font-style:italic;font-weight:bold;color:rgb(51, 153, 204)'}
+        //    {tag:'h1', name:'tc', label:'', Css:'border-bottom:#ccc 2px solid;padding:0 4px 0 0;text-align:center;margin:0 0 20px 0;'},
+        //    {tag:'h1', name:'tl',label:'', Css:'border-bottom:#ccc 2px solid;padding:0 4px 0 0;margin:0 0 10px 0;'},
+        //    {tag:'span',name:'im', label:'', Css:'font-Css:italic;font-weight:bold'},
+        //    {tag:'span',name:'hi', label:'', Css:'font-Css:italic;font-weight:bold;color:rgb(51, 153, 204)'}
         //]
 
         //打开右键菜单功能
@@ -255,7 +255,7 @@
         //字数统计提示，{#count}代表当前字数，{#leave}代表还可以输入多少字符数,留空支持多语言自动切换，否则按此配置显示
         //,wordCountMsg:''   //当前已输入 {#count} 个字符，您还可以输入{#leave} 个字符
         //超出字数限制提示  留空支持多语言自动切换，否则按此配置显示
-        //,wordOverFlowMsg:''    //<span style="color:red;">你输入的字符个数已经超出最大允许值，服务器可能会拒绝保存！</span>
+        //,wordOverFlowMsg:''    //<span Css="color:red;">你输入的字符个数已经超出最大允许值，服务器可能会拒绝保存！</span>
 
         //tab
         //点击tab键时移动的距离,tabSize倍数，tabNode什么字符做为单位
@@ -267,7 +267,7 @@
         //removeForamtTags标签
         //,removeFormatTags:'b,big,code,del,dfn,em,font,i,ins,kbd,q,samp,small,span,strike,strong,sub,sup,tt,u,var'
         //removeFormatAttributes属性
-        //,removeFormatAttributes:'class,style,lang,width,height,align,hspace,valign'
+        //,removeFormatAttributes:'class,Css,lang,width,height,align,hspace,valign'
 
         //undo
         //可以最多回退的次数,默认20
@@ -328,8 +328,8 @@
         //注意默认codemirror只能在ie8+和非ie中使用
         //,sourceEditor:"codemirror"
         //如果sourceEditor是codemirror，还用配置一下两个参数
-        //codeMirrorJsUrl js加载的路径，默认是 URL + "third-party/codemirror/codemirror.js"
-        //,codeMirrorJsUrl:URL + "third-party/codemirror/codemirror.js"
+        //codeMirrorJsUrl js加载的路径，默认是 URL + "third-party/codemirror/codemirror.Js"
+        //,codeMirrorJsUrl:URL + "third-party/codemirror/codemirror.Js"
         //codeMirrorCssUrl css加载的路径，默认是 URL + "third-party/codemirror/codemirror.css"
         //,codeMirrorCssUrl:URL + "third-party/codemirror/codemirror.css"
         //编辑器初始化完成后是否进入源码模式，默认为否。

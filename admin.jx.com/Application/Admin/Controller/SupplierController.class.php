@@ -6,7 +6,7 @@ class SupplierController extends Controller {
 
     protected function _initialize() {
         $meta_titles = array(
-            'index'  => '供货商管理',
+            'Index'  => '供货商管理',
             'add'    => '添加供货商',
             'edit'   => '修改供货商',
             'remove' => '删除供货商',
@@ -35,7 +35,7 @@ class SupplierController extends Controller {
                 if($this->_model->add() === false) {
                     $this->error($this->_model->getError());
                 }else{
-                    $this->success('添加成功', U('index'));
+                    $this->success('添加成功', U('Index'));
                 }
             }else{
                 $this->error($this->_model->getError());
@@ -55,7 +55,7 @@ class SupplierController extends Controller {
                 if ($this->_model->save() === false) {
                     $this->error($this->_model->getError());
                 } else {
-                    $this->success('修改成功', U('index'));
+                    $this->success('修改成功', U('Index'));
                 }
             }else{
                 $this->error($this->_model->getError());

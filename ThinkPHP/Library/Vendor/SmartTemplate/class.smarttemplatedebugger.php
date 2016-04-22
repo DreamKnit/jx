@@ -288,9 +288,9 @@
 			// Print Header
 			echo '<html><head><script type="text/javascript">
 					function toggleVisibility(el, src) {
-					var v = el.style.display == "block";
+					var v = el.Css.display == "block";
 					var str = src.innerHTML;
-					el.style.display = v ? "none" : "block";
+					el.Css.display = v ? "none" : "block";
 					src.innerHTML = v ? str.replace(/Hide/, "Show") : str.replace(/Show/, "Hide");}
 					</script></head><body>';
 
@@ -305,7 +305,7 @@
 
 			// Print Template
 			echo '<a name="template_code"><br><font face="Arial" Size="3"><b>Template:</b>&nbsp;[<a href="javascript:void(\'\');" onclick="toggleVisibility(document.getElementById(\'Template\'), this); return false">Hide Ouptut</a>]</font><br>';
-			echo '<table border="0" cellpadding="4" cellspacing="1" width="100%" bgcolor="#C6D3EF"><tr><td bgcolor="#F0F0F0"><pre id="Template" style="display:block">';
+			echo '<table border="0" cellpadding="4" cellspacing="1" width="100%" bgcolor="#C6D3EF"><tr><td bgcolor="#F0F0F0"><pre id="Template" Css="display:block">';
 			echo $page;
 			echo '</pre></td></tr></table>';
 
@@ -315,7 +315,7 @@
 				$parser = new SmartTemplateParser($this->filename);
 				$compiled  =  $parser->compile();
 				echo '<a name="compiled_code"><br><br><font face="Arial" Size="3"><b>Compiled Template:</b>&nbsp;[<a href="javascript:void(\'\');" onclick="toggleVisibility(document.getElementById(\'Compiled\'), this); return false">Hide Ouptut</a>]</font><br>';
-				echo '<table border="0" cellpadding="4" cellspacing="1" width="100%" bgcolor="#C6D3EF"><tr><td bgcolor="#F0F0F0"><pre id="Compiled" style="display:block">';
+				echo '<table border="0" cellpadding="4" cellspacing="1" width="100%" bgcolor="#C6D3EF"><tr><td bgcolor="#F0F0F0"><pre id="Compiled" Css="display:block">';
 				highlight_string($compiled);
 				echo '</pre></td></tr></table>';
 			}
@@ -326,7 +326,7 @@
 
 			// Print Data
 			echo '<a name="data_code"><br><br><font face="Arial" Size="3"><b>Data:</b>&nbsp;[<a href="javascript:void(\'\');" onclick="toggleVisibility(document.getElementById(\'Data\'), this); return false">Hide Ouptut</a>]</font><br>';
-			echo '<table border="0" cellpadding="4" cellspacing="1" width="100%" bgcolor="#C6D3EF"><tr><td bgcolor="#F0F0F0"><pre id="Data" style="display:block">';
+			echo '<table border="0" cellpadding="4" cellspacing="1" width="100%" bgcolor="#C6D3EF"><tr><td bgcolor="#F0F0F0"><pre id="Data" Css="display:block">';
 			echo $this->vardump($vars);
 			echo '</pre></td></tr></table></body></html>';
 		}
@@ -347,7 +347,7 @@
 			{
 				$suffix  .=  ':';
 			}
-			$ret =  '[' . $suffix . '<a href="javascript:void(\'\');" onclick="toggleVisibility(document.getElementById(\'Block' . $spancnt . '\'), this); return false">Hide Block</a>]<span id="Block' . $spancnt . '" style="display:block">';
+			$ret =  '[' . $suffix . '<a href="javascript:void(\'\');" onclick="toggleVisibility(document.getElementById(\'Block' . $spancnt . '\'), this); return false">Hide Block</a>]<span id="Block' . $spancnt . '" Css="display:block">';
 			return $ret;
 		}
 

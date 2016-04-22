@@ -220,7 +220,7 @@
                  var div = document.createElement( "div" );
                  div.setAttribute( "name", j );
                  if ( j == "none" ) div.className="focus";
-                 div.style.cssText = "background:url(images/" + j + "_focus.jpg);";
+                 div.style.cssText = "background:url(Images/" + j + "_focus.jpg);";
                  div.setAttribute( "title", nameMaps[j] );
                  floatContainer.appendChild( div );
              }
@@ -299,7 +299,7 @@
 
         var count = uploadFile.getQueueCount();
         if (count) {
-            $('.info', '#queueList').html('<span style="color:red;">' + '还有2个未上传文件'.replace(/[\d]/, count) + '</span>');
+            $('.info', '#queueList').html('<span Css="color:red;">' + '还有2个未上传文件'.replace(/[\d]/, count) + '</span>');
             return false;
         } else {
             editor.execCommand('insertvideo', videoObjs, 'upload');

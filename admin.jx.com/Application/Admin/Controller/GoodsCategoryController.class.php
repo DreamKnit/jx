@@ -19,7 +19,7 @@ class GoodsCategoryController extends Controller{
      */
     protected function _initialize() {
         $meta_titles  = array(
-            'index'  => '商品分类管理',
+            'Index'  => '商品分类管理',
             'add'    => '添加商品分类',
             'edit'   => '修改商品分类',
             'delete' => '删除商品分类',
@@ -47,7 +47,7 @@ class GoodsCategoryController extends Controller{
                 if($this->_model->addCategory()===false){
                     $this->error($this->_model->getError());
                 }else{
-                    $this->success('添加成功',U('index'));
+                    $this->success('添加成功',U('Index'));
                 }
             }else{
                 $this->error($this->_model->getError());
@@ -68,7 +68,7 @@ class GoodsCategoryController extends Controller{
                 if($this->_model->updateCategory()===false){
                     $this->error($this->_model->getError());
                 }else{
-                    $this->success('修改成功',U('index'));
+                    $this->success('修改成功',U('Index'));
                 }
             }else{
                 $this->error($this->_model->getError());
@@ -87,7 +87,7 @@ class GoodsCategoryController extends Controller{
     public function remove(){
         $id=I('get.id');
         if($this->_model->removeCategory($id)){
-            $this->success('删除成功',U('index'));
+            $this->success('删除成功',U('Index'));
         }else{
             $this->error($this->_model->getError());
         }

@@ -3918,7 +3918,7 @@
                     html += 'classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" ';
                 }
     
-                html += 'width="100%" height="100%" style="outline:0">'  +
+                html += 'width="100%" height="100%" Css="outline:0">'  +
                     '<param name="movie" value="' + opts.swf + '" />' +
                     '<param name="flashvars" value="uid=' + this.uid +
                     '&jsreciver=' + this.jsreciver + '" />' +

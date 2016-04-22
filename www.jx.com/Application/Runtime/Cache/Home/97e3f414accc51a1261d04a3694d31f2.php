@@ -1,0 +1,268 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>用户注册</title>
+	<link rel="stylesheet" href="http://www.jx.com/Public/Css/base.css" type="text/css">
+	<link rel="stylesheet" href="http://www.jx.com/Public/Css/global.css" type="text/css">
+	<link rel="stylesheet" href="http://www.jx.com/Public/Css/header.css" type="text/css">
+	<link rel="stylesheet" href="http://www.jx.com/Public/Css/login.css" type="text/css">
+	<link rel="stylesheet" href="http://www.jx.com/Public/Css/footer.css" type="text/css">
+	<script type="text/javascript" src="http://www.jx.com/Public/Js/jquery-1.8.3.min.js"></script>
+</head>
+<body>
+	<!-- 顶部导航 start -->
+	<div class="topnav">
+		<div class="topnav_bd w990 bc">
+			<div class="topnav_left">
+				
+			</div>
+			<div class="topnav_right fr">
+				<ul>
+					<li>您好，欢迎来到京西！[<a href="../Index/login.html">登录</a>] [<a href="register.html">免费注册</a>] </li>
+					<li class="line">|</li>
+					<li>我的订单</li>
+					<li class="line">|</li>
+					<li>客户服务</li>
+
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- 顶部导航 end -->
+	
+	<div style="clear:both;"></div>
+
+	<!-- 页面头部 start -->
+	<div class="header w990 bc mt15">
+		<div class="logo w990">
+			<h2 class="fl"><a href="../Index/index.html"><img src="http://www.jx.com/Public/Images/logo.png" alt="京西商城"></a></h2>
+		</div>
+	</div>
+	<!-- 页面头部 end -->
+	
+	<!-- 登录主体部分start -->
+	<div class="login w990 bc mt10 regist">
+		<div class="login_hd">
+			<h2>用户注册</h2>
+			<b></b>
+		</div>
+		<div class="login_bd">
+			<div class="login_form fl">
+				<form action="" method="post" id="signupForm">
+					<ul>
+						<li>
+							<label for="">用户名：</label>
+							<input type="text" class="txt" name="username" /><span></span>
+							<p>3-20位字符，可由中文、字母、数字和下划线组成</p>
+						</li>
+						<li>
+							<label for="">密码：</label>
+							<input type="password" class="txt" id="password" name="password" /><span></span>
+							<p>6-20位字符，可使用字母、数字和符号的组合，不建议使用纯数字、纯字母、纯符号</p>
+						</li>
+						<li>
+							<label for="">确认密码：</label>
+							<input type="password" class="txt" name="confirm_password" /><span></span>
+							<p> <span>请再次输入密码</p>
+						</li>
+						<li>
+							<label for="">邮箱：</label>
+							<input type="email" class="txt" name="email" /><span></span>
+							<p>邮箱必须合法</p>
+						</li>
+						<li>
+							<label for="">手机号码：</label>
+							<input type="text" class="txt" value="" name="tel" id="tel" placeholder=""/><span></span>
+						</li>
+						<li>
+							<label for="">验证码：</label>
+							<input type="text" class="txt" value="" placeholder="请输入短信验证码" name="captcha"  id="captcha"/><span></span> <input type="button" onclick="bindPhoneNum(this)" id="get_captcha" value="获取验证码" style="height: 25px;padding:3px 8px"/>
+						</li>
+						<li class="checkcode">
+							<label for="">验证码：</label>
+							<input type="text"  name="checkcode" /><span></span>
+							<img id="captcha_img" src="<?php echo U('Captcha/captcha',['nocache'=>NOW_TIME]);?>" alt="" title="点击切换" />
+							<span>看不清？<a id="captcha_switch" href="javascript:void(0);">换一张</a></span>
+						</li>
+						
+						<li>
+							<label for="">&nbsp;</label>
+							<input type="checkbox" class="chb" checked="checked" name="contract" /> 我已阅读并同意《用户注册协议》<span></span>
+						</li>
+						<li>
+							<label for="">&nbsp;</label>
+							<input type="submit" value="" class="login_btn" />
+						</li>
+					</ul>
+				</form>
+
+				
+			</div>
+			
+			<div class="mobile fl">
+				<h3>手机快速注册</h3>			
+				<p>中国大陆手机用户，编辑短信 “<strong>XX</strong>”发送到：</p>
+				<p><strong>1069099988</strong></p>
+			</div>
+
+		</div>
+	</div>
+	<!-- 登录主体部分end -->
+
+	<div style="clear:both;"></div>
+	<!-- 底部版权 start -->
+	<div class="footer w1210 bc mt15">
+		<p class="links">
+			<a href="">关于我们</a> |
+			<a href="">联系我们</a> |
+			<a href="">人才招聘</a> |
+			<a href="">商家入驻</a> |
+			<a href="">千寻网</a> |
+			<a href="">奢侈品网</a> |
+			<a href="">广告服务</a> |
+			<a href="">移动终端</a> |
+			<a href="">友情链接</a> |
+			<a href="">销售联盟</a> |
+			<a href="">京西论坛</a>
+		</p>
+		<p class="copyright">
+			 © 2005-2013 京东网上商城 版权所有，并保留所有权利。  ICP备案证书号:京ICP证070359号 
+		</p>
+		<p class="auth">
+			<a href=""><img src="http://www.jx.com/Public/Images/xin.png" alt="" /></a>
+			<a href=""><img src="http://www.jx.com/Public/Images/kexin.jpg" alt="" /></a>
+			<a href=""><img src="http://www.jx.com/Public/Images/police.jpg" alt="" /></a>
+			<a href=""><img src="http://www.jx.com/Public/Images/beian.gif" alt="" /></a>
+		</p>
+	</div>
+	<!-- 底部版权 end -->
+	<script type="text/javascript" src="http://www.jx.com/Public/Js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="http://www.jx.com/Public/ext/validation/dist/jquery.validate.min.js"></script>
+	<script type="text/javascript">
+		/*-----绑定手机-----*/
+		function bindPhoneNum(){
+			//启用输入框
+			$('#captcha').prop('disabled',false);
+			/*---功能---*/
+			var url = '<?php echo U("sendSMS");?>';
+			var data = {
+				'telephone':$('#tel').val(),
+			};
+			$.getJSON(url,data,function(response){});
+			/*---功能---*/
+			// 60秒效果
+			var time=60;
+			var interval = setInterval(function(){
+				time--;
+				if(time<=0){
+					clearInterval(interval);
+					var html = '获取验证码';
+					$('#get_captcha').prop('disabled',false);
+				} else{
+					var html = time + ' 秒后再次获取';
+					$('#get_captcha').prop('disabled',true);
+				}
+
+				$('#get_captcha').val(html);
+			},1000);
+		}
+
+
+		$(document).ready(function(){
+			// 点击切换验证码
+			captcha_elem=document.getElementById('captcha_img');
+			captcha_switch=document.getElementById('captcha_switch');
+			captcha_elem.onclick=function(){
+				captcha_elem.src="<?php echo U('Captcha/captcha');?>" + '?nocache=' + new Date().getTime() ;
+			};
+			captcha_switch.onclick=function(){
+				captcha_elem.src="<?php echo U('Captcha/captcha');?>" + '?nocache=' + new Date().getTime() ;
+			};
+
+			// 表单验证
+			$('#signupForm').validate({
+				// 变更错误信息的位置
+				errorPlacement:function(error,element){
+					var msg = error[0].innerHTML;
+					element.next().css('color','red').text(' '+msg);
+				},success:function(error,element){
+					$(element).next().text(''); // 成功清空错误提示
+				},
+				rules:{
+					username:{
+						required:true,
+						rangelength:[3,20],
+						remote:'<?php echo U("Member/checkUniqueByParams");?>',
+					},
+					password:{
+						required:true,
+						rangelength:[6,20]
+					},
+					confirm_password:{
+						equalTo:'#password',
+					},
+					email:{
+						required:true,
+						email:true,
+						remote:'<?php echo U("Member/checkUniqueByParams");?>',
+					},
+					tel:{
+						required:true,
+						china_mobile:true,
+						number:true,
+						remote:'<?php echo U("Member/checkUniqueByParams");?>',
+					},
+					captcha:{
+						required:true,
+					},
+					checkcode:{
+						required:true,
+					},
+					contract:{
+						required:true,
+					}
+				},
+				messages:{
+					username:{
+						required:'请填写用户名！',
+						rangelength:'用户名3-20个字符！',
+						remote:'用户名已存在！'
+					},
+					password:{
+						required:'请填写密码！',
+						rangelength:'密码6-20个字符！',
+					},
+					confirm_password:{
+						equalTo:'两次密码不一致！',
+					},
+					email:{
+						required:'请填写邮箱！',
+						remote:'邮箱已存在！'
+					},
+					tel:{
+						required:'请填写电话号码！',
+						number:'电话不合法！',
+						remote:'手机已被注册！'
+					},
+					captcha:{
+						required:'请填写短信验证码！',
+					},
+					checkcode:{
+						required:'请填写验证码！',
+					},
+					contract:{
+						required:'请同意条款！',
+					}
+
+				}
+			});
+			// 自定义验证函数（手机验证）
+			$.validator.addMethod('china_mobile',function(value,element,params){
+				var mobile = /^(13[0-9]{9})|(18[0-9]{9})|(14[0-9]{9})|(17[0-9]{9})|(15[0-9]{9})$/;
+				return this.optional(element) || mobile.test(value);
+			},'手机号码不正确！');
+		});
+	</script>
+</body>
+</html>

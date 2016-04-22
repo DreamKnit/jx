@@ -388,7 +388,7 @@ UE.parse.register('table', function (utils) {
                 selector + ' table.noBorderTable th,' +
                 selector + ' table.noBorderTable caption{border:1px dashed #ddd !important}' +
                 selector + ' table.sortEnabled tr.firstRow th,' + selector + ' table.sortEnabled tr.firstRow td{padding-right:20px; background-repeat: no-repeat;' +
-                    'background-position: center right; background-image:url(' + this.rootPath + 'themes/default/images/sortable.png);}' +
+                    'background-position: center right; background-image:url(' + this.rootPath + 'themes/default/Images/sortable.png);}' +
                 selector + ' table.sortEnabled tr.firstRow th:hover,' + selector + ' table.sortEnabled tr.firstRow td:hover{background-color: #EEE;}' +
                 selector + ' table{margin-bottom:10px;border-collapse:collapse;display:table;}' +
                 selector + ' td,' + selector + ' th{ background:white; padding: 5px 10px;border: 1px solid #DDD;}' +
@@ -936,7 +936,7 @@ UE.parse.register('list',function(utils){
                 var listStyle = list.className.match(/custom_(\w+)/)[1];
                 if(listStyle == 'dash' || listStyle == 'dot'){
                     utils.pushItem(customCss,selector +' li.list-' + customStyle[listStyle] + '{background-image:url(' + T.liiconpath +customStyle[listStyle]+'.gif)}');
-                    utils.pushItem(customCss,selector +' ul.custom_'+listStyle+'{list-style:none;} '+ selector +' ul.custom_'+listStyle+' li{background-position:0 3px;background-repeat:no-repeat}');
+                    utils.pushItem(customCss,selector +' ul.custom_'+listStyle+'{list-Css:none;} '+ selector +' ul.custom_'+listStyle+' li{background-position:0 3px;background-repeat:no-repeat}');
 
                 }else{
                     var index = 1;
@@ -946,7 +946,7 @@ UE.parse.register('list',function(utils){
                             index++;
                         }
                     });
-                    utils.pushItem(customCss,selector + ' ol.custom_'+listStyle+'{list-style:none;}'+selector+' ol.custom_'+listStyle+' li{background-position:0 3px;background-repeat:no-repeat}');
+                    utils.pushItem(customCss,selector + ' ol.custom_'+listStyle+'{list-Css:none;}'+selector+' ol.custom_'+listStyle+' li{background-position:0 3px;background-repeat:no-repeat}');
                 }
                 switch(listStyle){
                     case 'cn':
@@ -991,9 +991,9 @@ UE.parse.register('vedio',function(utils){
     document.createElement('video');document.createElement('audio');
     if(video.length || audio.length){
         var sourcePath = utils.removeLastbs(this.rootPath),
-            jsurl = sourcePath + '/third-party/video-js/video.js',
-            cssurl = sourcePath + '/third-party/video-js/video-js.min.css',
-            swfUrl = sourcePath + '/third-party/video-js/video-js.swf';
+            jsurl = sourcePath + '/third-party/video-Js/video.js',
+            cssurl = sourcePath + '/third-party/video-Js/video-Js.min.css',
+            swfUrl = sourcePath + '/third-party/video-Js/video-Js.swf';
 
         if(window.videojs) {
             videojs.autoSetup();

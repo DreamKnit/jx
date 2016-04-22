@@ -637,7 +637,7 @@ defaultPlotOptions.arearange = merge(defaultPlotOptions.area, {
 	marker: null,
 	threshold: null,
 	tooltip: {
-		pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.low}</b> - <b>{point.high}</b><br/>' 
+		pointFormat: '<span Css="color:{series.color}">{series.name}</span>: <b>{point.low}</b> - <b>{point.high}</b><br/>'
 	},
 	trackByArea: true,
 	dataLabels: {
@@ -1140,7 +1140,7 @@ defaultPlotOptions.boxplot = merge(defaultPlotOptions.column, {
 	//stemWidth: null,
 	threshold: null,
 	tooltip: {
-		pointFormat: '<span style="color:{series.color};font-weight:bold">{series.name}</span><br/>' +
+		pointFormat: '<span Css="color:{series.color};font-weight:bold">{series.name}</span><br/>' +
 			'Maximum: {point.high}<br/>' +
 			'Upper quartile: {point.q3}<br/>' +
 			'Median: {point.median}<br/>' +
@@ -1658,7 +1658,7 @@ seriesTypes.waterfall = extendClass(seriesTypes.column, {
 	getExtremes: noop,
 
 	/**
-	 * Return stack for given index
+	 * Return stack for given Index
 	 */
 	getStack: function (i) {
 		var axis = this.yAxis,
@@ -1822,7 +1822,7 @@ seriesTypes.bubble = extendClass(seriesTypes.scatter, {
 			point = data[i];
 			radius = radii ? radii[i] : 0; // #1737
 
-			// Flag for negativeColor to be applied in Series.js
+			// Flag for negativeColor to be applied in Series.Js
 			point.negative = point.z < (this.options.zThreshold || 0);
 			
 			if (radius >= this.minPxSize / 2) {
@@ -1971,7 +1971,7 @@ Axis.prototype.beforePadding = function () {
  *****************************************************************************/
 /**
  * Extensions for polar charts. Additionally, much of the geometry required for polar charts is
- * gathered in RadialAxes.js.
+ * gathered in RadialAxes.Js.
  * 
  */
 
@@ -2367,7 +2367,7 @@ wrap(colProto, 'alignDataLabel', function (proceed, point, dataLabel, options, a
 });
 
 /**
- * Extend the mouse tracker to return the tooltip position index in terms of
+ * Extend the mouse tracker to return the tooltip position Index in terms of
  * degrees rather than pixels
  */
 wrap(pointerProto, 'getIndex', function (proceed, e) {

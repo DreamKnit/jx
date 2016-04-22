@@ -19,7 +19,7 @@ class MenuController extends Controller{
      */
     protected function _initialize() {
         $meta_titles  = array(
-            'index'  => '菜单管理',
+            'Index'  => '菜单管理',
             'add'    => '添加菜单',
             'edit'   => '修改菜单',
             'delete' => '删除菜单',
@@ -40,7 +40,7 @@ class MenuController extends Controller{
                 if($this->_model->addMenu()===false){
                     $this->error($this->_model->getError());
                 }else{
-                    $this->success($this->_model->_success,U('index'),3);
+                    $this->success($this->_model->_success,U('Index'),3);
                 }
             }else{
                 $this->error($this->_model->getError());
@@ -58,7 +58,7 @@ class MenuController extends Controller{
                 if($this->_model->updateMenu()===false){
                     $this->error($this->_model->getError());
                 }else{
-                    $this->success($this->_model->_success,U('index'),3);
+                    $this->success($this->_model->_success,U('Index'),3);
                 }
             }else{
                 $this->error($this->_model->getError());
@@ -75,7 +75,7 @@ class MenuController extends Controller{
         if($this->_model->removeMenu($id)===false){
             $this->error($this->_model->getError());
         }
-        $this->success('删除成功',U('index'));
+        $this->success('删除成功',U('Index'));
     }
 
     /**

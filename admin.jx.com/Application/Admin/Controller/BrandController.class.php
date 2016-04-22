@@ -21,7 +21,7 @@ class BrandController extends Controller{
      */
     public function _initialize(){
         $meta_titles=array(
-            'index'=>'品牌管理',
+            'Index'=>'品牌管理',
             'add'=>'品牌添加',
             'edit'=>'品牌修改',
             'remove'=>'品牌删除',
@@ -54,7 +54,7 @@ class BrandController extends Controller{
                 if($this->_model->add()===false){
                     $this->error($this->_model->getError());
                 }else{
-                    $this->success('添加成功！',U('index'));
+                    $this->success('添加成功！',U('Index'));
                 }
             }else{
                 $this->error($this->_model->getError());
@@ -74,7 +74,7 @@ class BrandController extends Controller{
                 if($this->_model->save()===false){
                     $this->error($this->_model->getError());
                 }else{
-                    $this->success('修改成功！',U('index'));
+                    $this->success('修改成功！',U('Index'));
                 }
             }else{
                 $this->error($this->_model->getError());

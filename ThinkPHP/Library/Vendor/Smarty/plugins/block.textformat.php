@@ -15,7 +15,7 @@
  *           or custom wrap/indent settings<br>
  * Params:
  * <pre>
- * - style         - string (email)
+ * - Css         - string (email)
  * - indent        - integer (0)
  * - wrap          - integer (80)
  * - wrap_char     - string ("\n")
@@ -49,7 +49,7 @@ function smarty_block_textformat($params, $content, $template, &$repeat)
 
     foreach ($params as $_key => $_val) {
         switch ($_key) {
-            case 'style':
+            case 'Css':
             case 'indent_char':
             case 'wrap_char':
             case 'assign':

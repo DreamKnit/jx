@@ -108,7 +108,7 @@ vjs.options = {
 // Set CDN Version of swf
 // The added (+) blocks the replace from changing this 4.3 string
 if (vjs.CDN_VERSION !== 'GENERATED'+'_CDN_VSN') {
-  videojs.options['flash']['swf'] = vjs.ACCESS_PROTOCOL + 'vjs.zencdn.net/'+vjs.CDN_VERSION+'/video-js.swf';
+  videojs.options['flash']['swf'] = vjs.ACCESS_PROTOCOL + 'vjs.zencdn.net/'+vjs.CDN_VERSION+'/video-Js.swf';
 }
 
 /**
@@ -553,7 +553,7 @@ vjs.trigger = function(elem, event) {
 
   // Inform the triggerer if the default was prevented by returning false
   return !event.isDefaultPrevented();
-  /* Original version of js ninja events wasn't complete.
+  /* Original version of Js ninja events wasn't complete.
    * We've since updated to the latest version, but keeping this around
    * for now just in case.
    */
@@ -1014,9 +1014,9 @@ vjs.getAttributeValues = function(tag){
 };
 
 /**
- * Get the computed style value for an element
+ * Get the computed Css value for an element
  * From http://robertnyman.com/2006/04/24/get-the-rendered-style-of-an-element/
- * @param  {Element} el        Element to get style value for
+ * @param  {Element} el        Element to get Css value for
  * @param  {String} strCssRule Style name
  * @return {String}            Style value
  * @private
@@ -1305,7 +1305,7 @@ vjs.findPosition = function(el) {
  *     var button = player.addChild('button');
  *     button.el(); // -> button element
  *
- *     <div class="video-js">
+ *     <div class="video-Js">
  *       <div class="vjs-button">Button</div>
  *     </div>
  *
@@ -2030,7 +2030,7 @@ vjs.Component.prototype.dimensions = function(width, height){
  * All for an integer, integer + 'px' or integer + '%';
  *
  * Known issue: Hidden elements officially have a width of 0. We're defaulting
- * to the style.width value and falling back to computedStyle which has the
+ * to the Css.width value and falling back to computedStyle which has the
  * hidden element issue. Info, but probably not an efficient fix:
  * http://www.foliotek.com/devblog/getting-the-width-of-a-hidden-element-with-jquery-using-width/
  *
@@ -2064,16 +2064,16 @@ vjs.Component.prototype.dimension = function(widthOrHeight, num, skipListeners){
   // Make sure element exists
   if (!this.el_) return 0;
 
-  // Get dimension value from style
+  // Get dimension value from Css
   var val = this.el_.style[widthOrHeight];
   var pxIndex = val.indexOf('px');
   if (pxIndex !== -1) {
     // Return the pixel value with no 'px'
     return parseInt(val.slice(0,pxIndex), 10);
 
-  // No px so using % or no style was set, so falling back to offsetWidth/height
+  // No px so using % or no Css was set, so falling back to offsetWidth/height
   // If component has display:none, offset will return 0
-  // TODO: handle display:none and no dimension style using px
+  // TODO: handle display:none and no dimension Css using px
   } else {
 
     return parseInt(this.el_['offset'+vjs.capitalize(widthOrHeight)], 10);
@@ -2675,13 +2675,13 @@ vjs.MenuButton.prototype.unpressButton = function(){
 };
 
 /**
- * An instance of the `vjs.Player` class is created when any of the Video.js setup methods are used to initialize a video.
+ * An instance of the `vjs.Player` class is created when any of the Video.Js setup methods are used to initialize a video.
  *
- * ```js
+ * ```Js
  * var myPlayer = videojs('example_video_1');
  * ```
  *
- * In the follwing example, the `data-setup` attribute tells the Video.js library to create a player instance when the library is ready.
+ * In the follwing example, the `data-setup` attribute tells the Video.Js library to create a player instance when the library is ready.
  *
  * ```html
  * <video id="example_video_1" data-setup='{}' controls>
@@ -2891,7 +2891,7 @@ vjs.Player.prototype.createEl = function(){
 
   // Update tag id/class for use as HTML5 playback tech
   // Might think we should do this after embedding in container so .vjs-tech class
-  // doesn't flash 100% width/height, but class only applies with .video-js parent
+  // doesn't flash 100% width/height, but class only applies with .video-Js parent
   tag.id += '_html5_api';
   tag.className = 'vjs-tech';
 
@@ -3247,11 +3247,11 @@ vjs.Player.prototype.techGet = function(method){
     } catch(e) {
       // When building additional tech libs, an expected method may not be defined yet
       if (this.tech[method] === undefined) {
-        vjs.log('Video.js: ' + method + ' method not defined for '+this.techName+' playback technology.', e);
+        vjs.log('Video.Js: ' + method + ' method not defined for '+this.techName+' playback technology.', e);
       } else {
         // When a method isn't available on the object it throws a TypeError
         if (e.name == 'TypeError') {
-          vjs.log('Video.js: ' + method + ' unavailable on '+this.techName+' playback technology element.', e);
+          vjs.log('Video.Js: ' + method + ' unavailable on '+this.techName+' playback technology element.', e);
           this.tech.isReady_ = false;
         } else {
           vjs.log(e);
@@ -3484,7 +3484,7 @@ vjs.Player.prototype.supportsFullScreen = function(){ return this.techGet('suppo
  * In some browsers, full screen is not supported natively, so it enters
  * "full window mode", where the video fills the browser window.
  * In browsers and devices that support native full screen, sometimes the
- * browser's default controls will be shown, and not the Video.js custom skin.
+ * browser's default controls will be shown, and not the Video.Js custom skin.
  * This includes most mobile devices (iOS, Android) and older versions of
  * Safari.
  *
@@ -3517,7 +3517,7 @@ vjs.Player.prototype.requestFullScreen = function(){
     this.el_[requestFullScreen.requestFn]();
 
   } else if (this.tech.supportsFullScreen()) {
-    // we can't take the video.js controls fullscreen but we can go fullscreen
+    // we can't take the video.Js controls fullscreen but we can go fullscreen
     // with native controls
     this.techCall('enterFullScreen');
   } else {
@@ -3640,7 +3640,7 @@ vjs.Player.prototype.selectSource = function(sources){
  *
  * **Array of Source Objects:** To provide multiple versions of the source so
  * that it can be played using HTML5 across browsers you can use an array of
- * source objects. Video.js will detect which version is supported and load that
+ * source objects. Video.Js will detect which version is supported and load that
  * file.
  *
  *     myPlayer.src([
@@ -5038,7 +5038,7 @@ vjs.MediaTechController.prototype.features = {
   'fullscreenResize': false,
 
   // Optional events that we can manually mimic with timers
-  // currently not triggered by video-js-swf
+  // currently not triggered by video-Js-swf
   'progressEvents': false,
   'timeupdateEvents': false
 };
@@ -5227,7 +5227,7 @@ vjs.Html5.prototype.setCurrentTime = function(seconds){
   try {
     this.el_.currentTime = seconds;
   } catch(e) {
-    vjs.log(e, 'Video is not ready. (Video.js)');
+    vjs.log(e, 'Video is not ready. (Video.Js)');
     // this.warning(VideoJS.warnings.videoNotReady);
   }
 };
@@ -6065,7 +6065,7 @@ vjs.TextTrack = vjs.Component.extend({
     // Build ID if one doesn't exist
     this.id_ = options['id'] || ('vjs_' + options['kind'] + '_' + options['language'] + '_' + vjs.guid++);
     this.src_ = options['src'];
-    // 'default' is a reserved keyword in js so we use an abbreviated version
+    // 'default' is a reserved keyword in Js so we use an abbreviated version
     this.dflt_ = options['default'] || options['dflt'];
     this.title_ = options['title'];
     this.language_ = options['srclang'];
@@ -6497,10 +6497,10 @@ vjs.TextTrack.prototype.update = function(){
       // Check if time is going forwards or backwards (scrubbing/rewinding)
       // If we know the direction we can optimize the starting position and direction of the loop through the cues array.
       if (time >= this.nextChange || this.nextChange === undefined) { // NextChange should happen
-        // Forwards, so start at the index of the first active cue and loop forward
+        // Forwards, so start at the Index of the first active cue and loop forward
         i = (this.firstActiveIndex !== undefined) ? this.firstActiveIndex : 0;
       } else {
-        // Backwards, so start at the index of the last active cue and loop backward
+        // Backwards, so start at the Index of the last active cue and loop backward
         reverse = true;
         i = (this.lastActiveIndex !== undefined) ? this.lastActiveIndex : cues.length - 1;
       }
@@ -7063,7 +7063,7 @@ vjs.autoSetup = function(){
             // If empty string, make it a parsable json object.
             options = vjs.JSON.parse(options || '{}');
 
-            // Create new video.js instance.
+            // Create new video.Js instance.
             player = videojs(vid, options);
           }
         }
@@ -7098,7 +7098,7 @@ if (document.readyState === 'complete') {
 // You have to wait at least once in case this script is loaded after your video in the DOM (weird behavior only with minified version)
 vjs.autoSetupTimeout(1);
 /**
- * the method for registering a video.js plugin
+ * the method for registering a video.Js plugin
  *
  * @param  {String} name The name of the plugin
  * @param  {Function} init The function that is run when the player inits
