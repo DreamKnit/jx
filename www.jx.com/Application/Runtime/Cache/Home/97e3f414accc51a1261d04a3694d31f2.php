@@ -259,7 +259,7 @@
 			});
 			// 自定义验证函数（手机验证）
 			$.validator.addMethod('china_mobile',function(value,element,params){
-				var mobile = /^(13[0-9]{9})|(18[0-9]{9})|(14[0-9]{9})|(17[0-9]{9})|(15[0-9]{9})$/;
+				var mobile = /^(13|14|15|17|18)\d{9}$/;
 				return this.optional(element) || mobile.test(value);
 			},'手机号码不正确！');
 		});

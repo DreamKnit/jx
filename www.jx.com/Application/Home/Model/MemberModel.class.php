@@ -29,6 +29,9 @@ class MemberModel extends Model{
         // 在执行插入的时候会执行内置函数增加一个salt字段
         array('salt', '\Org\Util\String::randString', self::MODEL_INSERT, 'function', 4),
         array('add_time', NOW_TIME, self::MODEL_INSERT), // 注册时间
+        /*---邮箱验证相关---*/
+        ['token','Org\Util\String::randString',self::MODEL_INSERT,'function',40], // 激活所需token码（40位）
+        ['send_time',NOW_TIME,self::MODEL_INSERT], //邮件发送时间（便于计算邮件有效期）
     );
 
     /**
@@ -51,6 +54,7 @@ class MemberModel extends Model{
      * @return bool
      */
     public function addMember() {
+        $data = $this->data;
         // 密码加盐
         $this->data['password'] = salt_password($this->data['password'], $this->data['salt']);
 
@@ -58,6 +62,62 @@ class MemberModel extends Model{
         if(($admin_id = $this->add()) === false){
             return false;
         }
+        if($this->_sendActiveEmail($data['email'],$data['token']) === false){
+            $this->error = '激活邮件发送失败';
+            return false;
+        }
         return true;
+    }
+
+    /**
+     * 执行验证邮箱的发送
+     * @param string $email 邮箱地址
+     * @param string $token token码
+     * @return mixed
+     */
+    private function _sendActiveEmail($email,$token){
+        $url = U('active', ['email' => $email, 'token' =>$token ], true, true);
+        $content = <<<EMAIL
+<h1 style="color: yellowgreen;">注册成功,点击账号激活</h1>
+<p style="border:1px dotted blue">请点击<a href='$url'>链接</a>进行激活,如果无法访问,请手动访问:$url</p>
+<p>你有京东，我有京西！</p>
+<p style="text-align:right; font-weight: bold;">京西商城</p>
+EMAIL;
+
+        return sendEmail($email, '注册成功,请激活账号！', $content) ;
+    }
+
+    public function login(){
+        //为了安全我们将用户信息都删除
+        session('MEMBER_INFO',null);
+        $request_data = $this->data;
+        //1.验证用户名是否存在
+        $userinfo = $this->getByUsername($this->data['username']);
+        if(empty($userinfo)){
+            $this->error = '用户不存在';
+            return false;
+        }
+        //2.进行密码匹配验证
+        $password = salt_password($request_data['password'], $userinfo['salt']);
+        if($password != $userinfo['password']){
+            $this->error = '密码不正确';
+            return false;
+        }
+        //为了后续会话获取用户信息,我们存下来
+        session('MEMBER_INFO',$userinfo);
+
+        //保存自动登陆信息
+        $this->_saveToken($userinfo['id']);
+        if($this->_cookie2db() === false){
+            $this->error = '购物车同步失败';
+            return false;
+        }
+        return true;
+    }
+
+    private function _cookie2db(){
+        //将用户的cookie购物车保存到数据库中
+        $shopping_car_model = D('ShoppingCar');
+        return $shopping_car_model->cookie2db();
     }
 }

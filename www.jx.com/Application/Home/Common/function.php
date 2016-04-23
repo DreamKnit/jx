@@ -16,3 +16,4 @@
 function salt_password($password,$salt){
     return md5(md5($password).$salt);
 }
+

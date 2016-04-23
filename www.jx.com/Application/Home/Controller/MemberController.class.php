@@ -72,4 +72,54 @@ class MemberController extends Controller{
             $this->error('发送失败');
         }
     }
+
+    /**
+     * 邮箱验证功能（验证邮箱发送过去的链接地址会调用此方法）
+     * @param $email
+     * @param $token
+     */
+    public function active($email,$token){
+        // 匹配条件
+        $cond = [
+            'email'=>$email,
+            'token'=>$token,
+            'send_time'=>['egt',NOW_TIME - 86400], // 邮箱有效期为24小时
+        ];
+        // 查询出没有此匹配的信息
+        if(!$this->_model->where($cond)->count()){
+            $this->error('验证失败',U('register'));
+        }
+        // 将该数据修改为验证过邮箱的信息（状态改为1，删除token值，邮件发送时间清空）
+        if($this->_model->where($cond)->setField(['status'=>1,'token'=>'','send_time'=>0])===false){
+            $this->error('激活失败',U('login'));
+        }
+        $this->success('激活成功,请登录',U('login'));
+    }
+
+
+
+
+
+    public function login(){
+        if(IS_POST){
+            //收集数据
+            if($this->_model->create('','login') === false){
+                $this->error($this->_model->getError());
+            }
+            //执行修改
+            if(($password = $this->_model->login()) === false){
+                $this->error($this->_model->getError());
+            }
+            //跳转
+            $this->success('登陆成功',U('Index/index'));
+        }else{
+            $this->display();
+        }
+    }
+
+    public function logout(){
+        session(null);
+        cookie(null);
+        $this->success('退出成功',U('login'));
+    }
 }
